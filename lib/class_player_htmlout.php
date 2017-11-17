@@ -50,18 +50,18 @@ public static function standings()
     HTMLOUT::standings(STATS_PLAYER,false,false,array('url' => urlcompile(T_URL_STANDINGS,T_OBJ_PLAYER,false,false,false)));
 }
 
-public static function profile($pid) 
+public static function profile($pid)
 {
     if ($pid < 0)
         fatal('Sorry, star players to do have regular player profiles.');
-    
+
     global $lng, $coach, $settings;
     $p = new self($pid);
     $team = new Team($p->owned_by_team_id);
 
     /* Argument(s) passed to generating functions. */
     $ALLOW_EDIT = (is_object($coach) && ($team->owned_by_coach_id == $coach->coach_id || $coach->isNodeCommish(T_NODE_LEAGUE, $team->f_lid)) && !$team->is_retired);
-    
+
     /* Player pages consist of the output of these generating functions. */
     $p->_handleActions($ALLOW_EDIT); # Handles any actions/request sent.
     $p->_head($team);
@@ -77,17 +77,17 @@ public static function profile($pid)
 
 public static function setChoosableSkillsTranslations($player) {
     global $skillididx, $CHR_CONV;
-    
+
     $player->choosable_skills_strings = array();
-    
+
     foreach($player->choosable_skills["norm"] as $skillId) {
         $player->choosable_skills_strings["norm"][$skillId] = $skillididx[$skillId];
     }
-    
+
     foreach($player->choosable_skills["doub"] as $skillId) {
         $player->choosable_skills_strings["doub"][$skillId] = $skillididx[$skillId];
     }
-    
+
     foreach($player->choosable_skills["chr"] as $skillId) {
         $player->choosable_skills_strings["chr"][$skillId] = ucfirst($CHR_CONV[$skillId]);
     }
@@ -100,18 +100,18 @@ private function _handleActions($ALLOW_EDIT)
     if (!$ALLOW_EDIT || !isset($_POST['type'])) {
         return false;
     }
-    
+
     switch ($_POST['type'])
     {
-        case 'pic': 
+        case 'pic':
             status(($_POST['add_del'] == 'add') ? $p->savePic(false) : $p->deletePic());
             break;
-            
-        case 'playertext': 
+
+        case 'playertext':
             if (get_magic_quotes_gpc()) {
                 $_POST['playertext'] = stripslashes($_POST['playertext']);
             }
-            status($p->saveText($_POST['playertext']));                
+            status($p->saveText($_POST['playertext']));
             break;
     }
 }
@@ -124,7 +124,8 @@ private function _head($team)
     title($p->name);
     $players = $team->getPlayers();
     $i = $next = $prev = 0;
-    $end = end(array_keys($players));
+    $keys = array_keys($players);
+    $end = end($keys);
     foreach ($players as $player) {
         if ($player->player_id == $p->player_id) {
             if ($i == 0) {
@@ -151,7 +152,7 @@ private function _about($ALLOW_EDIT)
 {
     global $lng;
     $p = $this; // Copy. Used instead of $this for readability.
-    
+
     $p->skills = $p->getSkillsStr(true);
     $p->injs = $p->getInjsStr(true);
 
@@ -180,7 +181,7 @@ private function _about($ALLOW_EDIT)
                     <tr>
                         <td><b><?php echo $lng->getTrn('common/status');?></b></td>
                         <td>
-                        <?php 
+                        <?php
                             if ($p->is_dead) {
                                 echo "<b><font color='red'>".$lng->getTrn('common/dead')."</font></b> ($p->date_died)";
                             }
@@ -190,7 +191,7 @@ private function _about($ALLOW_EDIT)
                             else {
                                 global $T_INJS;
                                 $status = ucfirst(strtolower($T_INJS[$p->status]));
-                                echo ($status == 'none') ? '<b><font color="green">'.$lng->getTrn('common/ready').'</font></b>' : "<b><font color='blue'>$status</font></b>"; 
+                                echo ($status == 'none') ? '<b><font color="green">'.$lng->getTrn('common/ready').'</font></b>' : "<b><font color='blue'>$status</font></b>";
                             }
                         ?>
                         </td>
@@ -236,12 +237,12 @@ private function _about($ALLOW_EDIT)
                             <td><b>Vis. stats</b></td>
                             <td><?php echo "<a href='handler.php?type=graph&amp;gtype=".SG_T_PLAYER."&amp;id=$p->player_id''>".$lng->getTrn('common/view')."</a>\n";?></td>
                         </tr>
-                        <?php                    
+                        <?php
                     }
                     ?>
                     <tr>
                         <td colspan="2"><hr></td>
-                    </tr> 
+                    </tr>
                     <tr>
                         <td><b>Ma</b></td>
                         <td><?php echo $p->ma; ?></td>
@@ -303,7 +304,7 @@ private function _about($ALLOW_EDIT)
                 <br><br>
                 <i><?php echo $lng->getTrn('common/about');?></i><hr>
                 <?php
-                $txt = $p->getText(); 
+                $txt = $p->getText();
                 if (empty($txt)) {
                     $txt = $lng->getTrn('common/nobody');
                 }
@@ -331,7 +332,7 @@ private function _achievements()
 {
     global $lng;
     $p = $this; // Copy. Used instead of $this for readability.
-    
+
     ?>
     <div class="row">
         <div class="boxWide">
@@ -362,7 +363,7 @@ private function _achievements()
                                 <?php
                                 $m = $entry['match_obj'];
                                 if ($been_there) {
-                                    echo '<td></td>'; 
+                                    echo '<td></td>';
                                 }
                                 else {
                                     echo "<td><i>$desc: " . (($desc == 'Cas') ? $p->{"mv_cas"} : $p->{"mv_$s"}) . "</i></td>";
@@ -395,8 +396,8 @@ private function _matchBest()
 {
     global $lng;
     $p = $this; // Copy. Used instead of $this for readability.
-  
-    ?>   
+
+    ?>
     <div class="row">
         <div class="boxWide">
             <div class="boxTitle<?php echo T_HTMLBOX_STATS;?>"><a href='javascript:void(0);' onClick="slideToggleFast('mbest');"><b>[+/-]</b></a> &nbsp;<?php echo $lng->getTrn('profile/player/best');?></div>
@@ -424,7 +425,7 @@ private function _matchBest()
                                 <?php
                                 $m = $entry['match_obj'];
                                 if ($been_there) {
-                                    echo '<td></td>'; 
+                                    echo '<td></td>';
                                 }
                                 else {
                                     echo "<td><i>Top $desc: " . count($matches) . " times</i></td>";
@@ -447,7 +448,7 @@ private function _matchBest()
             </div>
         </div>
     </div>
-    <?php  
+    <?php
 }
 
 private function _recentGames()
@@ -474,7 +475,7 @@ private function _injuryHistory()
     global $lng, $T_INJS;
     $p = $this; // Copy. Used instead of $this for readability.
     list($injhist, $stats, $match_objs) = $p->getInjHistory();
-    
+
     ?>
     <div class="row">
         <div class="boxWide">
@@ -523,10 +524,10 @@ private function _injuryHistory()
             </div>
         </div>
     </div>
-    <?php  
+    <?php
 }
 
-private function _ES() 
+private function _ES()
 {
     global $lng;
     ?>
@@ -544,4 +545,3 @@ private function _ES()
 }
 
 }
-
