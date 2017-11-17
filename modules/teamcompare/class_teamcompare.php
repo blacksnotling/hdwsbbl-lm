@@ -107,8 +107,8 @@ protected static function _compare($tid1, $tid2)
     <center>
     <table style='width:70%; '>
         <tr><td style='width:120px;'> </td>
-            <td><a href="<?php echo urlcompile(T_URL_PROFILE,T_OBJ_TEAM,$tid1,false,false);?>"><b><?php echo $t1->name;?></b></a></td>
-            <td><a href="<?php echo urlcompile(T_URL_PROFILE,T_OBJ_TEAM,$tid2,false,false);?>"><b><?php echo $t2->name;?></b></a></td>
+            <td><a href="<?php echo urlcompile(T_URL_PROFILE,T_OBJ_TEAM,$tid1,false,false);?>"><strong><?php echo $t1->name;?></strong></a></td>
+            <td><a href="<?php echo urlcompile(T_URL_PROFILE,T_OBJ_TEAM,$tid2,false,false);?>"><strong><?php echo $t2->name;?></strong></a></td>
         </tr>
         <tr><td>Team value</td>
             <td><?php self::_bar(($t1->value/1000)/self::$T_MAX_TV *100, $t1->value/1000 .'k &mdash; '.self::_getLevel($t1->value/1000), ($t1->value/1000)/self::$T_MAX_TV *100);?></td>

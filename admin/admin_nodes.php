@@ -80,7 +80,7 @@ if (isset($_POST['type'])) {
 title($lng->getTrn('menu/admin_menu/nodes'));
 
 ?>
-<b>Please note:</b> When deleting any node (i.e. tournaments, divisions or leagues) a "syncAll()" re-synchronisation should be run afterwards from the <a href='index.php?section=admin&amp;subsec=cpanel'>OBBLM core panel</a>.
+<strong>Please note:</strong> When deleting any node (i.e. tournaments, divisions or leagues) a "syncAll()" re-synchronisation should be run afterwards from the <a href='index.php?section=admin&amp;subsec=cpanel'>OBBLM core panel</a>.
 <table>
     <?php
     if (in_array(T_NODE_TOURNAMENT, $_SHOW)) {
@@ -195,7 +195,7 @@ title($lng->getTrn('menu/admin_menu/nodes'));
                 I wish to delete the tournament<br><?php echo HTMLOUT::nodeList(T_NODE_TOURNAMENT,'trid',array('OTHER' => array('ring' => Coach::T_RING_LOCAL_ADMIN)),array(),array('empty_str' => array(T_NODE_DIVISION => '')));?>
 
                 <br><br>
-                <b>Warning!</b><br>
+                <strong>Warning!</strong><br>
                 <br>
                 This feature is only meant to be used for non-played or empty tournaments and test-tournaments.<br>
                 If you decide to delete a proper tournament you should know that this will

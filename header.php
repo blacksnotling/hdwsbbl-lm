@@ -25,10 +25,10 @@ if (version_compare(PHP_VERSION, '5.2.0') == -1)
     die('OBBLM requires PHP version 5.2.0, you are running version '.PHP_VERSION);
 
 if (strtolower($iniRG = ini_get('register_globals')) == 'on' || $iniRG == 1)
-    die('OBBLM requires the PHP configuration directive <i>register_globals</i> set <b>off</b> in the <i>php.ini</i> configuration file. Please contact your web host.');
+    die('OBBLM requires the PHP configuration directive <em>register_globals</i> set <strong>off</strong> in the <em>php.ini</i> configuration file. Please contact your web host.');
 
 if (!defined('T_NO_STARTUP') && file_exists('install.php'))
-    die('Please remove <i>install.php</i> before using OBBLM.');
+    die('Please remove <em>install.php</i> before using OBBLM.');
 
 //error_reporting(E_ALL);
 error_reporting((E_ALL | E_STRICT) & ~E_DEPRECATED);
@@ -145,7 +145,7 @@ require_once('lib/class_mobile_htmlout.php');
  ********************/
 
 if (!is_writable(IMG)) {
-    die('OBBLM needs to be able to write to the <i>images</i> directory in order to work properly. Please check the directory permissions.');
+    die('OBBLM needs to be able to write to the <em>images</i> directory in order to work properly. Please check the directory permissions.');
 }
 sortgamedata(); # Game data files are unsorted, make them pretty for display purposes.
 

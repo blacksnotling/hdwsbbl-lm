@@ -45,7 +45,7 @@ function sec_login() {
             $c = new Coach((int) $_GET['cid']);
             status($new_passwd = $c->confirmActivation($_GET['activation_code']));
             echo "<br><br>";
-            echo $lng->getTrn('login/temppasswd')." <b>$new_passwd</b><br>\n";
+            echo $lng->getTrn('login/temppasswd')." <strong>$new_passwd</strong><br>\n";
             echo '<a href="'.urlcompile(T_URL_PROFILE,T_OBJ_COACH,$_GET['cid'],false,false).'&amp;subsec=profile">'.$lng->getTrn('login/setnewpasswd').'.</a>';
         }
         else if (isset($_POST['coach_AC']) && isset($_POST['email'])) {
@@ -112,10 +112,10 @@ function sec_login() {
             <?php
             if(!Mobile::isMobile()) {
                 if (Module::isRegistered('Registration') && $settings['allow_registration']) {
-                    echo "<a href='handler.php?type=registration'><b>Register</b></a>";
+                    echo "<a href='handler.php?type=registration'><strong>Register</strong></a>";
                 }  
                 echo "<br><br>";
-                echo "<a href='$_URL_forgotpass'><b>".$lng->getTrn('login/forgotpass').'</b></a>';
+                echo "<a href='$_URL_forgotpass'><strong>".$lng->getTrn('login/forgotpass').'</strong></a>';
             }
             ?>
             </div>
@@ -361,7 +361,7 @@ function sec_main() {
                         <?php
                         echo "<tr>\n";
                         foreach ($box['fields'] as $title => $f) {
-                            echo "<td><i>$title</i></td>\n";
+                            echo "<td><em>$title</i></td>\n";
                         }
                         echo "</tr>\n";
                         foreach ($teams as $t) {
@@ -409,11 +409,11 @@ function sec_main() {
               <div class='boxBody'>
                   <table class="boxTable">
                       <tr>
-                          <td style="text-align: right;" width="50%"><i><?php echo $lng->getTrn('common/home');?></i></td>
+                          <td style="text-align: right;" width="50%"><em><?php echo $lng->getTrn('common/home');?></i></td>
                           <td> </td>
-                          <td style="text-align: left;" width="50%"><i><?php echo $lng->getTrn('common/away');?></i></td>
+                          <td style="text-align: left;" width="50%"><em><?php echo $lng->getTrn('common/away');?></i></td>
                           <?php if (!$upcoming) { ?>
-                              <td><i><?php echo $lng->getTrn('common/date');?></i></td>
+                              <td><em><?php echo $lng->getTrn('common/date');?></i></td>
                           <?php } ?>
                           <td> </td>
                       </tr>
@@ -454,14 +454,14 @@ function sec_main() {
                 <div class='boxBody'>
                     <table class="boxTable">
                         <tr>
-                            <td><i><?php echo $lng->getTrn('common/name');?></i></td>
+                            <td><em><?php echo $lng->getTrn('common/name');?></i></td>
                             <?php 
                             if ($box['show_team']) {
-                                ?><td><i><?php echo $lng->getTrn('common/team');?></i></td><?php
+                                ?><td><em><?php echo $lng->getTrn('common/team');?></i></td><?php
                             }
                             ?>
-                            <td><i>#</i></td>
-                            <td><i><?php echo $lng->getTrn('common/value');?></i></td>
+                            <td><em>#</i></td>
+                            <td><em><?php echo $lng->getTrn('common/value');?></i></td>
                         </tr>
                         <?php
                         foreach ($players as $p) {
@@ -493,7 +493,7 @@ function sec_main() {
                         $head = array_pop($events);
                         echo "<tr>\n";
                         foreach ($head as $col => $name) {
-                            echo "<td><i>$name</i></td>\n";
+                            echo "<td><em>$name</i></td>\n";
                         }
                         echo "</tr>\n";
                         foreach ($events as $e) {
@@ -820,7 +820,7 @@ function sec_about() {
     ?>
     <br>
     <p>
-        <b>OBBLM version <?php echo OBBLM_VERSION; ?></b><br><br>
+        <strong>OBBLM version <?php echo OBBLM_VERSION; ?></strong><br><br>
         Online Blood Bowl League Manager is an online game management system for Game Workshop's board game Blood Bowl.<br>
         <br>
         The authors of this program are
@@ -844,12 +844,12 @@ function sec_about() {
         <br><br>
         <img src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Transitional" height="31" width="88">
         <br><br>
-        <b>Modules loaded:</b><br>
+        <strong>Modules loaded:</strong><br>
         <?php
         $mods = array();
         foreach (Module::getRegistered() as $modname) {
             list($author,$date,$moduleName) = Module::getInfo($modname);
-            $mods[] = "<i>$moduleName</i> ($author, $date)";
+            $mods[] = "<em>$moduleName</i> ($author, $date)";
         }
         echo implode(', ', $mods);
         ?>
@@ -868,7 +868,7 @@ function sec_about() {
     <p>
         By installing and using this software you hereby accept and understand the following disclaimer
         <br><br>
-        <b>This web site is completely unofficial and in no way endorsed by Games Workshop Limited.</b>
+        <strong>This web site is completely unofficial and in no way endorsed by Games Workshop Limited.</strong>
         <br><br>
         Bloodquest, Blood Bowl, the Blood Bowl logo, The Blood Bowl Spike Device, Chaos, the Chaos device, the Chaos logo, Games Workshop, Games Workshop logo, Nurgle, the Nurgle device, Skaven, Tomb Kings, 
         and all associated marks, names, races, race insignia, characters, vehicles, locations, units, illustrations and images from the Blood Bowl game, the Warhammer world are either ®, TM and/or © Games Workshop Ltd 2000-2006, 
@@ -905,7 +905,7 @@ function sec_requestleague() {
     title("Request League");
     
     if (!isset($_SESSION['logged_in'])) {
-        echo 'You must <a href="handler.php?type=registration"><b>register</b></a> as a League Commissioner before you can request a league.';
+        echo 'You must <a href="handler.php?type=registration"><strong>register</strong></a> as a League Commissioner before you can request a league.';
         return;
     }
     

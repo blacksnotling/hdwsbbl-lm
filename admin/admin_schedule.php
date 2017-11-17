@@ -207,13 +207,13 @@ title($lng->getTrn('menu/admin_menu/schedule'));
 if (count($leagues) < 0 || count($divisions) < 0) {
     fatal($lng->getTrn('admin/schedule/create_LD'));
 }
-echo "<b><a TARGET='_blank' href='".DOC_URL_GUIDE."'>".$lng->getTrn('common/needhelp')."</a></b><br>";
+echo "<strong><a TARGET='_blank' href='".DOC_URL_GUIDE."'>".$lng->getTrn('common/needhelp')."</a></strong><br>";
 $commonStyle = "float:left; width:45%; height:300px; margin:10px;";
 ?><br>
 <form method="POST" name="tourForm">
 
     <div style='margin:7px;'>
-    <b><?php echo $lng->getTrn('admin/schedule/sched_type');?></b><br>
+    <strong><?php echo $lng->getTrn('admin/schedule/sched_type');?></strong><br>
     <input type="radio" onClick="chTour(this.value);" name="type" value="FFA_SINGLE" CHECKED> <?php echo $lng->getTrn('admin/schedule/TT_FFA_SINGLE');?><br>
     <input type="radio" onClick="chTour(this.value);" name="type" value="FFA_TOUR""> <?php echo $lng->getTrn('admin/schedule/TT_FFA');?><br>
     <input type="radio" onClick="chTour(this.value);" name="type" value="RR_TOUR"> <?php echo $lng->getTrn('admin/schedule/TT_RR');?><br>

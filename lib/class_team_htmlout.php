@@ -86,7 +86,7 @@ public static function dispList()
         $img = new ImageSubSys(IMGTYPE_TEAMLOGO, $t->team_id);
         $t->logo = "<img border='0px' height='20' width='20' alt='Team race picture' src='".$img->getPath($t->f_race_id)."'>";
         $retired = $t->retired;
-        $t->retired = ($t->retired) ? '<b>'.$lng->getTrn('common/yes').'</b>' : $lng->getTrn('common/no');
+        $t->retired = ($t->retired) ? '<strong>'.$lng->getTrn('common/yes').'</strong>' : $lng->getTrn('common/no');
         $t->rdy = ($t->rdy && !$retired) ? '<font color="green">'.$lng->getTrn('common/yes').'</font>' : '<font color="red">'.$lng->getTrn('common/no').'</font>';
         $t->f_rname = $lng->getTrn('race/'.strtolower(str_replace(' ','', $t->f_rname)));
 
@@ -350,7 +350,7 @@ private function _roster($ALLOW_EDIT, $DETAILED, $players)
         */
         $p->name = preg_replace('/\s/', '&nbsp;', $p->name);
         $p->position = preg_replace('/\s/', '&nbsp;', $p->position);
-        $p->info = '<i class="icon-info"></i>';
+        $p->info = '<em class="icon-info"></i>';
         $p->team_id = $team->team_id;
 
         /*
@@ -391,7 +391,7 @@ private function _roster($ALLOW_EDIT, $DETAILED, $players)
 
             if ($p->$chr != $p->{"${chr}_ua"}) {
                 $p->{"${chr}_color"} = COLOR_HTML_CHR_BROKENLIMIT;
-                $p->$chr = $p->{$chr.'_ua'}.' <i>('.$p->$chr.' eff.)</i>';
+                $p->$chr = $p->{$chr.'_ua'}.' <em>('.$p->$chr.' eff.)</i>';
             }
         }
 
@@ -442,11 +442,11 @@ private function _roster($ALLOW_EDIT, $DETAILED, $players)
         $stars = array();
         foreach (Star::getStars(STATS_TEAM, $team->team_id, false, false) as $s) {
             $s->name = preg_replace('/\s/', '&nbsp;', $s->name);
-            $s->info = '<i class="icon-info"></i>';
+            $s->info = '<em class="icon-info"></i>';
             $s->player_id = $s->star_id;
             $s->team_id = $team->team_id;
             $s->nr = 0;
-            $s->position = "<table style='border-spacing:0px;'><tr><td><img align='left' src='$s->icon' alt='player avatar'></td><td><i>Star&nbsp;player</i></td></tr></table>";
+            $s->position = "<table style='border-spacing:0px;'><tr><td><img align='left' src='$s->icon' alt='player avatar'></td><td><em>Star&nbsp;player</i></td></tr></table>";
             $s->setSkills(true);
             $s->skills = '<small>'.$s->skills.'</small>';
             $s->injs = '';
@@ -477,8 +477,8 @@ private function _roster($ALLOW_EDIT, $DETAILED, $players)
         $smerc->team_id = $team->team_id;
         $smerc->nr = 0;
         $smerc->name = 'All&nbsp;mercenary&nbsp;hirings';
-        $smerc->info = '<i class="icon-info"></i>';
-        $smerc->position = "<i>Mercenaries</i>";
+        $smerc->info = '<em class="icon-info"></i>';
+        $smerc->position = "<em>Mercenaries</i>";
         $smerc->mv_cas = "$smerc->mv_bh/$smerc->mv_si/$smerc->mv_ki";
         $smerc->ma = '-';
         $smerc->st = '-';
@@ -545,14 +545,14 @@ private function _roster($ALLOW_EDIT, $DETAILED, $players)
             <?php
             if ($DETAILED) {
                 ?>
-                <td style="background-color: <?php echo COLOR_HTML_READY;   ?>;"><font color='black'><b>&nbsp;Ready&nbsp;</b></font></td>
-                <td style="background-color: <?php echo COLOR_HTML_MNG;     ?>;"><font color='black'><b>&nbsp;MNG&nbsp;</b></font></td>
-                <td style="background-color: <?php echo COLOR_HTML_JOURNEY; ?>;"><font color='black'><b>&nbsp;Journey&nbsp;</b></font></td>
-                <td style="background-color: <?php echo COLOR_HTML_JOURNEY_USED; ?>;"><font color='black'><b>&nbsp;Used&nbsp;journey&nbsp;</b></font></td>
-                <td style="background-color: <?php echo COLOR_HTML_DEAD;    ?>;"><font color='black'><b>&nbsp;Dead&nbsp;</b></font></td>
-                <td style="background-color: <?php echo COLOR_HTML_SOLD;    ?>;"><font color='black'><b>&nbsp;Sold&nbsp;</b></font></td>
-                <td style="background-color: <?php echo COLOR_HTML_STARMERC;?>;"><font color='black'><b>&nbsp;Star/merc&nbsp;</b></font></td>
-                <td style="background-color: <?php echo COLOR_HTML_NEWSKILL;?>;"><font color='black'><b>&nbsp;New&nbsp;skill&nbsp;</b></font></td>
+                <td style="background-color: <?php echo COLOR_HTML_READY;   ?>;"><font color='black'><strong>&nbsp;Ready&nbsp;</strong></font></td>
+                <td style="background-color: <?php echo COLOR_HTML_MNG;     ?>;"><font color='black'><strong>&nbsp;MNG&nbsp;</strong></font></td>
+                <td style="background-color: <?php echo COLOR_HTML_JOURNEY; ?>;"><font color='black'><strong>&nbsp;Journey&nbsp;</strong></font></td>
+                <td style="background-color: <?php echo COLOR_HTML_JOURNEY_USED; ?>;"><font color='black'><strong>&nbsp;Used&nbsp;journey&nbsp;</strong></font></td>
+                <td style="background-color: <?php echo COLOR_HTML_DEAD;    ?>;"><font color='black'><strong>&nbsp;Dead&nbsp;</strong></font></td>
+                <td style="background-color: <?php echo COLOR_HTML_SOLD;    ?>;"><font color='black'><strong>&nbsp;Sold&nbsp;</strong></font></td>
+                <td style="background-color: <?php echo COLOR_HTML_STARMERC;?>;"><font color='black'><strong>&nbsp;Star/merc&nbsp;</strong></font></td>
+                <td style="background-color: <?php echo COLOR_HTML_NEWSKILL;?>;"><font color='black'><strong>&nbsp;New&nbsp;skill&nbsp;</strong></font></td>
                 <?php
             }
             ?>
@@ -883,7 +883,7 @@ private function _actionBoxes($ALLOW_EDIT, $players)
                     	echo urlcompile(T_URL_STANDINGS,T_OBJ_TEAM,false,T_NODE_LEAGUE,$team->f_lid);
                     	echo "\">" . $leagues[$team->f_lid]['lname'] . "</a>";
                     } else {
-                    	echo '<i>'.$lng->getTrn('common/none').'</i>';
+                    	echo '<em>'.$lng->getTrn('common/none').'</i>';
                     } ?></td>
                 </tr>
                 <?php
@@ -896,7 +896,7 @@ private function _actionBoxes($ALLOW_EDIT, $players)
                     	echo urlcompile(T_URL_STANDINGS,T_OBJ_TEAM,false,T_NODE_DIVISION,$team->f_did);
                     	echo "\">" . $divisions[$team->f_did]['dname'] . "</a>";
                     } else {
-                    	echo '<i>'.$lng->getTrn('common/none').'</i>';
+                    	echo '<em>'.$lng->getTrn('common/none').'</i>';
                     } ?></td>
                     </tr>
                     <?php
@@ -957,7 +957,7 @@ private function _actionBoxes($ALLOW_EDIT, $players)
                 </tr>
                 <tr>
                     <td>ELO</td>
-                    <td><?php echo (($team->rg_elo) ? sprintf("%1.2f", $team->rg_elo) : '<i>N/A</i>'); ?></td>
+                    <td><?php echo (($team->rg_elo) ? sprintf("%1.2f", $team->rg_elo) : '<em>N/A</i>'); ?></td>
                 </tr>
                 <tr>
                     <td>W/L/D</td>
@@ -1005,7 +1005,7 @@ private function _actionBoxes($ALLOW_EDIT, $players)
                     ?>
                     <tr>
                         <td><?php echo $lng->getTrn('isfamous', 'FamousTeams');?></td>
-                        <td><?php echo (Module::run('FamousTeams', array('isInFT', $team->team_id))) ? '<b><font color="green">Yes</font></b>' : 'No';?></td>
+                        <td><?php echo (Module::run('FamousTeams', array('isInFT', $team->team_id))) ? '<strong><font color="green">Yes</font></strong>' : 'No';?></td>
                     </tr>
                     <?php
                 }
@@ -1060,7 +1060,7 @@ private function _actionBoxes($ALLOW_EDIT, $players)
                         <!-- <input type="submit" name="admintools" value="OK"> -->
                     </form>
 
-                    <br><i><?php echo $lng->getTrn('common/desc');?>:</i><br><br>
+                    <br><em><?php echo $lng->getTrn('common/desc');?>:</i><br><br>
                     <form name='form_admintools' method='POST'>
                         <?php
                         $DISABLE = false;
@@ -1355,7 +1355,7 @@ private function _actionBoxes($ALLOW_EDIT, $players)
         ?>
         <div class="row">
             <div class="boxWide">
-                <div class="boxTitle<?php echo T_HTMLBOX_STATS;?>"><a href='javascript:void(0);' onClick="slideToggleFast('ES');"><b>[+/-]</b></a> &nbsp;<?php echo $lng->getTrn('common/extrastats'); ?></div>
+                <div class="boxTitle<?php echo T_HTMLBOX_STATS;?>"><a href='javascript:void(0);' onClick="slideToggleFast('ES');"><strong>[+/-]</strong></a> &nbsp;<?php echo $lng->getTrn('common/extrastats'); ?></div>
                 <div class="boxBody" id="ES" style='display:none;'>
                     <?php
                     HTMLOUT::generateEStable($this);
@@ -1425,7 +1425,7 @@ private function _teamManagementBox($players, $team) {
             <!-- <input type="submit" name="tmanage" value="OK"> -->
         </form>
 
-        <br><i><?php echo $lng->getTrn('common/desc');?>:</i><br><br>
+        <br><em><?php echo $lng->getTrn('common/desc');?>:</i><br><br>
         <form name="form_tmanage" method="POST" enctype="multipart/form-data">
         <?php
         $DISABLE = false;
@@ -1762,9 +1762,9 @@ private function _about($ALLOW_EDIT)
     ?>
     <table class='common'>
         <tr class='commonhead'>
-            <td><b><?php echo $lng->getTrn('profile/team/logo');?></b></td>
-            <td><b><?php echo $lng->getTrn('profile/team/stad');?></b></td>
-            <td><b><?php echo $lng->getTrn('common/about');?></b></td>
+            <td><strong><?php echo $lng->getTrn('profile/team/logo');?></strong></td>
+            <td><strong><?php echo $lng->getTrn('profile/team/stad');?></strong></td>
+            <td><strong><?php echo $lng->getTrn('common/about');?></strong></td>
         </tr>
         <tr>
             <td>
@@ -1838,14 +1838,14 @@ private function _news($ALLOW_EDIT)
             }
             echo implode("<hr>\n", $news_2);
             if (empty($news)) {
-                echo '<i>'.$lng->getTrn('profile/team/nonews').'</i>';
+                echo '<em>'.$lng->getTrn('profile/team/nonews').'</i>';
             }
 
             if ($ALLOW_EDIT) {
                 ?>
                 <hr>
                 <br>
-                <b><?php echo $lng->getTrn('profile/team/wnews');?></b>
+                <strong><?php echo $lng->getTrn('profile/team/wnews');?></strong>
                 <form method="POST">
                     <textarea name='txt' cols='60' rows='4'></textarea>
                     <br><br>

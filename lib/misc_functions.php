@@ -220,7 +220,7 @@ function title($title) {
 
 // Privileges error. Stop PHP interpreter and warn the user!
 function fatal($err_msg) {
-    die("<br><br><center><big><font color='red'><b>$err_msg</b></font></big></center><br>");
+    die("<br><br><center><big><font color='red'><strong>$err_msg</strong></font></big></center><br>");
 }
 
 // Print a status message.

@@ -290,7 +290,7 @@ public static function makeList()
                 $_DISABLED = !isset($_POST['trid']) ? 'DISABLED' : '';
                 ?>
                 <form name="STS" method="POST" enctype="multipart/form-data">
-                <b><?php echo $lng->getTrn('common/tournament');?></b><br>
+                <strong><?php echo $lng->getTrn('common/tournament');?></strong><br>
                 <?php
                 echo HTMLOUT::nodeList(T_NODE_TOURNAMENT, 'trid');
                 ?>
@@ -298,7 +298,7 @@ public static function makeList()
                 </form>
                 <br>
                 <form method="POST" enctype="multipart/form-data">
-                <b><?php echo $lng->getTrn('team', __CLASS__);?></b><br>
+                <strong><?php echo $lng->getTrn('team', __CLASS__);?></strong><br>
                 <select name="tid" <?php echo $_DISABLED;?>>
                     <?php
                     $teams = isset($_POST['trid']) ? Team::getTeams(false,array(get_parent_id(T_NODE_TOURNAMENT, (int) $_POST['trid'], T_NODE_LEAGUE)),true) : array();
@@ -308,7 +308,7 @@ public static function makeList()
                     ?>
                 </select>
                 <br><br>
-                <b><?php echo $lng->getTrn('kind', __CLASS__);?></b><br>
+                <strong><?php echo $lng->getTrn('kind', __CLASS__);?></strong><br>
                 <select name="ptype" <?php echo $_DISABLED;?>>
                     <?php
                     foreach (self::getTypes() as $ptype => $desc) {
@@ -317,10 +317,10 @@ public static function makeList()
                     ?>
                 </select>
                 <br><br>
-                <?php echo '<b>'.$lng->getTrn('g_title', __CLASS__).'</b> &mdash; '.$lng->getTrn('title', __CLASS__);?><br>
+                <?php echo '<strong>'.$lng->getTrn('g_title', __CLASS__).'</strong> &mdash; '.$lng->getTrn('title', __CLASS__);?><br>
                 <input type="text" name="title" size="60" maxlength="100" value="" <?php echo $_DISABLED;?>>
                 <br><br>
-                <?php echo '<b>'.$lng->getTrn('g_about', __CLASS__).'</b> &mdash; '.$lng->getTrn('about', __CLASS__);?><br>
+                <?php echo '<strong>'.$lng->getTrn('g_about', __CLASS__).'</strong> &mdash; '.$lng->getTrn('about', __CLASS__);?><br>
                 <textarea name="txt" rows="15" cols="100" <?php echo $_DISABLED;?>></textarea>
                 <br><br><br>
                 <input type='hidden' name='trid' value='<?php echo $_DISABLED ? 0 : $_POST['trid'];?>'>
@@ -359,9 +359,9 @@ public static function printList($node, $node_id, $ALLOW_EDIT)
             <div class="boxBody">
                 <table class="common" style='border-spacing: 10px;'>
                     <tr>
-                        <td style='width:25%;'><b>Prize&nbsp;type</b></td>
-                        <td><b>Team</b></td>
-                        <td><b>About</b></td>
+                        <td style='width:25%;'><strong>Prize&nbsp;type</strong></td>
+                        <td><strong>Team</strong></td>
+                        <td><strong>About</strong></td>
                     </tr>
                     <?php
                     $ptypes = self::getTypes();
@@ -370,8 +370,8 @@ public static function printList($node, $node_id, $ALLOW_EDIT)
                         echo "<tr>\n";
                         $delete = ($ALLOW_EDIT) ? '&nbsp;<a href="handler.php?type=prize&amp;action=delete&amp;prid='.$pr->prize_id.'">'.$lng->getTrn('common/delete').'</a>' : '';
                         echo "<td valign='top'>".preg_replace('/\s/', '&nbsp;', $ptypes[$pr->type])."&nbsp;$delete</td>\n";
-                        echo "<td valign='top'><b>".preg_replace('/\s/', '&nbsp;', get_alt_col('teams', 'team_id', $pr->team_id, 'name'))."</b></td>\n";
-                        echo "<td valign='top'>".$pr->title."<br><br><i>".$pr->txt."</i></td>\n";
+                        echo "<td valign='top'><strong>".preg_replace('/\s/', '&nbsp;', get_alt_col('teams', 'team_id', $pr->team_id, 'name'))."</strong></td>\n";
+                        echo "<td valign='top'>".$pr->title."<br><br><em>".$pr->txt."</i></td>\n";
                         echo "</tr>\n";
                     }
                     ?>

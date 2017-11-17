@@ -144,7 +144,7 @@ $T_LOCAL_RINGS = array(
     });
 </script>
     
-<?php echo "<b><a TARGET='_blank' href='".DOC_URL_GUIDE."'>".$lng->getTrn('common/needhelp')."</a></b><br>"; ?>
+<?php echo "<strong><a TARGET='_blank' href='".DOC_URL_GUIDE."'>".$lng->getTrn('common/needhelp')."</a></strong><br>"; ?>
 
 <div style='float:left; width:100%;'> <!-- ALL -->
 <div class="boxCommon">
@@ -246,7 +246,7 @@ $T_LOCAL_RINGS = array(
         <input type="submit" name="button" value="Change LOCAL access">
         </form>
         <br>
-        <a href='javascript:void();' onClick='slideDownFast("massuserlist");document.getElementById("coach1").disabled=1;document.getElementById("massuser").value=1;'><b>Mass user access changes?</b></a>
+        <a href='javascript:void();' onClick='slideDownFast("massuserlist");document.getElementById("coach1").disabled=1;document.getElementById("massuser").value=1;'><strong>Mass user access changes?</strong></a>
     </div>
 </div>
 
@@ -325,11 +325,11 @@ $T_LOCAL_RINGS = array(
         <?php
         if (is_object($c)) {
             echo "Access levels of '$c->name' are<br><br>\n";
-            echo "<b>Global</b><br>".$T_GLOBAL_RINGS[$c->ring]."<br><br>";
-            echo "<b>Local</b><br>";
+            echo "<strong>Global</strong><br>".$T_GLOBAL_RINGS[$c->ring]."<br><br>";
+            echo "<strong>Local</strong><br>";
             list($_leagues) = Coach::allowedNodeAccess(Coach::NODE_STRUCT__FLAT, $c->coach_id);
             if (empty($_leagues)) {
-                echo "<i>None</i>";
+                echo "<em>None</i>";
             }
             else {
                 echo "<table><tr style='font-style:italic;'><td>League</td><td>Access level</td></tr>\n";

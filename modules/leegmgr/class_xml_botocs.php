@@ -240,7 +240,7 @@ class XML_BOTOCS implements ModuleInterface
         {
             Print "You may have forgotten to hire a journeyman for the next match.  Please hire a player as a journeyman or hire a player.<br>";
             $rosterjm = $this->curPageURL();
-            Print "If you want to ignore this error, use the following for your roster:<br><b>{$rosterjm}</b>";
+            Print "If you want to ignore this error, use the following for your roster:<br><strong>{$rosterjm}</strong>";
             return false;
         }
 

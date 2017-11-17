@@ -798,7 +798,7 @@ public static function apa_generate_schedule($draw) {
 		if ($rnd > 1) {
             echo "<tr><td colspan='$cols' class='seperator'></td></tr>";
 		}
-            echo "<tr><td colspan='$cols' class='round'><center><b>$round</b></center></td></tr>";
+            echo "<tr><td colspan='$cols' class='round'><center><strong>$round</strong></center></td></tr>";
             echo "<tr><td colspan='$cols' class='seperator'></td></tr>";
 		
 
@@ -1170,7 +1170,7 @@ $.fn.extend({
 </script>
 <?php $t = (isset($_POST['trid'])) ? new Tour($_POST['trid']) : null; ?>
 
-<h1><?php echo $lng->getTrn('create_schedule', __CLASS__);?> <i><?php echo $t->name; ?></i></h1>
+<h1><?php echo $lng->getTrn('create_schedule', __CLASS__);?> <em><?php echo $t->name; ?></i></h1>
 <div id="teamPool">
 <?php 
 	if ($_POST['tie_teams'] == 1) {

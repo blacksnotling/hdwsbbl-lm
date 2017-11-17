@@ -98,14 +98,14 @@ public static function main($argv) {
                                     $row = mysql_fetch_assoc($result);
                                     $v[$j] = ($row[$s]) ? $row[$s] : 0;
                                 }
-                                echo "<b>$v[1] &nbsp;-&nbsp; $v[2]</b>";
+                                echo "<strong>$v[1] &nbsp;-&nbsp; $v[2]</strong>";
                                 break;
 
-                            case 'svic': echo "<b>$m->team1_score &nbsp;-&nbsp; $m->team2_score</b>"; break;
-                            case 'inc': echo '<b>'.($m->income1/1000).'k - '.($m->income2/1000).'k</b>'; break;
-                            case 'gate': echo '<b>'.($m->gate/1000).'k</b>'; break;
-                            case 'mfans': echo "<b>$m->fans</b>"; break;
-                            case 'tvdiff': echo '<b>'.($m->tv1/1000).'k - '.($m->tv2/1000).'k</b>'; break;
+                            case 'svic': echo "<strong>$m->team1_score &nbsp;-&nbsp; $m->team2_score</strong>"; break;
+                            case 'inc': echo '<strong>'.($m->income1/1000).'k - '.($m->income2/1000).'k</strong>'; break;
+                            case 'gate': echo '<strong>'.($m->gate/1000).'k</strong>'; break;
+                            case 'mfans': echo "<strong>$m->fans</strong>"; break;
+                            case 'tvdiff': echo '<strong>'.($m->tv1/1000).'k - '.($m->tv2/1000).'k</strong>'; break;
                         }
                         ?>
                         </td>
@@ -114,7 +114,7 @@ public static function main($argv) {
                     <tr>
                         <td align="right" colspan="3">
                         <small>
-                        <i><?php echo get_alt_col('tours', 'tour_id', $m->f_tour_id, 'name');?>, <?php echo textdate($m->date_played, true);?></i>,
+                        <em><?php echo get_alt_col('tours', 'tour_id', $m->f_tour_id, 'name');?>, <?php echo textdate($m->date_played, true);?></i>,
                         <a href="index.php?section=matches&amp;type=report&amp;mid=<?php echo $m->match_id;?>"><?php echo $lng->getTrn('common/view');?></a>
                         </small>
                         </td>
@@ -238,7 +238,7 @@ private static function getMemMatches($node = false, $node_id = false) {
             }
         }
         elseif (mysql_errno() != 0) {
-            die("<b>Query:</b><br>\n$query<br>\n<br>\n<b>Error:</b><br>\n".mysql_error()."<br>\n");
+            die("<strong>Query:</strong><br>\n$query<br>\n<br>\n<strong>Error:</strong><br>\n".mysql_error()."<br>\n");
         }
         objsort($mObjs, array('+date_played'));
         $m[$k] = (count($mObjs) > MAX_MEM_MATCHES) ? array() : $mObjs;

@@ -30,8 +30,8 @@ public function profile($sid)
     $s = new self($sid);
     title($s->name);
     echo '<center><a href="'.urlcompile(T_URL_STANDINGS,T_OBJ_STAR,false,false,false).'">'.$lng->getTrn('common/back').'</a></center><br><br>';
-    echo "<b>".$lng->getTrn('common/skills').":</b> ".skillsTrans($s->skills)."<br><br>";
-    echo "<b>".$lng->getTrn('common/races').":</b> ".racesTrans($s->races)."<br><br>";
+    echo "<strong>".$lng->getTrn('common/skills').":</strong> ".skillsTrans($s->skills)."<br><br>";
+    echo "<strong>".$lng->getTrn('common/races').":</strong> ".racesTrans($s->races)."<br><br>";
     self::starHireHistory(false, false, false, false, $s->star_id, array('url' => urlcompile(T_URL_PROFILE,T_OBJ_STAR, $s->star_id,false,false)));
 }
 

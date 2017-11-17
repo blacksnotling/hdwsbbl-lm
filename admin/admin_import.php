@@ -92,10 +92,10 @@ title($lng->getTrn('menu/admin_menu/import'));
 This page allows you to create a customized team for an existing coach.<br> 
 This is useful if you and your league wish to avoid starting from scratch in order to use OBBLM.<br>
 <br>
-<b>Note</b>: If you discover errors after having imported your team, you can either repair the errors<br> 
+<strong>Note</strong>: If you discover errors after having imported your team, you can either repair the errors<br> 
 via the admin tools in the coach corner, or simply delete the team and import a new.<br>
 <br>
-<b>Note</b>: The team import feature is <b>not</b> meant to be a way for you to import the entire state of your league, with stats, into OBBLM.<br>
+<strong>Note</strong>: The team import feature is <strong>not</strong> meant to be a way for you to import the entire state of your league, with stats, into OBBLM.<br>
 It's meant to be an easy way of getting your existing teams into OBBLM without having to re-create the teams from scratch ie. buying players, buying team stuff, selecting player skills etc..<br>
 The fact that you may specify won, lost and draw games etc. for a imported team is merely to make the team pages of imported teams reflect the actual team progress - it 
 does not allow you to integreate the imported team's stats with the future collected stats via OBBLM in, for example, the standings tables.
@@ -104,7 +104,7 @@ does not allow you to integreate the imported team's stats with the future colle
 Import a team by filling in a <a href="xml/import.xml">XML schema</a> (right click on link --> save as) and uploading it.<br>
 <br>
 <form enctype="multipart/form-data" action="index.php?section=admin&amp;subsec=import" method="POST">
-    <b>XML file:</b><br>
+    <strong>XML file:</strong><br>
     <input name="xmlfile" type="file"><br>
     <br>
     <input type="submit" name="button" value="Import via XML file">

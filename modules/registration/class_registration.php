@@ -164,7 +164,7 @@ class Registration implements ModuleInterface
     public function chk_email() {
 
         #'/^([.0-9a-z_-]+)@(([0-9a-z-]+\.)+[0-9a-z]{2,4})$/i' : 
-        #'/^([*+!.&#$¦\'\\%\/0-9a-z^_`{}=?~:-]+)@(([0-9a-z-]+\.)+[0-9a-z]{2,4})$/i' 
+        #'/^([*+!.&#$ï¿½\'\\%\/0-9a-z^_`{}=?~:-]+)@(([0-9a-z-]+\.)+[0-9a-z]{2,4})$/i' 
 
         $status = true;
         $domain = '';
@@ -450,7 +450,7 @@ class Registration implements ModuleInterface
         }
         else
         {
-            Print "<br><b>Error: {$register->error}</b><br>";
+            Print "<br><strong>Error: {$register->error}</strong><br>";
             unset($register);
             unset($_POST['new_name']);
             Registration::main(array());
@@ -532,7 +532,7 @@ class Registration implements ModuleInterface
         }
         else
         {
-            Print "<br><b>Error: {$register->error}</b><br>";
+            Print "<br><strong>Error: {$register->error}</strong><br>";
             unset($register);
             unset($_POST['activate_name']);
             Registration::main(array());

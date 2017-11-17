@@ -273,7 +273,7 @@ public static function makeList() {
                 $node_id = isset($_POST['lid']) ? $_POST['lid'] : null;
                 ?>
                 <form name="STS" method="POST" enctype="multipart/form-data">
-                <b><?php echo $lng->getTrn('common/league');?></b><br>
+                <strong><?php echo $lng->getTrn('common/league');?></strong><br>
                 <?php
                 echo HTMLOUT::nodeList(T_NODE_LEAGUE, 'lid', array(), array(), array('sel_id' => $node_id));
                 ?>
@@ -281,7 +281,7 @@ public static function makeList() {
                 </form>
                 <br>
                 <form method="POST">
-                <b><?php echo $lng->getTrn('team', __CLASS__).'</b>';?><br>
+                <strong><?php echo $lng->getTrn('team', __CLASS__).'</strong>';?><br>
                 <?php
                 $query = "SELECT team_id, name FROM teams WHERE f_lid = $node_id ORDER by name ASC";
                 $result = mysql_query($query);
@@ -297,10 +297,10 @@ public static function makeList() {
                     ?>
                 </select>
                 <br><br>
-                <b><?php echo $lng->getTrn('g_title', __CLASS__).'</b>&nbsp;&mdash;&nbsp;'.$lng->getTrn('title', __CLASS__);?><br>
+                <strong><?php echo $lng->getTrn('g_title', __CLASS__).'</strong>&nbsp;&mdash;&nbsp;'.$lng->getTrn('title', __CLASS__);?><br>
                 <input type="text" name="title" size="60" maxlength="100" value="<?php echo $title;?>" <?php echo $_DISABLED;?>>
                 <br><br>
-                <b><?php echo $lng->getTrn('g_about', __CLASS__).'</b>&nbsp;&mdash;&nbsp;'.$lng->getTrn('about', __CLASS__);?><br>
+                <strong><?php echo $lng->getTrn('g_about', __CLASS__).'</strong>&nbsp;&mdash;&nbsp;'.$lng->getTrn('about', __CLASS__);?><br>
                 <textarea name="about" rows="15" cols="100" <?php echo $_DISABLED;?>><?php echo $about;?></textarea>
                 <br><br>
                 <input type="submit" value="<?php echo $lng->getTrn('submit', __CLASS__);?>" name="Submit" <?php echo $_DISABLED;?>>

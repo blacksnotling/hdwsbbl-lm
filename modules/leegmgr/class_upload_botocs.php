@@ -768,20 +768,20 @@ WHERE match_id = $this->match_id";
         $return = "<br/>\n";
         switch ($error->level) {
             case LIBXML_ERR_WARNING:
-                $return .= "<b>Warning $error->code</b>: ";
+                $return .= "<strong>Warning $error->code</strong>: ";
                 break;
             case LIBXML_ERR_ERROR:
-                $return .= "<b>Error $error->code</b>: ";
+                $return .= "<strong>Error $error->code</strong>: ";
                 break;
             case LIBXML_ERR_FATAL:
-                $return .= "<b>Fatal Error $error->code</b>: ";
+                $return .= "<strong>Fatal Error $error->code</strong>: ";
                 break;
         }
 
         $return .= trim($error->message);
-        if ($error->file) $return .= " in <b>$error->file</b>";
+        if ($error->file) $return .= " in <strong>$error->file</strong>";
 
-        $return .= " on line <b>$error->line</b>\n";
+        $return .= " on line <strong>$error->line</strong>\n";
 
         return $return;
     }
@@ -915,7 +915,7 @@ WHERE match_id = $this->match_id";
         }
         else
         {
-            Print "<br><b>Error: {$upload->error}</b><br>";
+            Print "<br><strong>Error: {$upload->error}</strong><br>";
             unset($upload);
             unset($_FILES['userfile']);
             UPLOAD_BOTOCS::main(array(true));

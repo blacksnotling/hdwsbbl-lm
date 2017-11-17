@@ -38,7 +38,7 @@ function sec_admin() {
         $_GET['subsec'] = '_NONE_';
 
     $IS_GLOBAL_ADMIN = ($coach->ring == Coach::T_RING_GLOBAL_ADMIN);
-    $ONLY_FOR_GLOBAL_ADMIN = "Note: This feature may only be used by <i>global</i> administrators."; # Used string in a few common feature/action boxes.
+    $ONLY_FOR_GLOBAL_ADMIN = "Note: This feature may only be used by <em>global</i> administrators."; # Used string in a few common feature/action boxes.
 
     // Deny un-authorized users.
     if (!in_array($_GET['subsec'], array_keys($admin_menu)))

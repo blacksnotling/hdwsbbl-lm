@@ -670,7 +670,7 @@ echo<<< EOQ
    <input type="hidden" id="raceid" name="raceid" value="" />
    <div class='boxWide'>
       <table class="common"><tr><td>
-      <b>$txtRaceSelectTitle</b>: <select id="rid" name="rid" onchange="changeRace(this.options[this.selectedIndex].value)">
+      <strong>$txtRaceSelectTitle</strong>: <select id="rid" name="rid" onchange="changeRace(this.options[this.selectedIndex].value)">
 EOQ;
       echo "<option value='-1'>$txtRaceSelectOption</option>";
       $i = 0;
@@ -685,8 +685,8 @@ EOQ;
       if (isset($coach)) {
          $lgeDiv = $lng->getTrn('common/league') . '/' . $lng->getTrn('common/division');
 echo<<< EOQ
-      <td align="right"><b>$txtTeamName</b>:</td><td><input type="text" id="tname" name="tname" size="20" maxlength="50"></td>
-      <td align="right"><b>$lgeDiv</b>:</td><td><select name="lid_did" id="lid_did" onChange="changeLeague()">
+      <td align="right"><strong>$txtTeamName</strong>:</td><td><input type="text" id="tname" name="tname" size="20" maxlength="50"></td>
+      <td align="right"><strong>$lgeDiv</strong>:</td><td><select name="lid_did" id="lid_did" onChange="changeLeague()">
 EOQ;
          foreach ($leagues = Coach::allowedNodeAccess(Coach::NODE_STRUCT__TREE, $coach->coach_id, array(T_NODE_LEAGUE => array('tie_teams' => 'tie_teams'))) as $lid => $lstruct) {
             if ($lstruct['desc']['tie_teams']) {
@@ -723,8 +723,8 @@ EOQ;
 echo<<< EOQ
        <td align="right" id="indTxt">$txtInducements:</td>
        <td><input type="checkbox" id="induce" onChange="changeInduce(this.checked)" /><input type="hidden" id="oldInduce" value="false" /></td>
-       <td align="right"><b>$txtPlayerCount</b>:</td><td><div id="pcnt"></div></td>
-       <td align="right"><b>$txtTotal</b>:</td><td><div id="total"></div></td>
+       <td align="right"><strong>$txtPlayerCount</strong>:</td><td><div id="pcnt"></div></td>
+       <td align="right"><strong>$txtTotal</strong>:</td><td><div id="total"></div></td>
        </tr></table>
    </div>
    <div class="boxWide">

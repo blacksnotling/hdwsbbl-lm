@@ -17,7 +17,7 @@ public static function main($argv) # argv = argument vector (array).
         {
             case 'team':
                 $t = new Team((int) $_POST['tid']);
-                echo "<b>".$lng->getTrn('playersof', 'Gallery')." $t->name</b><br><hr><br>\n";
+                echo "<strong>".$lng->getTrn('playersof', 'Gallery')." $t->name</strong><br><hr><br>\n";
                 foreach ($t->getPlayers() as $p) {
                     $img = new ImageSubSys(IMGTYPE_PLAYER, $p->player_id);
                     $pic = $img->getPath();
@@ -26,7 +26,7 @@ public static function main($argv) # argv = argument vector (array).
                 break;
 
             case 'stad':
-                echo "<b>".$lng->getTrn('stads', 'Gallery')."</b><br><hr><br>\n";
+                echo "<strong>".$lng->getTrn('stads', 'Gallery')."</strong><br><hr><br>\n";
                 $teams = get_rows('teams', array('team_id', 'name'), array("f_lid = $sel_lid"));
                 objsort($teams, array('+name'));
                 foreach ($teams as $t) {
@@ -37,7 +37,7 @@ public static function main($argv) # argv = argument vector (array).
                 break;
 
             case 'coach':
-                echo "<b>".$lng->getTrn('coaches', 'Gallery')."</b><br><hr><br>\n";
+                echo "<strong>".$lng->getTrn('coaches', 'Gallery')."</strong><br><hr><br>\n";
                 $q = "SELECT coach_id, name FROM coaches,memberships WHERE cid = coach_id AND lid = $sel_lid GROUP BY cid, lid ORDER BY name ASC";
                 $result = mysql_query($q);
                 while ($c = mysql_fetch_object($result)) {

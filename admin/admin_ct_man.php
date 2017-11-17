@@ -47,7 +47,7 @@ title($lng->getTrn('menu/admin_menu/ct_man'));
 <table>
     <tr>
         <td colspan='2'>
-            <b>Please note:</b>
+            <strong>Please note:</strong>
             <ul>
                 <li>For the sake of keeping league statistics intact you are not allowed to delete teams or coaches which have played matches.</li>
                 <li>Once retired a coach cannot login and teams are no longer manageable/editable from their team pages.</li>

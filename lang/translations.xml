@@ -141,8 +141,8 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <pms>Display match average stats</pms>
     <ats>Display all-time stats </ats>
     <uploadnew>Upload new image</uploadnew>
-    <notice_simul><![CDATA[<i>Note</i>: Both tables below are sorted simultaneously.]]></notice_simul>
-    <notice_spp><![CDATA[<i>Note</i>: <b>If</b> star players could earn SPP they would have the amount correspondng to the SPP column.]]></notice_spp>
+    <notice_simul><![CDATA[<em>Note</i>: Both tables below are sorted simultaneously.]]></notice_simul>
+    <notice_spp><![CDATA[<em>Note</i>: <strong>If</strong> star players could earn SPP they would have the amount correspondng to the SPP column.]]></notice_spp>
     <sortedagainst>Sorted against</sortedagainst>
     
     <confirm_box>Are you sure?</confirm_box>
@@ -344,11 +344,11 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
                 <renumber_player> <![CDATA[ Renumber a player. ]]> </renumber_player>
                 <rename_team> <![CDATA[ Rename your team. ]]> </rename_team>
                 <buy_goods> <![CDATA[ Buy team goods. ]]> </buy_goods>
-                <buy_goods_warn> <![CDATA[ <br><br>Please note that re-roll prices are currently <font color='red'><b>doubled</b></font>.<br>If your intention is to buy a non-doubled RR, then buy it anyway and reclaim the lost gold by asking an admin to reinsert the overcharged amount. ]]> </buy_goods_warn>
+                <buy_goods_warn> <![CDATA[ <br><br>Please note that re-roll prices are currently <font color='red'><strong>doubled</strong></font>.<br>If your intention is to buy a non-doubled RR, then buy it anyway and reclaim the lost gold by asking an admin to reinsert the overcharged amount. ]]> </buy_goods_warn>
                 <drop_goods> <![CDATA[ Let go/drop of team goods for no refund. ]]> </drop_goods>
                 <ready_state> <![CDATA[ This team attribute allows coaches to signal other coaches/teams whether or not this team is interested in playing any matches. ]]> </ready_state>
-                <retire> <![CDATA[ Retire team.<br>Once retired the team is no longer manageable.<br>Admins can un-retire teams. The retirement takes effect immediately, but will first be visible on <b>next page reload</b>. ]]> </retire>
-                <delete> <![CDATA[ Delete team.<br>For the sake of keeping league statistics intact you are not allowed to delete teams which have played matches. The deletion takes effect immediately, but will first be visible on <b>next page reload</b>. ]]> </delete>
+                <retire> <![CDATA[ Retire team.<br>Once retired the team is no longer manageable.<br>Admins can un-retire teams. The retirement takes effect immediately, but will first be visible on <strong>next page reload</strong>. ]]> </retire>
+                <delete> <![CDATA[ Delete team.<br>For the sake of keeping league statistics intact you are not allowed to delete teams which have played matches. The deletion takes effect immediately, but will first be visible on <strong>next page reload</strong>. ]]> </delete>
             </desc>
         </box_tm>
         
@@ -944,8 +944,8 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <pms>Mostrar estadísticas medias por partido</pms>
     <ats>Mostrar estadísticas totales </ats>
     <uploadnew>Subir nueva imagen</uploadnew>
-    <notice_simul><![CDATA[<i>Nota</i>: Las dos tablas mostradas abajo se ordenan simultaneamente.]]></notice_simul>
-    <notice_spp><![CDATA[<i>Nota</i>: <b>Si</b>los jugadores estrella pudiesen ganar PE tendrian la cantidad correspondiente a la columna PE.]]></notice_spp>
+    <notice_simul><![CDATA[<em>Nota</i>: Las dos tablas mostradas abajo se ordenan simultaneamente.]]></notice_simul>
+    <notice_spp><![CDATA[<em>Nota</i>: <strong>Si</strong>los jugadores estrella pudiesen ganar PE tendrian la cantidad correspondiente a la columna PE.]]></notice_spp>
     <sortedagainst>Ordenado por</sortedagainst>
 
     <confirm_box>¿Estás segudo?</confirm_box>
@@ -1143,11 +1143,11 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
                 <renumber_player> <![CDATA[ Cambiar el dorsal de un jugador. ]]> </renumber_player>
                 <rename_team> <![CDATA[ Renombrar tu equipo. ]]> </rename_team>
                 <buy_goods> <![CDATA[ Comprar bienes de equipo. ]]> </buy_goods>
-                <buy_goods_warn> <![CDATA[ <br><br>Por favor, date cuenta de que el precio de las segundas oportunidades es actualmente el <font color='red'><b>doble</b></font>.<br>Si tu intención es comprar una segunda oportunidad al precio normal, compralo igualmente y pide a un administrador que ajuste tu tesorería. ]]> </buy_goods_warn>
+                <buy_goods_warn> <![CDATA[ <br><br>Por favor, date cuenta de que el precio de las segundas oportunidades es actualmente el <font color='red'><strong>doble</strong></font>.<br>Si tu intención es comprar una segunda oportunidad al precio normal, compralo igualmente y pide a un administrador que ajuste tu tesorería. ]]> </buy_goods_warn>
                 <drop_goods> <![CDATA[ Deshacerse de bienes de equipo sin recibir una devolución. ]]>b</drop_goods>
                 <ready_state> <![CDATA[ Este atributo advierte a otros entrenadores de que el equipo está interesado en jugar partidos. ]]> </ready_state>
-                <retire> <![CDATA[ Retirar equipo.<br>Una vez retirado, no podrás gestionar el equipo.<br>Los administradores pueden traer de vuelta equipos retirados. El retiro tiene efecto inmediato, pero será visible por  primera vez <b>al recargar la página</b>. ]]> </retire>
-                <delete> <![CDATA[ Borrar equipo.<br>Para mantener la integridad de las estadísticas, no se permite borrar equipos que hayan jugado partidos. El borrado tiene efecto inmediato, pero será visible por primera vez <b>al recargar la página</b>. ]]> </delete>
+                <retire> <![CDATA[ Retirar equipo.<br>Una vez retirado, no podrás gestionar el equipo.<br>Los administradores pueden traer de vuelta equipos retirados. El retiro tiene efecto inmediato, pero será visible por  primera vez <strong>al recargar la página</strong>. ]]> </retire>
+                <delete> <![CDATA[ Borrar equipo.<br>Para mantener la integridad de las estadísticas, no se permite borrar equipos que hayan jugado partidos. El borrado tiene efecto inmediato, pero será visible por primera vez <strong>al recargar la página</strong>. ]]> </delete>
             </desc>
         </box_tm>
         
@@ -1731,8 +1731,8 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <pms>Durchschnittliche Statistiken zu Begegnungen</pms>
     <ats>All-time Statistiken anzeigen</ats>
     <uploadnew>Neues Bild hochladen</uploadnew>
-    <notice_simul><![CDATA[<i>Beachte</i>: Beide folgenden Tabellen werden gleichzeitig sortiert.]]></notice_simul>
-    <notice_spp><![CDATA[<i>Beachte</i>: <b>Wenn</b> Star Player SPP verdienen könnten, hätten sie soviele wie in der Spalte SPP.]]></notice_spp>
+    <notice_simul><![CDATA[<em>Beachte</i>: Beide folgenden Tabellen werden gleichzeitig sortiert.]]></notice_simul>
+    <notice_spp><![CDATA[<em>Beachte</i>: <strong>Wenn</strong> Star Player SPP verdienen könnten, hätten sie soviele wie in der Spalte SPP.]]></notice_spp>
     <sortedagainst>Sortiert nach</sortedagainst>
     
     <!-- nodeSelector() -->
@@ -1961,7 +1961,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
                 </buy_goods>
                 <buy_goods_warn>
                 <![CDATA[
-                <br><br>Bitte beachte, dass die Kosten für Re-Rolls derzeit <font color='red'><b>verdoppelt</b></font> sind.<br>Wenn du beabsichtigst einen Re-Roll zu nicht-doppelten Kosten zu kaufen, kaufe den Re-Roll trotzdem und fordere vom Amdin das zusätzliche Gold wieder deiner Teamkasse gutzuschreiben.
+                <br><br>Bitte beachte, dass die Kosten für Re-Rolls derzeit <font color='red'><strong>verdoppelt</strong></font> sind.<br>Wenn du beabsichtigst einen Re-Roll zu nicht-doppelten Kosten zu kaufen, kaufe den Re-Roll trotzdem und fordere vom Amdin das zusätzliche Gold wieder deiner Teamkasse gutzuschreiben.
                 ]]>
                 </buy_goods_warn>
                 <drop_goods>
@@ -1976,12 +1976,12 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
                 </ready_state>
                 <retire>
                 <![CDATA[
-                Mannschaft in den Ruhestand versetzen.<br>Mannschaften, die sich im Ruhestand befinden können nicht mehr am Spielbetrieb teilnehmen oder verändert werden .<br>Admins können Mannschaften aus dem Ruhestand zurück holen. Der Ruhestand tritt umgehend in Kraft, wird aber erst sichtbar wenn die <b>Seite neu geladen</b> wird.
+                Mannschaft in den Ruhestand versetzen.<br>Mannschaften, die sich im Ruhestand befinden können nicht mehr am Spielbetrieb teilnehmen oder verändert werden .<br>Admins können Mannschaften aus dem Ruhestand zurück holen. Der Ruhestand tritt umgehend in Kraft, wird aber erst sichtbar wenn die <strong>Seite neu geladen</strong> wird.
                 ]]>
                 </retire>
                 <delete>
                 <![CDATA[
-                Mannschaft löschen.<br>For the sake of keeping league statistics intact you are not allowed to delete teams which have played matches. The deletion takes effect immediately, but will first be visible on <b>next page reload</b>.
+                Mannschaft löschen.<br>For the sake of keeping league statistics intact you are not allowed to delete teams which have played matches. The deletion takes effect immediately, but will first be visible on <strong>next page reload</strong>.
                 ]]>
                 </delete>
             </desc>
@@ -2124,11 +2124,11 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
         <add_team>Mannschaft hinzufügen</add_team>
         <teams_selected>Ausgewählte Mannschaften</teams_selected>
         <!-- Tour Types (TT) -->
-            <TT_FFA><![CDATA[FFA <i>(Free For All a.k.a. "Offenes Ligaformat")</i>]]></TT_FFA>
+            <TT_FFA><![CDATA[FFA <em>(Free For All a.k.a. "Offenes Ligaformat")</i>]]></TT_FFA>
             <TT_RR>Round-Robin</TT_RR>
         <!-- RR -->
             <RR_settings>Round-Robin Einstellungen</RR_settings>
-            <rrobin_rnds><![CDATA[<b>Jedes bracket N-mal anlegen:</b>]]></rrobin_rnds>
+            <rrobin_rnds><![CDATA[<strong>Jedes bracket N-mal anlegen:</strong>]]></rrobin_rnds>
         <!-- FFA -->
             <FFA_settings>FFA Einstellunegn</FFA_settings>
             <add_match>Begegnung ... hinzufügen</add_match>
@@ -2934,8 +2934,8 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <pms>Mostra Statistiche medie del Match</pms>
     <ats>Mostra le statistiche </ats>
     <uploadnew>Carica una nuova immagine</uploadnew>
-    <notice_simul><![CDATA[<i>Nota</i>: Entrambe le tabelle sottostanti sono ordinate simultaneamente.]]></notice_simul>
-    <notice_spp><![CDATA[<i>Nota</i>: <b>Se</b> i Star Player possono guadagnare SPP debbono avere il valore corrispondente nella colonna SPP.]]></notice_spp>
+    <notice_simul><![CDATA[<em>Nota</i>: Entrambe le tabelle sottostanti sono ordinate simultaneamente.]]></notice_simul>
+    <notice_spp><![CDATA[<em>Nota</i>: <strong>Se</strong> i Star Player possono guadagnare SPP debbono avere il valore corrispondente nella colonna SPP.]]></notice_spp>
     <sortedagainst>Contro</sortedagainst>
     
     <confirm_box>Sicuro?</confirm_box>
@@ -3165,7 +3165,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
                 </buy_goods>
                 <buy_goods_warn>
                 <![CDATA[
-                <br><br>Notare che il costo dei reroll è <font color='red'><b>raddoppiato</b></font>.<br>Se la tua intenzione è comprare un RR non raddoppiato, allora compralo e richiedi i soldi in spesi in eccesso all'amministratore.
+                <br><br>Notare che il costo dei reroll è <font color='red'><strong>raddoppiato</strong></font>.<br>Se la tua intenzione è comprare un RR non raddoppiato, allora compralo e richiedi i soldi in spesi in eccesso all'amministratore.
                 ]]>
                 </buy_goods_warn>
                 <drop_goods>
@@ -3180,12 +3180,12 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
                 </ready_state>
                 <retire>
                 <![CDATA[
-                Disabilita la Squadra.<br>Una volta ritirata la squadra non è più gestibile.<br>Solo gli amministratori possono riabilitare la squadra. Il ritiro ha effetto immediato, ma sarà visibile <b>alla successiva ricarica della pagina</b>.
+                Disabilita la Squadra.<br>Una volta ritirata la squadra non è più gestibile.<br>Solo gli amministratori possono riabilitare la squadra. Il ritiro ha effetto immediato, ma sarà visibile <strong>alla successiva ricarica della pagina</strong>.
                 ]]>
                 </retire>
                 <delete>
                 <![CDATA[
-                Cancella la Squadra.<br>Per mantenere le statistiche, non ti sarà possibile cancellare la squadra una volta che ha giocato una partita. La rimozione ha effetto immediato, ma sarà visibile <b>alla successiva ricarica della pagina</b>.
+                Cancella la Squadra.<br>Per mantenere le statistiche, non ti sarà possibile cancellare la squadra una volta che ha giocato una partita. La rimozione ha effetto immediato, ma sarà visibile <strong>alla successiva ricarica della pagina</strong>.
                 ]]>
                 </delete>
             </desc>

@@ -320,7 +320,7 @@ class Tour
 
 			return $tourUrl;
 		} else {
-			return '<i>'.$lng->getTrn('common/none').'</i>';
+			return '<em>'.$lng->getTrn('common/none').'</i>';
 		}
 	}
 

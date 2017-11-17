@@ -86,7 +86,7 @@ public static function dispList()
     $coaches = array();
     $result = mysql_query($queryGet);
     while ($c = mysql_fetch_object($result)) {
-        $c->retired = ($c->retired) ? '<b>'.$lng->getTrn('common/yes').'</b>' : $lng->getTrn('common/no');
+        $c->retired = ($c->retired) ? '<strong>'.$lng->getTrn('common/yes').'</strong>' : $lng->getTrn('common/no');
         $coaches[] = $c;
     }
 
@@ -284,7 +284,7 @@ private function _CCprofile($ALLOW_EDIT)
     // New team and change coach settings.
     echo "<br><br>";
     ?>
-    <table class="common"><tr class="commonhead"><td><b><?php echo $lng->getTrn('cc/coach_info');?></b></td></tr></table>
+    <table class="common"><tr class="commonhead"><td><strong><?php echo $lng->getTrn('cc/coach_info');?></strong></td></tr></table>
     <br>
     <?php
     echo $lng->getTrn('cc/note_persinfo');
@@ -303,15 +303,15 @@ private function _CCprofile($ALLOW_EDIT)
             </tr>
             <tr>
                 <td>Full name:</td>
-                <td><?php echo empty($this->realname) ? '<i>'.$lng->getTrn('common/none').'</i>' : $this->realname;?></td>
+                <td><?php echo empty($this->realname) ? '<em>'.$lng->getTrn('common/none').'</i>' : $this->realname;?></td>
             </tr>
             <tr>
                 <td>Phone:</td>
-                <td><?php echo empty($this->phone) ? '<i>'.$lng->getTrn('common/none').'</i>' : $this->phone?></td>
+                <td><?php echo empty($this->phone) ? '<em>'.$lng->getTrn('common/none').'</i>' : $this->phone?></td>
             </tr>
             <tr>
                 <td>Mail:</td>
-                <td><?php echo empty($this->mail) ? '<i>'.$lng->getTrn('common/none').'</i>' : $this->mail?></td>
+                <td><?php echo empty($this->mail) ? '<em>'.$lng->getTrn('common/none').'</i>' : $this->mail?></td>
             </tr>
         </table>
         <br>
@@ -387,7 +387,7 @@ private function _CCprofile($ALLOW_EDIT)
             <tr>
                 <form method="POST">
                 <td><?php echo $lng->getTrn('cc/chhomelid');?>:</td>
-                <td><?php echo $lng->getTrn('cc/current');?>: <?php echo (isset($leagues[$this->settings['home_lid']])) ? $leagues[$this->settings['home_lid']]['lname'] : '<i>'.$lng->getTrn('common/none').'</i>';?></td>
+                <td><?php echo $lng->getTrn('cc/current');?>: <?php echo (isset($leagues[$this->settings['home_lid']])) ? $leagues[$this->settings['home_lid']]['lname'] : '<em>'.$lng->getTrn('common/none').'</i>';?></td>
                 <td>
                     <?php echo $lng->getTrn('cc/new');?>:
                     <select name='new_homelid'>
@@ -409,8 +409,8 @@ private function _CCprofile($ALLOW_EDIT)
 
     <table class='common'>
         <tr class='commonhead'>
-            <td><b><?php echo $lng->getTrn('cc/photo');?></b></td>
-            <td><b><?php echo $lng->getTrn('common/about');?></b></td>
+            <td><strong><?php echo $lng->getTrn('cc/photo');?></strong></td>
+            <td><strong><?php echo $lng->getTrn('common/about');?></strong></td>
         </tr>
         <tr>
             <td>
@@ -456,7 +456,7 @@ private function _stats()
                 <?php
                 echo "<tr><td>Played</td><td>$this->mv_played</td></tr>\n";
                 echo "<tr><td>WIN%</td><td>".(sprintf("%1.1f", $this->rg_win_pct).'%')."</td></tr>\n";
-                echo "<tr><td>ELO</td><td>".(($this->rg_elo) ? sprintf("%1.2f", $this->rg_elo) : '<i>N/A</i>')."</td></tr>\n";
+                echo "<tr><td>ELO</td><td>".(($this->rg_elo) ? sprintf("%1.2f", $this->rg_elo) : '<em>N/A</i>')."</td></tr>\n";
                 echo "<tr><td>W/L/D</td><td>$this->mv_won/$this->mv_lost/$this->mv_draw</td></tr>\n";
                 echo "<tr><td>W/L/D ".$lng->getTrn('common/streaks')."</td><td>$this->mv_swon/$this->mv_slost/$this->mv_sdraw</td></tr>\n";
                 echo "<tr><td>".$lng->getTrn('common/wontours')."</td><td>$this->wt_cnt</td></tr>\n";            
@@ -479,7 +479,7 @@ private function _stats()
                 echo "<tr><td>".$lng->getTrn('profile/coach/teams_active')."</td><td>$row[teams_active]</td></tr>\n";
                 echo "<tr><td>".$lng->getTrn('profile/coach/teams_notready')."</td><td>$row[teams_notready]</td></tr>\n";
                 echo "<tr><td>".$lng->getTrn('profile/coach/teams_retired')."</td><td>$row[teams_retired]</td></tr>\n";
-                echo "<tr><td>".$lng->getTrn('profile/coach/avgteam_elo')."</td><td>".(($row['avg_elo']) ? sprintf("%1.2f", $row['avg_elo']) : '<i>N/A</i>')."</td></tr>\n";
+                echo "<tr><td>".$lng->getTrn('profile/coach/avgteam_elo')."</td><td>".(($row['avg_elo']) ? sprintf("%1.2f", $row['avg_elo']) : '<em>N/A</i>')."</td></tr>\n";
                 echo "<tr><td>".$lng->getTrn('profile/coach/avgteam_tv')."</td><td>$row[avg_tv]</td></tr>\n";
                 echo "<tr><td>".$lng->getTrn('profile/coach/avgteam_ff')."</td><td>$row[avg_ff]</td></tr>\n";
                 ?>
@@ -509,7 +509,7 @@ private function _stats()
                 echo "<tr><td>".$lng->getTrn('common/stat')."</td> <td>".$lng->getTrn('common/amount')."</td> <td>".$lng->getTrn('common/matchavg')."</td></tr>\n";
                 echo "<tr><td colspan='5'><hr></td></tr>\n";
                 foreach ($stats as $name => $d) {
-                    echo "<tr><td><i>$name</i></td>";
+                    echo "<tr><td><em>$name</i></td>";
                     echo "<td>".($this->{"mv_$d[0]"})."</td>";
                     echo "<td>".sprintf("%1.$d[1]f", $thisAVG->{"mv_$d[0]"})."</td>";
                     echo "</tr>\n";
@@ -527,7 +527,7 @@ private function _stats()
         ?>
         <div class="row">
             <div class="boxWide">
-                <div class="boxTitle<?php echo T_HTMLBOX_STATS;?>"><a href='javascript:void(0);' onClick="slideToggleFast('ES');"><b>[+/-]</b></a> &nbsp;<?php echo $lng->getTrn('common/extrastats'); ?></div>
+                <div class="boxTitle<?php echo T_HTMLBOX_STATS;?>"><a href='javascript:void(0);' onClick="slideToggleFast('ES');"><strong>[+/-]</strong></a> &nbsp;<?php echo $lng->getTrn('common/extrastats'); ?></div>
                 <div class="boxBody" id="ES">
                     <?php
                     HTMLOUT::generateEStable($this);

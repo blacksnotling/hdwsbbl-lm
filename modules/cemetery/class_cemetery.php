@@ -98,7 +98,7 @@ private static function printList($team,$ALLOW_EDIT)
                     <tr>
                         <td align="left" valign="top">
                             <?php 
-                            echo $lng->getTrn('died', __CLASS__)." ".textdate($e->date_died,true).' '.$lng->getTrn('after', __CLASS__).' <b>'.$e->lifetime.' '.$lng->getTrn('days', __CLASS__)."</b><br><br>";
+                            echo $lng->getTrn('died', __CLASS__)." ".textdate($e->date_died,true).' '.$lng->getTrn('after', __CLASS__).' <strong>'.$e->lifetime.' '.$lng->getTrn('days', __CLASS__)."</strong><br><br>";
                             echo $e->about;
                             ?>
                         </td>
@@ -135,9 +135,9 @@ private static function printList($team,$ALLOW_EDIT)
                             <div id="<?php echo $boxname;?>" style="display:none; clear:both;">
                                 <br>
                                 <form method="POST">
-                                    <?php echo "<b>".$lng->getTrn('g_title', __CLASS__).'</b> &mdash; '.$lng->getTrn('title', __CLASS__);?><br>
+                                    <?php echo "<strong>".$lng->getTrn('g_title', __CLASS__).'</strong> &mdash; '.$lng->getTrn('title', __CLASS__);?><br>
                                     <textarea name="title" cols="48" rows="1"><?php if ($ENTRY_EXISTS) { echo $e->title;}?></textarea><br><br>
-                                    <?php echo "<b>".$lng->getTrn('g_about', __CLASS__).'</b> &mdash; '.$lng->getTrn('about', __CLASS__);?><br>
+                                    <?php echo "<strong>".$lng->getTrn('g_about', __CLASS__).'</strong> &mdash; '.$lng->getTrn('about', __CLASS__);?><br>
                                     <textarea name="about" cols="48" rows="12"><?php if ($ENTRY_EXISTS) { echo $e->about;}?></textarea>
                                     <input type="hidden" name="action" value="edit">
                                     <input type="hidden" name="pid" value="<?php echo $e->pid;?>">

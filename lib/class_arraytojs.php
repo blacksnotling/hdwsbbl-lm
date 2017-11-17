@@ -8,7 +8,7 @@
 class array_to_js {
     var $js_arrays;
     function error ($message, $stop = true) {
-        echo "<b>array_to_js</b> - FATAL ERROR: ".$message;
+        echo "<strong>array_to_js</strong> - FATAL ERROR: ".$message;
         if ($stop) exit;
     }
     function add_array($myarray, $outputvarname, $level = 0) {

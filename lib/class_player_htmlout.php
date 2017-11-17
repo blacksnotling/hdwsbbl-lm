@@ -163,78 +163,78 @@ private function _about($ALLOW_EDIT)
             <div class="boxBody">
                 <table class="pbox">
                     <tr>
-                        <td><b><?php echo $lng->getTrn('common/name');?></b></td>
+                        <td><strong><?php echo $lng->getTrn('common/name');?></strong></td>
                         <td><?php echo "$p->name (#$p->nr)"; ?></td>
                     </tr>
                     <tr>
-                        <td><b><?php echo $lng->getTrn('common/pos');?></b></td>
+                        <td><strong><?php echo $lng->getTrn('common/pos');?></strong></td>
                         <td><?php echo $lng->getTrn('position/'.strtolower($lng->FilterPosition($p->position))); ?></td>
                     </tr>
                     <tr>
-                        <td><b><?php echo $lng->getTrn('common/team');?></b></td>
+                        <td><strong><?php echo $lng->getTrn('common/team');?></strong></td>
                         <td><a href="<?php echo urlcompile(T_URL_PROFILE,T_OBJ_TEAM,$p->owned_by_team_id,false,false);?>"><?php echo $p->f_tname; ?></a></td>
                     </tr>
                     <tr>
-                        <td><b><?php echo $lng->getTrn('common/bought');?></b></td>
+                        <td><strong><?php echo $lng->getTrn('common/bought');?></strong></td>
                         <td><?php echo $p->date_bought; ?></td>
                     </tr>
                     <tr>
-                        <td><b><?php echo $lng->getTrn('common/status');?></b></td>
+                        <td><strong><?php echo $lng->getTrn('common/status');?></strong></td>
                         <td>
                         <?php
                             if ($p->is_dead) {
-                                echo "<b><font color='red'>".$lng->getTrn('common/dead')."</font></b> ($p->date_died)";
+                                echo "<strong><font color='red'>".$lng->getTrn('common/dead')."</font></strong> ($p->date_died)";
                             }
                             elseif ($p->is_sold) {
-                                echo "<b>".$lng->getTrn('common/sold')."</b> ($p->date_sold)";
+                                echo "<strong>".$lng->getTrn('common/sold')."</strong> ($p->date_sold)";
                             }
                             else {
                                 global $T_INJS;
                                 $status = ucfirst(strtolower($T_INJS[$p->status]));
-                                echo ($status == 'none') ? '<b><font color="green">'.$lng->getTrn('common/ready').'</font></b>' : "<b><font color='blue'>$status</font></b>";
+                                echo ($status == 'none') ? '<strong><font color="green">'.$lng->getTrn('common/ready').'</font></strong>' : "<strong><font color='blue'>$status</font></strong>";
                             }
                         ?>
                         </td>
                     </tr>
                     <tr>
-                        <td><b><?php echo $lng->getTrn('common/value');?></b></td>
+                        <td><strong><?php echo $lng->getTrn('common/value');?></strong></td>
                         <td><?php echo $p->value/1000 .'k' ?></td>
                     </tr>
                     <tr>
-                        <td><b>SPP/extra</b></td>
+                        <td><strong>SPP/extra</strong></td>
                         <td><?php echo "$p->mv_spp/$p->extra_spp" ?></td>
                     </tr>
                     <?php
                     if (Module::isRegistered('Wanted')) {
                         ?>
                         <tr>
-                            <td><b>Wanted</b></td>
-                            <td><?php echo (Module::run('Wanted', array('isWanted', $p->player_id))) ? '<b><font color="red">Yes</font></b>' : 'No';?></td>
+                            <td><strong>Wanted</strong></td>
+                            <td><?php echo (Module::run('Wanted', array('isWanted', $p->player_id))) ? '<strong><font color="red">Yes</font></strong>' : 'No';?></td>
                         </tr>
                         <?php
                     }
                     if (Module::isRegistered('HOF')) {
                         ?>
                         <tr>
-                            <td><b>In HoF</b></td>
-                            <td><?php echo (Module::run('HOF', array('isInHOF', $p->player_id))) ? '<b><font color="green">Yes</font></b>' : 'No';?></td>
+                            <td><strong>In HoF</strong></td>
+                            <td><?php echo (Module::run('HOF', array('isInHOF', $p->player_id))) ? '<strong><font color="green">Yes</font></strong>' : 'No';?></td>
                         </tr>
                         <?php
                     }
                     ?>
                     <tr>
-                        <td><b><?php echo $lng->getTrn('common/played');?></b></td>
+                        <td><strong><?php echo $lng->getTrn('common/played');?></strong></td>
                         <td><?php echo $p->mv_played;?></td>
                     </tr>
                     <tr>
-                        <td><b>W/L/D</b></td>
+                        <td><strong>W/L/D</strong></td>
                         <td><?php echo "$p->mv_won/$p->mv_lost/$p->mv_draw"; ?></td>
                     </tr>
                     <?php
                     if (Module::isRegistered('SGraph')) {
                         ?>
                         <tr>
-                            <td><b>Vis. stats</b></td>
+                            <td><strong>Vis. stats</strong></td>
                             <td><?php echo "<a href='handler.php?type=graph&amp;gtype=".SG_T_PLAYER."&amp;id=$p->player_id''>".$lng->getTrn('common/view')."</a>\n";?></td>
                         </tr>
                         <?php
@@ -244,51 +244,51 @@ private function _about($ALLOW_EDIT)
                         <td colspan="2"><hr></td>
                     </tr>
                     <tr>
-                        <td><b>Ma</b></td>
+                        <td><strong>Ma</strong></td>
                         <td><?php echo $p->ma; ?></td>
                     </tr>
                     <tr>
-                        <td><b>St</b></td>
+                        <td><strong>St</strong></td>
                         <td><?php echo $p->st; ?></td>
                     </tr>
                     <tr>
-                        <td><b>Ag</b></td>
+                        <td><strong>Ag</strong></td>
                         <td><?php echo $p->ag; ?></td>
                     </tr>
                     <tr>
-                        <td><b>Av</b></td>
+                        <td><strong>Av</strong></td>
                         <td><?php echo $p->av; ?></td>
                     </tr>
                     <tr valign="top">
-                        <td><b><?php echo $lng->getTrn('common/skills');?></b></td>
-                        <td><?php echo (empty($p->skills)) ? '<i>'.$lng->getTrn('common/none').'</i>' : $p->skills; ?></td>
+                        <td><strong><?php echo $lng->getTrn('common/skills');?></strong></td>
+                        <td><?php echo (empty($p->skills)) ? '<em>'.$lng->getTrn('common/none').'</i>' : $p->skills; ?></td>
                     </tr>
                     <tr>
-                        <td><b><?php echo $lng->getTrn('common/injs');?></b></td>
-                        <td><?php echo (empty($p->injs)) ? '<i>'.$lng->getTrn('common/none').'</i>' : $p->injs; ?></td>
+                        <td><strong><?php echo $lng->getTrn('common/injs');?></strong></td>
+                        <td><?php echo (empty($p->injs)) ? '<em>'.$lng->getTrn('common/none').'</i>' : $p->injs; ?></td>
                     </tr>
                     <tr>
-                        <td><b>Cp</b></td>
+                        <td><strong>Cp</strong></td>
                         <td><?php echo $p->mv_cp; ?></td>
                     </tr>
                     <tr>
-                        <td><b>Td</b></td>
+                        <td><strong>Td</strong></td>
                         <td><?php echo $p->mv_td; ?></td>
                     </tr>
                     <tr>
-                        <td><b>Int</b></td>
+                        <td><strong>Int</strong></td>
                         <td><?php echo $p->mv_intcpt; ?></td>
                     </tr>
                     <tr>
-                        <td><b>BH/SI/Ki</b></td>
+                        <td><strong>BH/SI/Ki</strong></td>
                         <td><?php echo "$p->mv_bh/$p->mv_si/$p->mv_ki"; ?></td>
                     </tr>
                     <tr>
-                        <td><b>Cas</b></td>
+                        <td><strong>Cas</strong></td>
                         <td><?php echo $p->mv_cas; ?></td>
                     </tr>
                     <tr>
-                        <td><b>MVP</b></td>
+                        <td><strong>MVP</strong></td>
                         <td><?php echo $p->mv_mvp; ?></td>
                     </tr>
                 </table>
@@ -297,12 +297,12 @@ private function _about($ALLOW_EDIT)
         <div class="boxCommon">
             <div class="boxTitle<?php echo T_HTMLBOX_INFO;?>"><?php echo $lng->getTrn('profile/player/profile');?></div>
             <div class="boxBody">
-                <i><?php echo $lng->getTrn('common/picof');?></i><hr>
+                <em><?php echo $lng->getTrn('common/picof');?></i><hr>
                 <?php
                 ImageSubSys::makeBox(IMGTYPE_PLAYER, $p->player_id, $ALLOW_EDIT, false);
                 ?>
                 <br><br>
-                <i><?php echo $lng->getTrn('common/about');?></i><hr>
+                <em><?php echo $lng->getTrn('common/about');?></i><hr>
                 <?php
                 $txt = $p->getText();
                 if (empty($txt)) {
@@ -336,21 +336,21 @@ private function _achievements()
     ?>
     <div class="row">
         <div class="boxWide">
-            <div class="boxTitle<?php echo T_HTMLBOX_STATS;?>"><a href='javascript:void(0);' onClick="slideToggleFast('ach');"><b>[+/-]</b></a> &nbsp;<?php echo $lng->getTrn('common/ach');?></div>
+            <div class="boxTitle<?php echo T_HTMLBOX_STATS;?>"><a href='javascript:void(0);' onClick="slideToggleFast('ach');"><strong>[+/-]</strong></a> &nbsp;<?php echo $lng->getTrn('common/ach');?></div>
             <div class="boxBody" id="ach" style='display:none;'>
                 <table class="common">
                     <tr>
-                        <td><b><?php echo $lng->getTrn('common/type');?></b></td>
-                        <td><b><?php echo $lng->getTrn('common/tournament');?></b></td>
-                        <td><b><?php echo $lng->getTrn('common/opponent');?></b></td>
-                        <td><b>MVP</b></td>
-                        <td><b>Cp</b></td>
-                        <td><b>Td</b></td>
-                        <td><b>Int</b></td>
-                        <td><b>Cas</b></td>
-                        <td><b><?php echo $lng->getTrn('common/score');?></b></td>
-                        <td><b><?php echo $lng->getTrn('common/result');?></b></td>
-                        <td><b><?php echo $lng->getTrn('common/match');?></b></td>
+                        <td><strong><?php echo $lng->getTrn('common/type');?></strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/tournament');?></strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/opponent');?></strong></td>
+                        <td><strong>MVP</strong></td>
+                        <td><strong>Cp</strong></td>
+                        <td><strong>Td</strong></td>
+                        <td><strong>Int</strong></td>
+                        <td><strong>Cas</strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/score');?></strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/result');?></strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/match');?></strong></td>
                     </tr>
                     <?php
                     foreach (array('intcpt' => 'Interceptions', 'cp' => 'Completions', 'td' => 'Touchdowns', 'mvp' => 'MVP awards', 'bh+ki+si' => 'Cas') as $s => $desc) {
@@ -366,7 +366,7 @@ private function _achievements()
                                     echo '<td></td>';
                                 }
                                 else {
-                                    echo "<td><i>$desc: " . (($desc == 'Cas') ? $p->{"mv_cas"} : $p->{"mv_$s"}) . "</i></td>";
+                                    echo "<td><em>$desc: " . (($desc == 'Cas') ? $p->{"mv_cas"} : $p->{"mv_$s"}) . "</i></td>";
                                     $been_there = true;
                                 }
                                 ?>
@@ -400,18 +400,18 @@ private function _matchBest()
     ?>
     <div class="row">
         <div class="boxWide">
-            <div class="boxTitle<?php echo T_HTMLBOX_STATS;?>"><a href='javascript:void(0);' onClick="slideToggleFast('mbest');"><b>[+/-]</b></a> &nbsp;<?php echo $lng->getTrn('profile/player/best');?></div>
+            <div class="boxTitle<?php echo T_HTMLBOX_STATS;?>"><a href='javascript:void(0);' onClick="slideToggleFast('mbest');"><strong>[+/-]</strong></a> &nbsp;<?php echo $lng->getTrn('profile/player/best');?></div>
             <div class="boxBody" id="mbest">
                 <table class="common">
                     <tr>
-                        <td><b><?php echo $lng->getTrn('common/type');?></b></td>
-                        <td><b><?php echo $lng->getTrn('common/tournament');?></b></td>
-                        <td><b><?php echo $lng->getTrn('common/opponent');?></b></td>
-                        <td><b>Td</b></td>
-                        <td><b>Ki</b></td>
-                        <td><b><?php echo $lng->getTrn('common/score');?></b></td>
-                        <td><b><?php echo $lng->getTrn('common/result');?></b></td>
-                        <td><b><?php echo $lng->getTrn('common/match');?></b></td>
+                        <td><strong><?php echo $lng->getTrn('common/type');?></strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/tournament');?></strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/opponent');?></strong></td>
+                        <td><strong>Td</strong></td>
+                        <td><strong>Ki</strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/score');?></strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/result');?></strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/match');?></strong></td>
                     </tr>
                     <?php
                     foreach (array('td' => 'scorer', 'ki' => 'killer') as $s => $desc) {
@@ -428,7 +428,7 @@ private function _matchBest()
                                     echo '<td></td>';
                                 }
                                 else {
-                                    echo "<td><i>Top $desc: " . count($matches) . " times</i></td>";
+                                    echo "<td><em>Top $desc: " . count($matches) . " times</i></td>";
                                     $been_there = true;
                                 }
                                 ?>
@@ -459,7 +459,7 @@ private function _recentGames()
     ?>
     <div class="row">
         <div class="boxWide">
-            <div class="boxTitle<?php echo T_HTMLBOX_MATCH;?>"><a href='javascript:void(0);' onClick="slideToggleFast('played');"><b>[+/-]</b></a> &nbsp;<?php echo $lng->getTrn('common/recentmatches');?></div>
+            <div class="boxTitle<?php echo T_HTMLBOX_MATCH;?>"><a href='javascript:void(0);' onClick="slideToggleFast('played');"><strong>[+/-]</strong></a> &nbsp;<?php echo $lng->getTrn('common/recentmatches');?></div>
             <div class="boxBody" id="played">
                 <?php
                 HTMLOUT::recentGames(STATS_PLAYER, $p->player_id, false, false, false, false, array('n' => MAX_RECENT_GAMES, 'url' => urlcompile(T_URL_PROFILE,T_OBJ_PLAYER,$p->player_id,false,false)));
@@ -479,22 +479,22 @@ private function _injuryHistory()
     ?>
     <div class="row">
         <div class="boxWide">
-            <div class="boxTitle<?php echo T_HTMLBOX_STATS;?>"><a href='javascript:void(0);' onClick="slideToggleFast('injhist');"><b>[+/-]</b></a> &nbsp;<?php echo $lng->getTrn('profile/player/injhist');?></div>
+            <div class="boxTitle<?php echo T_HTMLBOX_STATS;?>"><a href='javascript:void(0);' onClick="slideToggleFast('injhist');"><strong>[+/-]</strong></a> &nbsp;<?php echo $lng->getTrn('profile/player/injhist');?></div>
             <div class="boxBody" id="injhist">
                 <table class="common">
                     <tr>
-                        <td><b><?php echo $lng->getTrn('common/injs');?></b></td>
-                        <td><b><?php echo $lng->getTrn('common/tournament');?></b></td>
-                        <td><b><?php echo $lng->getTrn('common/opponent');?></b></td>
-                        <td><b>MVP</b></td>
-                        <td><b>Cp</b></td>
-                        <td><b>Td</b></td>
-                        <td><b>Int</b></td>
-                        <td><b>Cas</b></td>
-                        <td><b><?php echo $lng->getTrn('common/score');?></b></td>
-                        <td><b><?php echo $lng->getTrn('common/result');?></b></td>
-                        <td><b><?php echo $lng->getTrn('common/dateplayed');?></b></td>
-                        <td><b><?php echo $lng->getTrn('common/match');?></b></td>
+                        <td><strong><?php echo $lng->getTrn('common/injs');?></strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/tournament');?></strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/opponent');?></strong></td>
+                        <td><strong>MVP</strong></td>
+                        <td><strong>Cp</strong></td>
+                        <td><strong>Td</strong></td>
+                        <td><strong>Int</strong></td>
+                        <td><strong>Cas</strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/score');?></strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/result');?></strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/dateplayed');?></strong></td>
+                        <td><strong><?php echo $lng->getTrn('common/match');?></strong></td>
                     </tr>
                     <?php
                     foreach (array_keys($injhist) as $mid) {
@@ -533,7 +533,7 @@ private function _ES()
     ?>
     <div class="row">
         <div class="boxWide">
-            <div class="boxTitle<?php echo T_HTMLBOX_STATS;?>"><a href='javascript:void(0);' onClick="slideToggleFast('ES');"><b>[+/-]</b></a> &nbsp;<?php echo $lng->getTrn('common/extrastats');?></div>
+            <div class="boxTitle<?php echo T_HTMLBOX_STATS;?>"><a href='javascript:void(0);' onClick="slideToggleFast('ES');"><strong>[+/-]</strong></a> &nbsp;<?php echo $lng->getTrn('common/extrastats');?></div>
             <div class="boxBody" id="ES" style='display:none;'>
                 <?php
                 HTMLOUT::generateEStable($this);

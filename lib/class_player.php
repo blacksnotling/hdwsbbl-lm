@@ -668,7 +668,7 @@ class Player
         if ($this->ach_av > 0) array_push($chrs, "+$this->ach_av Av");
 
         $defs = skillsTrans($this->def_skills);
-        if ($HTML) { $defs = array_strpack('<i>%s</i>', $defs); }
+        if ($HTML) { $defs = array_strpack('<em>%s</i>', $defs); }
         $skillstr = array_merge($defs, skillsTrans(array_merge($this->ach_nor_skills, $this->ach_dob_skills)));
         return implode(', ', array_merge($skillstr, $extras, $chrs));
     }

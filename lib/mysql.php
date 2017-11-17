@@ -573,21 +573,21 @@ function mysql_up($do_table_check = false) {
     $conn = mysql_connect($db_host, $db_user, $db_passwd);
 
     if (!$conn)
-        die("<font color='red'><b>Could not connect to the MySQL server.
+        die("<font color='red'><strong>Could not connect to the MySQL server.
             <ul>
                 <li>Is the MySQL server running?</li>
-                <li>Are the settings in <i>settings.php</i> correct?</li>
+                <li>Are the settings in <em>settings.php</i> correct?</li>
                 <li>Is PHP set up correctly?</li>
-            </ul></b></font>");
+            </ul></strong></font>");
 
     if (!mysql_select_db($db_name))
-        die("<font color='red'><b>Could not select the database '$db_name'</b><br><br>
+        die("<font color='red'><strong>Could not select the database '$db_name'</strong><br><br>
             Please make sure that:
             <ul>
                 <li>The database '$db_name' exists &mdash; you have to create it yourself!</li>
                 <li>The database user '$db_user' can use the database '$db_name'.</li>
             </ul>
-            Please confirm the settings in the <i>settings.php</i> file and try running the install script again.</font>");
+            Please confirm the settings in the <em>settings.php</i> file and try running the install script again.</font>");
 
     // Test if all tables exist.
     if ($do_table_check) {
@@ -601,8 +601,8 @@ function mysql_up($do_table_check = false) {
         }
         $tables_diff = array_diff($tables_expected, $tables_found);
         if (count($tables_diff) > 0) {
-            die("<font color='red'><b>Could not find all the expected tables in database '$db_name'</b>.<br><br>Did you run the install/upgrade script?<br><br>
-                Tables missing:<br><br><i>". implode('<br>', $tables_diff) ."</i>
+            die("<font color='red'><strong>Could not find all the expected tables in database '$db_name'</strong>.<br><br>Did you run the install/upgrade script?<br><br>
+                Tables missing:<br><br><em>". implode('<br>', $tables_diff) ."</i>
                 </font>");
         }
     }
@@ -717,7 +717,7 @@ function setup_database() {
     require_once('lib/class_sqlcore.php');
 
     // Create core tables.
-    echo "<b>Creating core tables...</b><br>\n";
+    echo "<strong>Creating core tables...</strong><br>\n";
     foreach ($core_tables as $tblName => $def) {
         echo (Table::createTable($tblName, $def))
             ? "<font color='green'>OK &mdash; $tblName</font><br>\n"
@@ -725,7 +725,7 @@ function setup_database() {
     }
 
     // Create tables used by modules.
-    echo "<b>Creating module tables...</b><br>\n";
+    echo "<strong>Creating module tables...</strong><br>\n";
     foreach (Module::createAllRequiredTables() as $module => $tables) {
         foreach ($tables as $name => $tblStat) {
             echo ($tblStat)
@@ -734,7 +734,7 @@ function setup_database() {
         }
     }
 
-    echo "<b>Other tasks...</b><br>\n";
+    echo "<strong>Other tasks...</strong><br>\n";
 
     echo (SQLCore::syncGameData())
         ? "<font color='green'>OK &mdash; Synchronize game data with database</font><br>\n"
@@ -807,7 +807,7 @@ function upgrade_database($version, $opts, $upgradeSQLs)
     }
 
     // Modules
-    echo "<b>Running SQLs for modules upgrade...</b><br>\n";
+    echo "<strong>Running SQLs for modules upgrade...</strong><br>\n";
     foreach (Module::getAllUpgradeSQLs($version) as $modname => $SQLs) {
         if (empty($SQLs))
             continue;
@@ -819,7 +819,7 @@ function upgrade_database($version, $opts, $upgradeSQLs)
     }
 
     // Core
-    echo "<b>Running tasks for core system upgrade...</b><br>\n";
+    echo "<strong>Running tasks for core system upgrade...</strong><br>\n";
 
     if (isset($upgradeSettings[$version]) && $upgradeSettings[$version]['sync_gamedata']) {
         echo (SQLCore::syncGameData())
@@ -843,7 +843,7 @@ function upgrade_database($version, $opts, $upgradeSQLs)
 		$core_Funcs = $upgradeFuncs[$version];
 		$status = true;
 		foreach ($core_Funcs as $func) { $status &= call_user_func($func);}
-		echo ($status) ? "<font color='green'>OK &mdash; Custom PHP upgrade code (<i>".implode(', ',$core_Funcs)."</i>)</font><br>\n" : "<font color='red'>FAILED &mdash; Custom PHP upgrade code</font><br>\n";
+		echo ($status) ? "<font color='green'>OK &mdash; Custom PHP upgrade code (<em>".implode(', ',$core_Funcs)."</i>)</font><br>\n" : "<font color='red'>FAILED &mdash; Custom PHP upgrade code</font><br>\n";
     }
 
     if (isset($upgradeSettings[$version]) && $upgradeSettings[$version]['syncall']) {
