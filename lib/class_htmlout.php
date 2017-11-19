@@ -963,6 +963,14 @@ public static function frame_end()
                 <!-- Pseudo container to force parent container to have the correct height for (potential) floating children -->
                 <div style="clear: both;"></div>
             </div> <!-- End of section div -->
+            <div class="main_foot">
+                <?php
+                HTMLOUT::dnt();
+                ?>
+                <p>Site based on <a TARGET="_blank" href="http://nicholasmr.dk/index.php?sec=obblm">OBBLM</a></p>
+                <p>This web site is completely unofficial and in no way endorsed by Games Workshop Limited.</p>
+                <p>Bloodquest, Blood Bowl, the Blood Bowl logo, The Blood Bowl Spike Device, Chaos, the Chaos device, the Chaos logo, Games Workshop, Games Workshop logo, Nurgle, the Nurgle device, Skaven, Tomb Kings, and all associated marks, names, races, race insignia, characters, vehicles, locations, units, illustrations and images from the Blood Bowl game, the Warhammer world are either (R), TM and/or (C) Games Workshop Ltd 2000-2006, variably registered in the UK and other countries around the world. Used without permission. No challenge to their status intended. All Rights Reserved to their respective owners.</p>
+            </div>
         </div> <!-- End of everything div -->
     </body>
     </html>
