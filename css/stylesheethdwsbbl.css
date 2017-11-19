@@ -136,17 +136,17 @@ div.section p {
   line-height: 160%;
   padding: 1em;
 }
+div.main_leftColumn div.boxWide, div.main_rightColumn div.boxWide, div.main_leftColumn_head, div.boxWide {
+  background-color: #f3f3f3;
+  margin-bottom: 0.6em;
+  padding: 8px 10px;
+}
 /***** Main Content *****/
 div.main_leftColumn {
 	text-align: justify;
 	width: 530px;
 	float: left;
   padding-top: 1em;
-}
-div.main_leftColumn div.boxWide, div.main_rightColumn div.boxWide, div.main_leftColumn_head {
-  background-color: #f3f3f3;
-  margin-bottom: 0.6em;
-  padding: 8px 10px;
 }
 
 
