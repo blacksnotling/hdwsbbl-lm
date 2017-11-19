@@ -171,7 +171,6 @@ function sec_main() {
      */
 
     ?>
-    <div class="main_head"><?php echo $settings['league_name']; ?></div>
     <div class='main_leftColumn'>
         <div class="main_leftColumn_head">
             <?php
@@ -542,13 +541,9 @@ function sec_main() {
         <?php
         HTMLOUT::dnt();
         ?>
-        <br>
-        <a TARGET="_blank" href="http://nicholasmr.dk/index.php?sec=obblm">OBBLM official website</a><br><br>
-        This web site is completely unofficial and in no way endorsed by Games Workshop Limited.
-        <br>
-        Bloodquest, Blood Bowl, the Blood Bowl logo, The Blood Bowl Spike Device, Chaos, the Chaos device, the Chaos logo, Games Workshop, Games Workshop logo, Nurgle, the Nurgle device, Skaven, Tomb Kings, and all associated marks, names, races, race insignia, characters, vehicles, locations, units, illustrations and images from the Blood Bowl game, the Warhammer world are either (R), TM and/or (C) Games Workshop Ltd 2000-2006, variably registered in the UK and other countries around the world. Used without permission. No challenge to their status intended. All Rights Reserved to their respective owners.
-        <br>
-        FUMBBL icons are used with permission.  See 'about OBBLM' for credits.
+        <p>Site based on <a TARGET="_blank" href="http://nicholasmr.dk/index.php?sec=obblm">OBBLM</a></p>
+        <p>This web site is completely unofficial and in no way endorsed by Games Workshop Limited.</p>
+        <p>Bloodquest, Blood Bowl, the Blood Bowl logo, The Blood Bowl Spike Device, Chaos, the Chaos device, the Chaos logo, Games Workshop, Games Workshop logo, Nurgle, the Nurgle device, Skaven, Tomb Kings, and all associated marks, names, races, race insignia, characters, vehicles, locations, units, illustrations and images from the Blood Bowl game, the Warhammer world are either (R), TM and/or (C) Games Workshop Ltd 2000-2006, variably registered in the UK and other countries around the world. Used without permission. No challenge to their status intended. All Rights Reserved to their respective owners.</p>
     </div>
     <?php
 }

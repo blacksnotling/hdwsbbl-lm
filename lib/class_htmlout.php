@@ -879,7 +879,8 @@ public static function frame_begin($menu = true)
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
         <title><?php echo $settings['site_name']; ?></title>
-        <link type="text/css" href="css/stylesheet<?php echo $settings['stylesheet']; ?>.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+        <link type="text/css" href="css/stylesheet<?php echo $settings['stylesheet']; ?>.css?now" rel="stylesheet">
         <link type="text/css" href="css/league_override_<?php echo self::getSelectedNodeLidOrDefault(); ?>.css" rel="stylesheet">
         <link rel="alternate" type="application/rss+xml" title="RSS Feed"href="rss.xml">
         <script type="text/javascript" src="lib/misc_functions.js"></script>
@@ -910,10 +911,9 @@ public static function frame_begin($menu = true)
     </head>
     <body>
         <div class="everything">
-            <div class="banner">
-            <f0> </f0><br><br><br>
-            <f1><?php echo $settings['banner_title']; ?></f1><br>
-            <f2><?php echo $settings['banner_subtitle']; ?></f2></div>
+          <div class="banner">
+            <h1><?php echo $settings['banner_title']; ?></h1>
+          </div>
             <div class="menu">
                 <?php if ($menu) {HTMLOUT::make_menu();} ?>
             </div> <!-- Menu div end -->
@@ -933,7 +933,7 @@ public static function frame_begin($menu = true)
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
         <title><?php echo $settings['site_name']; ?></title>
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/themes/smoothness/jquery-ui.css">
-        <link type="text/css" href="css/stylesheet<?php echo $settings['stylesheet']; ?>.css" rel="stylesheet">
+        <link type="text/css" href="css/stylesheet<?php echo $settings['stylesheet']; ?>.css?now" rel="stylesheet">
         <link type="text/css" href="css/league_override_<?php echo self::getSelectedNodeLidOrDefault(); ?>.css" rel="stylesheet">
         <script type="text/javascript" src="lib/misc_functions.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
