@@ -23,7 +23,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
 <common>
     <notitle>Enter title here</notitle>
     <nobody>--Empty body--</nobody>
-    
+
     <submit>Submit</submit>
     <save>Save</save>
     <create>Create</create>
@@ -73,13 +73,13 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <journeyman>Journeyman</journeyman>
     <options>Options</options>
     <empty>empty</empty>
-    
+
     <needhelp>Need help?</needhelp>
     <picof>Picture of</picof>
     <about>About</about>
-    
-    <recentmatches>Recent matches</recentmatches>
-    <upcomingmatches>Upcoming matches</upcomingmatches>
+
+    <recentmatches>Recent Results</recentmatches>
+    <upcomingmatches>Fixtures</upcomingmatches>
     <dateplayed>Date played</dateplayed>
     <datecreated>Date created</datecreated>
     <date>Date</date>
@@ -88,16 +88,16 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <score>Score</score>
     <gate>Gate</gate>
     <result>Result</result>
-    
+
     <starhh>Star Hire History</starhh>
     <merchh>Mercenary Hire History</merchh>
-    
+
     <match>Match</match>
     <round>Round</round>
-    <tournament>Tournament</tournament>
-    <division>Division</division>
+    <tournament>Competition</tournament>
+    <division>Season</division>
     <league>League</league>
-    
+
     <player>Player</player>
     <players>Players</players>
     <team>Team</team>
@@ -111,15 +111,15 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
 
     <roster>Roster</roster>
     <availablestars>Available Star Players</availablestars>
-    
+
     <won>Won</won>
     <lost>Lost</lost>
-    <draw>Draw</draw>
+    <draw>Tie</draw>
     <streaks>Streaks</streaks>
     <played>Played</played>
     <playedtours>Tours played</playedtours>
     <wontours>Won tours</wontours>
-    
+
     <ma>Ma</ma>
     <st>St</st>
     <ag>Ag</ag>
@@ -128,7 +128,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <dead>Dead</dead>
     <sold>Sold</sold>
     <bought>Bought</bought>
-    
+
     <td>Touchdowns</td>
     <intcpt>Interceptions</intcpt>
     <cp>Completions</cp>
@@ -137,16 +137,16 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <si>Seriously injured</si>
     <cas>Cacualties</cas>
     <mvp>Most valuable players</mvp>
-    
+
     <pms>Display match average stats</pms>
     <ats>Display all-time stats </ats>
     <uploadnew>Upload new image</uploadnew>
     <notice_simul><![CDATA[<em>Note</i>: Both tables below are sorted simultaneously.]]></notice_simul>
     <notice_spp><![CDATA[<em>Note</i>: <strong>If</strong> star players could earn SPP they would have the amount correspondng to the SPP column.]]></notice_spp>
     <sortedagainst>Sorted against</sortedagainst>
-    
+
     <confirm_box>Are you sure?</confirm_box>
-    
+
     <!-- nodeSelector() -->
     <displayfrom>Display from</displayfrom>
     <type>Type</type>
@@ -154,19 +154,19 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
         <alltime>All-time</alltime>
     <sgrp>Stats group</sgrp>
     <having>Having</having>
-    
+
     <!-- ES -->
     <extrastats>Extra stats</extrastats>
     <stat>Stat</stat>
     <!-- use "all-time" string from nodeSelect() translation -->
     <matchavg><![CDATA[Match&nbsp;avg.]]></matchavg> <!-- "Match avg." -->
-    
+
     <english>English</english>
     <spanish>Spanish</spanish>
     <german>German</german>
     <french>French</french>
     <italian>Italian</italian>
-    
+
 </common>
 
 <!-- Link names for menu elements -->
@@ -181,7 +181,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
         <name>Matches</name>
         <tours>Tournaments</tours>
         <recent>Recent matches</recent>
-        <upcoming>Upcoming matches</upcoming>
+        <upcoming>Fixtures</upcoming>
         <usersched>Schedule match</usersched>
     </matches_menu>
     <statistics_menu>
@@ -194,7 +194,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     </statistics_menu>
     <admin_menu>
         <name>Admin</name>
-        <nodes>Leagues, divisions &amp; tournaments</nodes>
+        <nodes>Leagues, Seasons &amp; Competitions</nodes>
         <ct_man>Coaches &amp; teams management</ct_man>
         <usr_man>User management</usr_man>
         <import>Import team</import>
@@ -202,7 +202,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
         <cpanel>OBBLM core panel</cpanel>
     </admin_menu>
     <plugins>Plugins</plugins>
-    
+
     <rules>Rules</rules>
     <forum>Forum</forum>
 </menu>
@@ -217,7 +217,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
         <resetpasswdmail>You should receive an email shortly</resetpasswdmail>
         <mismatch>Mismatch between login name and mail address</mismatch>
         <temppasswd>Your password has temporarily been set to:</temppasswd>
-        <setnewpasswd>Please click here to change your password</setnewpasswd>
+        <setnewpasswd>Click here to change your password</setnewpasswd>
 </login>
 
 <main>
@@ -241,7 +241,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
 
     <coach_teams>Coach's teams</coach_teams>
 
-    <profile>Profile</profile>        
+    <profile>Profile</profile>
         <photo>Coach picture</photo>
         <coach_info>Coach information</coach_info>
             <note_persinfo>Personal information is only available to logged in users.</note_persinfo>
@@ -279,38 +279,38 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
         <best>Match best</best>
         <injhist>Injury history</injhist>
     </player>
-    
+
     <team>
         <!-- sub secs. -->
-        
+
         <viewtoggle>Toggle roster view</viewtoggle>
-        
+
         <!-- Team management sec. -->
         <tmanage>Management &amp; Stats</tmanage>
-        
+
         <!-- About sec. -->
             <logo>Team's logo</logo>
             <stad>Team's stadium</stad>
 
-        <!-- News sec. -->            
+        <!-- News sec. -->
         <news>News</news>
             <tnews>Team news</tnews>
             <wnews>Write news</wnews>
             <nonews>No entries exist</nonews>
-        
+
         <!-- Games sec. -->
         <games>Recent &amp; Coming Games</games>
-        
+
         <!-- Star/merc HH secs. -->
-        
+
         <!-- For the three team page boxes -->
 
         <box_info>
             <title>Team info and statistics</title>
-            
+
             <ltour><![CDATA[Latest&nbsp;tour]]></ltour>
         </box_info>
-        
+
         <box_tm>
             <title>Team management</title>
 
@@ -351,7 +351,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
                 <delete> <![CDATA[ Delete team.<br>For the sake of keeping league statistics intact you are not allowed to delete teams which have played matches. The deletion takes effect immediately, but will first be visible on <strong>next page reload</strong>. ]]> </delete>
             </desc>
         </box_tm>
-        
+
         <box_admin>
             <title>Admin tools</title>
 
@@ -393,11 +393,11 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
         <showhidden>Show hidden nodes</showhidden>
         <!-- none used - all are in "common". -->
     </tours>
-    
+
     <usersched>
         <selecttour>Select a tournament</selecttour>
     </usersched>
-    
+
     <tourmatches>
         <roundtypes>
             <final>Final</final>
@@ -419,25 +419,25 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
             <rnd11>Round 11</rnd11>
             <rnd12>Round 12</rnd12>
         </roundtypes>
-        
+
         <matchdelete><![CDATA[Are you sure you want to delete the match?\n\nPLEASE NOTE:\nUnless the match has not yet been played this action is not reversible and will affect the contents of the subsequent match reports for both teams.\nIt is advised against deleting non-test matches unless you know what you are doing.]]></matchdelete>
         <reset_notice><![CDATA[Are you sure you want to reset the match?\n\nPLEASE NOTE:\nResetting a match clears all match data.\nResetting a match in which one, or both, of the competing teams have played subsequent matches may result in incorrect player states in the match reports of the subsequent matches.]]></reset_notice>
     </tourmatches>
 
     <!-- Subsection: match report(s) -->
     <report>
-        
+
         <!-- General -->
         <clickforhelp>Need help?</clickforhelp>
         <notplayed>Not yet played</notplayed>
         <report>report</report>
         <chround>Change round</chround>
-        
+
         <!-- Subsecs of team page -->
         <info>Game information</info>
             <stadium>Stadium</stadium>
             <fans>Fans (RL spectators)</fans>
-            
+
         <results>Game results</results>
             <treas>Treasury</treas>
             <ff>Fan factor</ff>
@@ -446,7 +446,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
             <tcas>Total team CAS</tcas>
             <fame>FAME</fame>
             <tv>TVs</tv>
-            
+
         <summary>Game summary</summary>
         <usedjourney>Match cannot be saved until you decide the fate of the used journeymen on the team roster page</usedjourney>
 
@@ -510,7 +510,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
                 <new_tour>A new FFA tournament</new_tour>
             <as_type>Match type</as_type>
     </schedule>
-    
+
     <nodes>
         <errors>
             <league_already_exists>There is already a league by that name.</league_already_exists>
@@ -640,12 +640,12 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
   <ratogre>Rat Ogre</ratogre>
 
   <wardancer>War Dancer</wardancer>
-  
+
   <pitfighter>Pit Fighter</pitfighter>
   <bloodletterdaemon>Bloodletter Daemon</bloodletterdaemon>
   <khorneherald>Khorne Herald</khorneherald>
   <bloodthirster>Bloodthirster</bloodthirster>
-  
+
   <bonobo>Bonobo</bonobo>
   <orangutan>Orangutan</orangutan>
   <gorilla>Gorilla</gorilla>
@@ -794,7 +794,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <willowrosebark>Willow Rosebark</willowrosebark>
     <zaratheslayer>Zara the Slayer</zaratheslayer>
     <zzhargmadeye>Zzharg Madeye</zzhargmadeye>
-    
+
     <bilerotvomitflesh>Bilerot Vomitflesh</bilerotvomitflesh>
     <franknstein>Frank N Stein</franknstein>
     <rastatailspike>Rasta Tailspike</rastatailspike>
@@ -836,7 +836,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
 <common>
     <notitle>Introduce el título aquí</notitle>
     <nobody>--Cuerpo vacio--</nobody>
-    
+
     <submit>Enviar</submit>
     <save>Salvar</save>
     <create>Crear</create>
@@ -883,11 +883,11 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <journeyman>Independientes</journeyman>
     <options>Opciones</options>
     <empty>Vacío</empty>
-    
+
     <needhelp>¿Necesitas ayuda?</needhelp>
     <picof>Imagen de</picof>
     <about>Sobre el equipo</about>
-    
+
     <recentmatches>Partidos recientes</recentmatches>
     <upcomingmatches>Próximos partidos</upcomingmatches>
     <dateplayed>Fecha de juego</dateplayed>
@@ -898,16 +898,16 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <score>Tanteo</score>
     <gate>Entrada</gate>
     <result>Resultado</result>
-    
+
     <starhh>Registro de Estrellas</starhh>
     <merchh>Registro de Mercenarios</merchh>
-    
+
     <match>Partido</match>
     <round>Ronda</round>
     <tournament>Torneo</tournament>
     <division>División</division>
     <league>Liga</league>
-    
+
     <player>Jugador</player>
     <players>Jugadores</players>
     <team>Equipo</team>
@@ -918,7 +918,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <races>Razas</races>
     <star>Estrella</star>
     <stars>Estrellas</stars>
-    
+
     <won>Ganados</won>
     <lost>Perdidos</lost>
     <draw>Empates</draw>
@@ -926,7 +926,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <played>Jugados</played>
     <playedtours>Torneos jugados</playedtours>
     <wontours>Torneos ganados</wontours>
-    
+
     <ready>Listo</ready>
     <dead>Muerto</dead>
     <sold>Vendido</sold>
@@ -940,7 +940,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <si>Heridos Graves</si>
     <cas>Bajas</cas>
     <mvp>Mejor Jugador del Encuentro</mvp>
-    
+
     <pms>Mostrar estadísticas medias por partido</pms>
     <ats>Mostrar estadísticas totales </ats>
     <uploadnew>Subir nueva imagen</uploadnew>
@@ -963,8 +963,8 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <stat>Estadística</stat>
     <!-- use "all-time" string from nodeSelect() translation -->
     <matchavg><![CDATA[Media&nbsp;por partido.]]></matchavg> <!-- "Match avg." -->
-        
-    
+
+
 </common>
 
 <!-- Link names for menu elements -->
@@ -999,7 +999,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
         <cpanel>Panel central de OBBLM</cpanel>
     </admin_menu>
     <plugins>Plugins</plugins>
-    
+
     <rules>Reglas</rules>
     <forum>Foro</forum>
 </menu>
@@ -1038,7 +1038,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
 
     <coach_teams>Tus Equipos</coach_teams>
 
-    <profile>Perfil</profile>        
+    <profile>Perfil</profile>
         <photo>Foto del entrenador</photo>
         <coach_info>Información del entrenador</coach_info>
             <note_persinfo>La información personal solo es visible para usuarios conectados.</note_persinfo>
@@ -1072,44 +1072,44 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
 
 
     <player>
-        <about>Sobre el jugador</about>        
-        <profile>Perfil de jugador</profile>        
+        <about>Sobre el jugador</about>
+        <profile>Perfil de jugador</profile>
         <best>Mejor partido</best>
         <injhist>Historial de heridas</injhist>
     </player>
-    
+
     <team>
         <!-- sub secs. -->
-        
+
         <viewtoggle>Cambiar vista de la plantilla</viewtoggle>
-        
+
         <!-- Team management sec. -->
         <tmanage>Gestión &amp; Estadísticas</tmanage>
-        
+
         <!-- About sec. -->
             <logo>Logo del equipo</logo>
             <stad>Estadio del equipo</stad>
 
-        <!-- News sec. -->            
+        <!-- News sec. -->
         <news>Noticias</news>
             <tnews>Noticias del equipo</tnews>
             <wnews>Escribir noticias</wnews>
             <nonews>No hay entradas</nonews>
-        
+
         <!-- Games sec. -->
         <games>Partidos</games>
-        
+
         <!-- Star/merc HH secs. -->
-        
+
         <!-- For the three team page boxes -->
 
         <box_info>
             <title>Información y estadísticas del equipo</title>
-           
+
             <ltour><![CDATA[Torneo&nbsp;más reciente]]></ltour>
-           
+
         </box_info>
-        
+
         <box_tm>
             <title>Gestión de equipo</title>
 
@@ -1125,7 +1125,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
             <ready_state>Marcar "equipo disponible"</ready_state>
             <retire>Retirar equipo</retire>
             <delete>Borrar equipo</delete>
-            
+
  <!-- Strings used within action boxes -->
             <fdescs>
                 <thing>Bien</thing>
@@ -1133,7 +1133,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
                 <retire>¿Retirar equipo?</retire>
                 <suredeleteteam>¿Estás seguro de que quieres borrar este equipo?</suredeleteteam>
             </fdescs>
-            
+
             <desc>
                 <hire_player> <![CDATA[ Contratar un nuevo jugador.<br> Contratar a un jugador como independiente es gratis, pero solo puedes contratar independientes de la  posición que permite 0-16 jugadores de tu lista de equipo. ]]> </hire_player>
                 <hire_journeyman> <![CDATA[ Contrata permanentemente a uno de tus independientes. ]]> </hire_journeyman>
@@ -1150,7 +1150,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
                 <delete> <![CDATA[ Borrar equipo.<br>Para mantener la integridad de las estadísticas, no se permite borrar equipos que hayan jugado partidos. El borrado tiene efecto inmediato, pero será visible por primera vez <strong>al recargar la página</strong>. ]]> </delete>
             </desc>
         </box_tm>
-        
+
         <box_admin>
             <title>Herramientas de administrador</title>
 
@@ -1217,25 +1217,25 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
             <rnd11>Ronda 11</rnd11>
             <rnd12>Ronda 12</rnd12>
         </roundtypes>
-        
+
         <matchdelete><![CDATA[¿Estás seguro de que quieres borrar el partido?\n\nAVISO:\nA no ser que el partido no haya sido jugado aún, esta acción es irreversible y afectará al contenido de las subsiguientes actas de partido de ambos equipos.\nSe recomienda no borrar partidos a no ser que sean para testear o sepas bien lo que estas haciendo.]]></matchdelete>
         <reset_notice><![CDATA[¿Estás seguro de que quieres resetear el partido?\n\nAVISO:\nResetear un partido borra el acta del mismo.\nResetear un partido en el que uno o ambos de los equipos participantes han jugado partidos subsiguientes puede generar errores en los estados de los jugadores en las actasde los siguientes partidos.]]></reset_notice>
     </tourmatches>
 
     <!-- Subsection: match report(s) -->
     <report>
-        
+
         <!-- General -->
         <clickforhelp>Necesitas ayuda?</clickforhelp>
         <notplayed>Aun no jugado</notplayed>
         <report>Acta</report>
         <chround>Cambiar ronda</chround>
-        
+
         <!-- Subsecs of team page -->
         <info>Información del Partido</info>
             <stadium>Estadio</stadium>
             <fans>Fans (Espectadores de carne y hueso)</fans>
-            
+
         <results>Resultados del partido</results>
             <treas>Tesorería</treas>
             <ff>Factor de hinchas</ff>
@@ -1244,7 +1244,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
             <tcas>Bajas totales causadas</tcas>
             <fame>FAMA</fame>
             <tv>VE</tv>
-            
+
         <summary>Resumen del partido</summary>
         <usedjourney>El partido no puede guardarse hasta que no decidas el destino de los independientes usados en la página del equipo</usedjourney>
 
@@ -1428,12 +1428,12 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
   <ratogre>Rata Ogro</ratogre>
 
   <wardancer>Bailarín Guerrero</wardancer>
-  
+
   <pitfighter>Luchador del Pozo</pitfighter>
   <bloodletterdaemon>Desangradador</bloodletterdaemon>
   <khorneherald>Heraldo de Khorne</khorneherald>
   <bloodthirster>Devorador de Almas</bloodthirster>
-  
+
   <bonobo>Bonobo</bonobo>
   <orangutan>Orangután</orangutan>
   <gorilla>Gorila</gorilla>
@@ -1581,12 +1581,12 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <willowrosebark>Willow Pielderosa</willowrosebark>
     <zaratheslayer>Zara la Cazadora</zaratheslayer>
     <zzhargmadeye>Zzharg Ojorrabioso</zzhargmadeye>
-        
+
     <bilerotvomitflesh>Bilerot Vomitflesh</bilerotvomitflesh>
     <franknstein>Frank N Stein</franknstein>
     <rastatailspike>Rasta Tailspike</rastatailspike>
     <gufflepusmaw>Guffle Pusmaw</gufflepusmaw>
-    
+
 </starplayer>
 
 <daysofweek>
@@ -1622,7 +1622,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
 <common>
     <notitle>Hier den Titel eingeben</notitle>
     <nobody>--Leer--</nobody>
-    
+
     <submit>Absenden</submit>
     <save>Speichern</save>
     <create>Anlegen</create>
@@ -1664,12 +1664,12 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <price>Preis</price>
     <number>Nummer</number>
     <opponent>Gegner</opponent>
-    
+
     <needhelp>Hilfe?</needhelp>
     <picof>Bild von</picof>
 
     <about>Über</about>
-    
+
     <recentmatches>Letzte Begegnungen</recentmatches>
     <upcomingmatches>Nächste Begegnungen</upcomingmatches>
     <dateplayed>Spieldatum</dateplayed>
@@ -1679,15 +1679,15 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <score>Score</score>
     <gate>Zuschauer</gate>
     <result>Ergebnis</result>
-    
+
     <starhh>Historie angeheuerter Starspieler</starhh>
     <merchh>Historie angeheuerter Söldner</merchh>
-    
+
     <match>Begegnung</match>
     <tournament>Turnier</tournament>
     <division>Division</division>
     <league>Liga</league>
-    
+
     <player>Spieler</player>
     <players>Spieler</players>
     <team>Mannschaft</team>
@@ -1698,10 +1698,10 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <races>Rassen</races>
     <star>Star</star>
     <stars>Stars</stars>
-    
+
     <roster>Spielerpositionen</roster>
-    <availablestars>Verfügbare Starspieler</availablestars>    
-    
+    <availablestars>Verfügbare Starspieler</availablestars>
+
     <won>Gewonnen</won>
     <lost>Verloren</lost>
     <draw>Unentschieden</draw>
@@ -1718,7 +1718,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <dead>Tot!</dead>
     <sold>Verkauft</sold>
     <bought>Gekauft</bought>
-    
+
     <td>Touchdowns</td>
     <intcpt>Abgefangene Pässe (INT)</intcpt>
     <cp>Gelungene Pässe (COMP)</cp>
@@ -1727,14 +1727,14 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <si>Schwere Verletzungen (SI)</si>
     <cas>Verursachte Spielerausfälle (CAS)</cas>
     <mvp>Spieler des Tages (MVP)</mvp>
-    
+
     <pms>Durchschnittliche Statistiken zu Begegnungen</pms>
     <ats>All-time Statistiken anzeigen</ats>
     <uploadnew>Neues Bild hochladen</uploadnew>
     <notice_simul><![CDATA[<em>Beachte</i>: Beide folgenden Tabellen werden gleichzeitig sortiert.]]></notice_simul>
     <notice_spp><![CDATA[<em>Beachte</i>: <strong>Wenn</strong> Star Player SPP verdienen könnten, hätten sie soviele wie in der Spalte SPP.]]></notice_spp>
     <sortedagainst>Sortiert nach</sortedagainst>
-    
+
     <!-- nodeSelector() -->
     <displayfrom>Anzeigen ab</displayfrom>
     <type>Typ</type>
@@ -1742,15 +1742,15 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
         <alltime>All-Time</alltime>
     <sgrp>Statistik Gruppierung</sgrp>
     <having>Sortiert nach</having>
-    
+
     <!-- ES -->
     <extrastats>Extra Statistiken</extrastats>
     <stat>Statistiken</stat>
     <!-- use "all-time" string from nodeSelect() translation -->
     <matchavg><![CDATA[Durchschnitt der Begegnung]]></matchavg> <!-- "Match avg." -->
-    
+
 </common>
-    
+
 <skill>
     <weepingblades>Triefender Dolch</weepingblades>
     <timmmber>Baum fällt!</timmmber>
@@ -1790,7 +1790,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
         <cpanel>OBBLM Kernbereich</cpanel>
     </admin_menu>
     <plugins>Plugins</plugins>
-    
+
     <rules>Regeln</rules>
     <forum>Forum</forum>
 </menu>
@@ -1803,7 +1803,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <remember>Angemeldet bleiben</remember>
     <loginbutton>Login</loginbutton>
     <forgotpass>Passwort vergessen?</forgotpass>
-    
+
 </login>
 
 <main>
@@ -1824,7 +1824,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
 
     <coach_teams>Trainername</coach_teams>
 
-    <profile>Profil</profile>        
+    <profile>Profil</profile>
         <photo>Trainerbild</photo>
         <coach_info>Information zum Trainer</coach_info>
             <note_persinfo>Detailierte Informationen stehen nur angemeldeten Benutzern zur Verfügung.</note_persinfo>
@@ -1861,37 +1861,37 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
         <profile>Spieler Profil</profile>
         <best>Bester der Begegnung</best>
     </player>
-    
+
     <team>
         <!-- sub secs. -->
-        
+
         <viewtoggle>Ansicht umschalten</viewtoggle>
-        
+
         <!-- Team Verwaltung sec. -->
         <tmanage>Mannschafts Verwaltung + info</tmanage>
-        
+
         <!-- About sec. -->
             <logo>Mannschafts Logo</logo>
             <stad>Mannschafts Stadion</stad>
 
-        <!-- News sec. -->            
+        <!-- News sec. -->
         <news>News</news>
             <tnews>Mannschafts News</tnews>
             <wnews>News schreiben</wnews>
             <nonews>Noch keine Einträge</nonews>
-        
+
         <!-- Recent games sec. -->
-        
+
         <!-- Star/merc HH secs. -->
-        
+
         <!-- For the three team page boxes -->
 
         <box_info>
             <title>Mannschafts Infos und Statistiken</title>
-            
+
             <ltour><![CDATA[Letztes&nbsp;Turnier]]></ltour>
         </box_info>
-        
+
         <box_tm>
             <title>Team Verwaltung</title>
 
@@ -1986,7 +1986,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
                 </delete>
             </desc>
         </box_tm>
-        
+
         <box_admin>
             <title>Admin Werkzeuge</title>
 
@@ -2059,7 +2059,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
 </standings>
 
 <matches>
-    <tours>    
+    <tours>
         <!-- none used - all are in "common". -->
     </tours>
     <tourmatches>
@@ -2071,24 +2071,24 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
             <rnd16>Runde der letzten 16</rnd16>
             <rnd>Runde</rnd>
         </roundtypes>
-        
+
         <matchdelete><![CDATA[Bist du dir sicher, dass du dieses Spiel löschen willst?\n\nBITTE BEACHTE:\nLöschen kann nicht rückgängig gemacht werden, es sei denn das Spiel wurde noch nicht gespielt. Darüber hinaus hat es Auswirkungen auf den Inhalt der Spielberichte der beiden beteiligten Mannschaften.\nEs wird dringend vom Löschen von Nicht-Test Spielen abgeraten, es sei denn du weisst wirklich was du tust.]]></matchdelete>
         <reset_notice><![CDATA[Biste du dir sicher, dass du dieses Spiel zurücksetzen willst?\n\nBITTE BEACHTE:\nDas Zurücksetzen eines Spieles löscht alle mit diesem zusammenhängenden Daten.\nSind teilnehmende Mannschaften, bereits bei weiteren Begegnungen angetreten, kann dies zu unkorrekten Status von Spielern in den Spielberichten der folgenden Begegnungen führen.]]></reset_notice>
     </tourmatches>
 
     <!-- Subsection: match report(s) -->
     <report>
-        
+
         <!-- General -->
         <clickforhelp>Hilfe?</clickforhelp>
         <notplayed>Noch nicht gespielt</notplayed>
         <report>Bericht</report>
-        
+
         <!-- Subsecs of team page -->
         <info>Informationen zur Begegnung</info>
             <stadium>Stadion</stadium>
             <fans>Fans (RL Zuschauer)</fans>
-            
+
         <results>Spielergebnisse</results>
             <treas>Teamkasse</treas>
             <ff>Fan Faktor</ff>
@@ -2097,7 +2097,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
             <tcas>Gesamtzahl von der Manschaft verursachter Verletzungen (CAS)</tcas>
             <fame>FAME</fame>
             <tv>Teamwert (TV)</tv>
-            
+
         <summary>Zusammenfassung</summary>
     </report>
 </matches>
@@ -2378,7 +2378,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
 <!-- About sec. -->
         <logo>Logo d'équipe</logo>
         <stad>Stade de l'équipe</stad>
-<!-- News sec. -->            
+<!-- News sec. -->
         <news>Articles</news>
         <tnews>Articles sur l'équipe</tnews>
         <wnews>Ecrire un article</wnews>
@@ -2653,7 +2653,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
   <weepingblades>Dague suintante</weepingblades>
   <timmmber>Timmm-ber!</timmmber>
   <monstrousmouth>Grande Gueule</monstrousmouth>
-    
+
     <block>Blocage</block>
     <dauntless>Intrépidité</dauntless>
     <dirtyplayer>Joueur Vicieux</dirtyplayer>
@@ -2789,7 +2789,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <willowrosebark>Willow Teinrose</willowrosebark>
     <zaratheslayer>Zara la tueuse</zaratheslayer>
     <zzhargmadeye>Zzharg Le Borgne</zzhargmadeye>
-    
+
     <bilerotvomitflesh>Bilerot Vomitflesh</bilerotvomitflesh>
     <franknstein>Frank N Stein</franknstein>
     <rastatailspike>Rasta Tailspike</rastatailspike>
@@ -2831,7 +2831,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
 <common>
     <notitle>Inserisci il Titolo qui</notitle>
     <nobody>--Vuoto--</nobody>
-    
+
     <submit>Inserisci</submit>
     <save>Salva</save>
     <create>Crea</create>
@@ -2873,11 +2873,11 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <opponent>Avversario</opponent>
     <options>Opzioni</options>
     <empty>Vuoto</empty>
-    
+
     <needhelp>Serve aiuto?</needhelp>
     <picof>Immagine di</picof>
     <about>Info</about>
-    
+
     <recentmatches>Partite Recenti</recentmatches>
     <upcomingmatches>Prossime Partite</upcomingmatches>
     <dateplayed>Data di Gioco</dateplayed>
@@ -2888,16 +2888,16 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <score>Punteggio</score>
     <gate>Spalti</gate>
     <result>Risultato</result>
-    
+
     <starhh>Cronologia Reclutamento Star</starhh>
     <merchh>Cronologia Reclutamento Mercenari</merchh>
-    
+
     <match>Partita</match>
     <round>Round</round>
     <tournament>Torneo</tournament>
     <division>Divisione</division>
     <league>Lega</league>
-    
+
     <player>Giocatore</player>
     <players>Giocatori</players>
     <team>Squadra</team>
@@ -2908,7 +2908,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <races>Razze</races>
     <star>Star</star>
     <stars>Stars</stars>
-    
+
     <won>Vinte</won>
     <lost>Perse</lost>
     <draw>Pareggiate</draw>
@@ -2916,12 +2916,12 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <played>Giocate</played>
     <playedtours>Competizioni Disputate</playedtours>
     <wontours>Competizioni Vinte</wontours>
-    
+
     <ready>Pronto</ready>
     <dead>Morto</dead>
     <sold>Venduto</sold>
     <bought>Comprato</bought>
-    
+
     <td>Mete</td>
     <intcpt>Intercetti</intcpt>
     <cp>Completi</cp>
@@ -2930,16 +2930,16 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
     <si>Infortunio Grave</si>
     <cas>CAS</cas>
     <mvp>MVP</mvp>
-    
+
     <pms>Mostra Statistiche medie del Match</pms>
     <ats>Mostra le statistiche </ats>
     <uploadnew>Carica una nuova immagine</uploadnew>
     <notice_simul><![CDATA[<em>Nota</i>: Entrambe le tabelle sottostanti sono ordinate simultaneamente.]]></notice_simul>
     <notice_spp><![CDATA[<em>Nota</i>: <strong>Se</strong> i Star Player possono guadagnare SPP debbono avere il valore corrispondente nella colonna SPP.]]></notice_spp>
     <sortedagainst>Contro</sortedagainst>
-    
+
     <confirm_box>Sicuro?</confirm_box>
-    
+
     <!-- nodeSelector() -->
     <displayfrom>Mostra da</displayfrom>
     <type>Tipo</type>
@@ -2947,13 +2947,13 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
         <alltime>Totali</alltime>
     <sgrp>Gruppo Statistiche</sgrp>
     <having>Avere</having>
-    
+
     <!-- ES -->
     <extrastats>Statistiche Extra</extrastats>
     <stat>Statostoca</stat>
     <!-- use "all-time" string from nodeSelect() translation -->
     <matchavg><![CDATA[Match&nbsp;avg.]]></matchavg> <!-- "Match avg." -->
-    
+
 </common>
 
 <!-- Link names for menu elements -->
@@ -2989,7 +2989,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
         <cpanel>Pannello Principale OBBLM</cpanel>
     </admin_menu>
     <plugins>Plugins</plugins>
-    
+
     <rules>Regole</rules>
     <forum>Forum</forum>
 </menu>
@@ -3027,7 +3027,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
 
     <coach_teams>Squadre dell'allenatore</coach_teams>
 
-    <profile>Profilo</profile>        
+    <profile>Profilo</profile>
         <photo>Immagine dell'allenatore</photo>
         <coach_info>Informazioni sull'allenatore</coach_info>
             <note_persinfo>Le informazioni sugli allenatori sono disponibili solo agli utenti.</note_persinfo>
@@ -3064,38 +3064,38 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
         <profile>Profilo del Giocatore</profile>
         <best>Miglior Incontro</best>
     </player>
-    
+
     <team>
         <!-- sub secs. -->
-        
+
         <viewtoggle>Cambia Visione del Roster</viewtoggle>
-        
+
         <!-- Team management sec. -->
         <tmanage>Statistiche e Gestione</tmanage>
-        
+
         <!-- About sec. -->
             <logo>Logo</logo>
             <stad>Stadio</stad>
 
-        <!-- News sec. -->            
+        <!-- News sec. -->
         <news>News</news>
             <tnews>News di squadra</tnews>
             <wnews>Scrivi news</wnews>
             <nonews>Nessun dato</nonews>
-        
+
         <!-- Games sec. -->
         <games>Partite recenti e Prossime</games>
-        
+
         <!-- Star/merc HH secs. -->
-        
+
         <!-- For the three team page boxes -->
 
         <box_info>
             <title>Info squadra e statistiche</title>
-            
+
             <ltour><![CDATA[Latest&nbsp;tour]]></ltour>
         </box_info>
-        
+
         <box_tm>
             <title>Management di squadra</title>
 
@@ -3190,7 +3190,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
                 </delete>
             </desc>
         </box_tm>
-        
+
         <box_admin>
             <title>Pannello di Amministrazione</title>
 
@@ -3282,24 +3282,24 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
             <rnd11>Round 11</rnd11>
             <rnd12>Round 12</rnd12>
         </roundtypes>
-        
+
         <matchdelete><![CDATA[Sei sicuro di voler cancellare la partita?\n\nNOTA BENE:\nA meno che la partita non sia stata ancora giocata, questa azione non è reversibile e avrà effetti sulle tabelle dei giocatori che vi partecipano.\nE' consigliato cancellare le partite solo se si sà bene cosa si sta facendo.]]></matchdelete>
         <reset_notice><![CDATA[Sei sicuro di voler resettare questa partita?\n\nNOTA BENE:\nResettare un match cancella tutti i dati.\nResettare un match in cui uno dei giocatori ha già giocato una partita potrebbe alterare le statistiche delle squadre.]]></reset_notice>
     </tourmatches>
 
     <!-- Subsection: match report(s) -->
     <report>
-        
+
         <!-- General -->
         <clickforhelp>Serve Aiuto?</clickforhelp>
         <notplayed>Non ancora disputata</notplayed>
         <report>report</report>
-        
+
         <!-- Subsecs of team page -->
         <info>Informazioni</info>
             <stadium>Stadio</stadium>
             <fans>Fans (Spettatori Reali)</fans>
-            
+
         <results>Risultati</results>
             <treas>Tesoreria</treas>
             <ff>Fan factor</ff>
@@ -3308,7 +3308,7 @@ For example, english is in <en-GB>, french in <fr-FR>, .......
             <tcas>CAS Totali di Squadra</tcas>
             <fame>FAMA</fame>
             <tv>TV</tv>
-            
+
         <summary>Sommario</summary>
     </report>
 </matches>
