@@ -136,10 +136,14 @@ div.section p {
   line-height: 160%;
   padding: 1em;
 }
-div.main_leftColumn div.boxWide, div.main_rightColumn div.boxWide, div.main_leftColumn_head, div.boxWide {
+div.main_leftColumn div.boxWide, div.main_rightColumn div.boxWide, div.main_leftColumn_head, div.boxWide, div.boxCommon {
   background-color: #f3f3f3;
   margin-bottom: 0.6em;
   padding: 8px 10px;
+}
+div.boxCommon {
+    width: 70%;
+    float:left;
 }
 /***** Main Content *****/
 div.main_leftColumn {
