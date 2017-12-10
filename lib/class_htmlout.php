@@ -586,7 +586,7 @@ public static function nodeSelector(array $opts)
     // Fetch contents of node selector
 #    $leagues = Coach::allowedNodeAccess(Coach::NODE_STRUCT__TREE, is_object($coach) ? $coach->coach_id : false);
     ?>
-    <form method="POST">
+    <form method="POST" class="selector">
     <?php
     echo $lng->getTrn('common/displayfrom');
     ?>

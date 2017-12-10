@@ -21,8 +21,6 @@
  *
  */
 
-define('T_HTML_TEAMS_PER_PAGE', 50);
-
 class Team_HTMLOUT extends Team
 {
 
@@ -68,7 +66,6 @@ public static function dispList()
 
     $result = mysql_query($queryCnt);
     list($cnt) = mysql_fetch_row($result);
-    $pages = ($cnt == 0) ? 1 : ceil($cnt/T_HTML_TEAMS_PER_PAGE);
     global $page;
     $page = (isset($_GET['page']) && $_GET['page'] <= $pages) ? $_GET['page'] : 1; # Page 1 is default, of course.
     $_url = "?section=teamlist&amp;";
@@ -77,18 +74,16 @@ public static function dispList()
 ?>
     <div class="page-nav mini-stat">
       <ul>
-        <li><?php echo $lng->getTrn( 'common/page' ) . ": <strong>" . implode( ', ', array_map( create_function( '$nr' , 'global $page; return ($nr == $page) ? $nr : "<a href=\''.$_url.'page=$nr\'>$nr</a>";' ), range( 1 , $pages ) ) ); ?></strong></li>
-        <li><strong><?php echo $cnt . " </strong>" . $lng->getTrn( 'common/teams' );?> are registed in the league </li>
+        <li><strong><?php echo $cnt . " </strong>" . $lng->getTrn( 'common/teams' );?> are registered in the league </li>
       </ul>
     </div>
 <?php
-    $queryGet .= ' LIMIT '.(($page-1)*T_HTML_TEAMS_PER_PAGE).', '.(($page)*T_HTML_TEAMS_PER_PAGE);
 
     $teams = array();
     $result = mysql_query($queryGet);
     while ($t = mysql_fetch_object($result)) {
         $img = new ImageSubSys(IMGTYPE_TEAMLOGO, $t->team_id);
-        $t->logo = "<img border='0px' height='20' width='20' alt='Team race picture' src='".$img->getPath($t->f_race_id)."'>";
+        $t->logo = "<img alt='Team race picture' src='".$img->getPath($t->f_race_id)."' class=\"team-logo-small\">";
         $retired = $t->retired;
         $t->retired = ($t->retired) ? '<strong>'.$lng->getTrn('common/yes').'</strong>' : $lng->getTrn('common/no');
         $t->rdy = ($t->rdy && !$retired) ? '<font color="green">'.$lng->getTrn('common/yes').'</font>' : '<font color="red">'.$lng->getTrn('common/no').'</font>';
@@ -99,12 +94,12 @@ public static function dispList()
 
     $fields = array(
         'logo'    => array('desc' => 'Logo', 'nosort' => true, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_TEAM,false,false,false), 'field' => 'obj_id', 'value' => 'team_id'), 'nosort' => true),
-        'tname'    => array('desc' => $lng->getTrn('common/name'), 'nosort' => true, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_TEAM,false,false,false), 'field' => 'obj_id', 'value' => 'team_id')),
-        'f_cname' => array('desc' => $lng->getTrn('common/coach'), 'nosort' => true, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_COACH,false,false,false), 'field' => 'obj_id', 'value' => 'owned_by_coach_id')),
+        'tname'    => array('desc' => $lng->getTrn('common/name'), 'nosort' => false, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_TEAM,false,false,false), 'field' => 'obj_id', 'value' => 'team_id')),
+        'f_cname' => array('desc' => $lng->getTrn('common/coach'), 'nosort' => false, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_COACH,false,false,false), 'field' => 'obj_id', 'value' => 'owned_by_coach_id')),
         'rdy'     => array('desc' => $lng->getTrn('common/ready'), 'nosort' => true),
         'retired' => array('desc' => $lng->getTrn('common/retired'), 'nosort' => true),
-        'f_rname' => array('desc' => $lng->getTrn('common/race'), 'nosort' => true, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_RACE,false,false,false), 'field' => 'obj_id', 'value' => 'f_race_id')),
-        'tv'      => array('desc' => 'TV', 'nosort' => true, 'kilo' => true, 'suffix' => 'k'),
+        'f_rname' => array('desc' => $lng->getTrn('common/race'), 'nosort' => false, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_RACE,false,false,false), 'field' => 'obj_id', 'value' => 'f_race_id')),
+        'tv'      => array('desc' => 'TV', 'nosort' => false, 'kilo' => true, 'suffix' => 'k'),
     );
 
     HTMLOUT::sort_table(
