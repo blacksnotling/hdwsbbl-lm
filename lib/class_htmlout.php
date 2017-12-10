@@ -982,26 +982,9 @@ private static function make_menu()
 {
     global $lng, $coach, $settings, $rules, $admin_menu;
     ?>
-    <ul class="css3menu1 topmenu">
+    <ul class="css3menu1 topmenu" id="navigation">
         <li class="topfirst"><a href="index.php?section=main"><?php echo $lng->getTrn('menu/home');?></a>
 		 <ul>
-            <?php
-            if(Settings::getValueOrDefault('show-regional-menu', false)) {
-                foreach(League::getLeaguesByLocation() as $locationName => $leagues) {
-                    echo '<li><a href="#">' . $locationName . ' ></a><ul>';
-
-                    foreach($leagues as $league) {
-                        echo '<li><a href="index.php?SLS_lid=' . $league->lid . '">' . $league->name . '</a></li>';
-                    }
-
-                    echo '</ul></li>';
-                }
-                if (isset($_SESSION['logged_in'])) {
-                    echo '<li><a href="index.php?section=requestleague">Request a League</a></li>';
-                }
-                echo '<li><a href="http://www.thenaf.net/leagues/leagues-locator/" >TheNAF.net League Locator</a></li>';
-                echo '<li><a href="index.php?SLS_lid=1" >League Hosting Home</a></li>';
-            } ?>
             <li><a href="index.php?section=about">About OBBLM</a></li>
 		</ul>
     </li>
@@ -1096,44 +1079,35 @@ private static function make_menu()
     </ul>
 </li>
 
-<li class="topmenu"><a rel="nofollow" href="#">Game Rules</a>
-    <ul>
-        <li class="subfirst"><a rel="nofollow" href="#">CRP Rosters ></a>
-            <ul><li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=0" style="height:10px;line-height:10px;">Amazon</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=1" style="height:10px;line-height:10px;">Chaos</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=2" style="height:10px;line-height:10px;">Chaos Dwarf</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=3" style="height:10px;line-height:10px;">Dark Elf</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=4" style="height:10px;line-height:10px;">Dwarf</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=5" style="height:10px;line-height:10px;">Elf</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=6" style="height:10px;line-height:10px;">Goblin</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=7" style="height:10px;line-height:10px;">Halfling</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=8" style="height:10px;line-height:10px;">High Elf</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=9" style="height:10px;line-height:10px;">Human</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=10" style="height:10px;line-height:10px;">Khemri</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=11" style="height:10px;line-height:10px;">Lizardman</a></li>
-           <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=13" style="height:10px;line-height:10px;">Necromantic</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=14" style="height:10px;line-height:10px;">Norse</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=15" style="height:10px;line-height:10px;">Nurgle</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=16" style="height:10px;line-height:10px;">Ogre</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=12" style="height:10px;line-height:10px;">Orc</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=19" style="height:10px;line-height:10px;">Skaven</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=17" style="height:10px;line-height:10px;">Undead</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=18" style="height:10px;line-height:10px;">Vampire</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=20" style="height:10px;line-height:10px;">Wood Elf</a></li>
-        </ul></li>
-        <li class="subfirst"><a rel="nofollow" href="#">LRB6 Rosters ></a>
-            <ul><li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=21" style="height:10px;line-height:10px;">Chaos Pact</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=22" style="height:10px;line-height:10px;">Slann</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=23" style="height:10px;line-height:10px;">Underworld</a></li>
-        </ul></li>
-        <li class="subfirst"><a rel="nofollow" href="#">(Optional) Community Rosters ></a>
-            <ul><li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=24" style="height:10px;line-height:10px;">Bretonnian</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=25" style="height:10px;line-height:10px;">Khorne</a></li>
-            <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=26" style="height:10px;line-height:10px;">Simyin</a></li>
-        </ul></li>
-        <li><a href="http://www.thenaf.net/wp-content/uploads/2013/06/CRP1.pdf">The CRP (Full Blood Bowl Rules)</a></li>
-        <li><a href="http://the-outcast.com/bloodbowl/blood%20bowl%20crp%20lite.pdf">A5 Rules Summary</a></li>
-    </ul>
+<li class="topmenu"><a rel="nofollow" href="#">Rosters</a>
+  <ul>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=0" style="height:10px;line-height:10px;">Amazon</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=24" style="height:10px;line-height:10px;">Bretonnian</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=1" style="height:10px;line-height:10px;">Chaos</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=2" style="height:10px;line-height:10px;">Chaos Dwarf</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=21" style="height:10px;line-height:10px;">Chaos Pact</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=3" style="height:10px;line-height:10px;">Dark Elf</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=4" style="height:10px;line-height:10px;">Dwarf</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=5" style="height:10px;line-height:10px;">Elf</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=6" style="height:10px;line-height:10px;">Goblin</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=7" style="height:10px;line-height:10px;">Halfling</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=8" style="height:10px;line-height:10px;">High Elf</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=9" style="height:10px;line-height:10px;">Human</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=10" style="height:10px;line-height:10px;">Khemri</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=25" style="height:10px;line-height:10px;">Khorne</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=11" style="height:10px;line-height:10px;">Lizardman</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=13" style="height:10px;line-height:10px;">Necromantic</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=14" style="height:10px;line-height:10px;">Norse</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=15" style="height:10px;line-height:10px;">Nurgle</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=16" style="height:10px;line-height:10px;">Ogre</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=12" style="height:10px;line-height:10px;">Orc</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=19" style="height:10px;line-height:10px;">Skaven</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=22" style="height:10px;line-height:10px;">Slann</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=17" style="height:10px;line-height:10px;">Undead</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=23" style="height:10px;line-height:10px;">Underworld</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=18" style="height:10px;line-height:10px;">Vampire</a></li>
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=20" style="height:10px;line-height:10px;">Wood Elf</a></li>    
+  </ul>
 </li>
 
 <?php if (Module::isRegistered('Search'))            { ?><li><a href="handler.php?type=search"><?php echo $lng->getTrn('name', 'Search');?></a></li><?php } ?>
