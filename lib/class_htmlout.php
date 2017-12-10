@@ -882,6 +882,9 @@ public static function frame_begin($menu = true)
         <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
         <link type="text/css" href="css/stylesheet<?php echo $settings['stylesheet']; ?>.css?now" rel="stylesheet">
         <link type="text/css" href="css/league_override_<?php echo self::getSelectedNodeLidOrDefault(); ?>.css" rel="stylesheet">
+<?php if ( isset( $_SESSION[ 'logged_in' ] ) ) { ?>
+        <link type="text/css" href="css/admin-bar.css?now" rel="stylesheet">
+<?php } ?>
         <link rel="alternate" type="application/rss+xml" title="RSS Feed"href="rss.xml">
         <script type="text/javascript" src="lib/misc_functions.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
@@ -910,6 +913,7 @@ public static function frame_begin($menu = true)
         </script>
     </head>
     <body>
+      <?php HTMLOUT::make_admin_menu(); ?>
         <div class="everything">
           <div class="banner">
             <h1><?php echo $settings['banner_title']; ?></h1>
@@ -978,6 +982,63 @@ public static function frame_end()
     return true;
 }
 
+private static function make_admin_menu() {
+
+  global $lng, $coach, $settings, $rules, $admin_menu;
+
+  //The admin bar only appears if a user is logged in
+  if ( isset( $_SESSION[ 'logged_in' ] ) ) {
+?>
+<div id="leagueadminbar">
+  <ul>
+    <li><a href="#">User Menu</a>
+      <ul>
+        <li><a href="handler.php?type=teamcreator">Create a New Team</a></li>
+        <li><a href="index.php?section=matches&amp;type=usersched" >Schedule Match</a></li>
+        <li><a rel="nofollow" href="<?php echo urlcompile(T_URL_PROFILE,T_OBJ_COACH,$coach->coach_id,false,false).'&amp;subsec=teams';?>"><?php echo $lng->getTrn('cc/coach_teams');?></a></li>
+        <li><a rel="nofollow" href="<?php echo urlcompile(T_URL_PROFILE,T_OBJ_COACH,$coach->coach_id,false,false).'&amp;subsec=profile';?>"><?php echo $lng->getTrn('cc/profile');?></a></li>
+        <li><a rel="nofollow" href="<?php echo urlcompile(T_URL_PROFILE,T_OBJ_COACH,$coach->coach_id,false,false).'&amp;subsec=stats';?>"><?php echo $lng->getTrn('common/stats');?></a></li>
+        <li><a rel="nofollow" href="<?php echo urlcompile(T_URL_PROFILE,T_OBJ_COACH,$coach->coach_id,false,false).'&amp;subsec=recentmatches';?>"><?php echo $lng->getTrn('common/recentmatches');?></a></li>
+        <li><a rel="nofollow"href="index.php?logout=1"><?php echo $lng->getTrn('menu/logout');?></a></li>
+      </ul>
+    </li>
+<?php } //end of if_logged_in
+      //if the user logged in is an admin
+      if ( !empty( $admin_menu ) ) {
+?>
+      <li><a href="#"><?php echo $lng->getTrn('menu/admin_menu/name');?></a>
+        <ul class="admindropdown">
+          <li><a href="handler.php?type=leaguepref"><?php echo $lng->getTrn( 'name', 'LeaguePref' );?></a></li>
+<?php     if ( Module::isRegistered( 'Conference' ) ) { ?>
+          <li><a href="handler.php?type=conference"><?php echo $lng->getTrn( 'name' , 'Conference' );?> </a></li>
+<?php } ?>
+<?php     if ( Module::isRegistered( 'Scheduler' ) ) { ?>
+          <li><a href="handler.php?type=scheduler"><?php echo $lng->getTrn( 'menu/admin_menu/schedule' );?> </a></li>
+<?php } ?>
+<?php
+                foreach ( $admin_menu as $lnk => $desc ) {
+                    if ( !is_array( $desc ) ) {
+                        echo "<li><a href='index.php?section=admin&amp;subsec=$lnk'>$desc</a></li>\n";
+                    }
+                    else {
+                        echo '<li><a href="#">' . $desc[ 'title' ] . '<ul>';
+                        foreach ( $desc[ 'sub' ] as $sub ) {
+                            echo "<li><a href='index.php?section=admin&amp;subsec=$lnk&amp;$sub[href]'>$sub[title]</a></li>\n";
+                        }
+                        echo '</ul></li>';
+                    }
+                }
+            ?>
+        </ul>
+      </li>
+<?php
+  } //end of if admin menu
+?>  </ul>
+  </div><!-- end of #leagueadminbar -->
+<?php
+}
+
+
 private static function make_menu()
 {
     global $lng, $coach, $settings, $rules, $admin_menu;
@@ -988,54 +1049,6 @@ private static function make_menu()
             <li><a href="index.php?section=about">About OBBLM</a></li>
 		</ul>
     </li>
-<?php
-        if (isset($_SESSION['logged_in'])) {
-?>
-
-<li class="topfirst"><a href="#">User Menu</a>
-        <ul>
-            <li class="subfirst"><a href="handler.php?type=teamcreator">Create a New Team</a></li>
-            <li><a href="index.php?section=matches&amp;type=usersched" >Schedule Match</a></li>
-             <li><a rel="nofollow" href="<?php echo urlcompile(T_URL_PROFILE,T_OBJ_COACH,$coach->coach_id,false,false).'&amp;subsec=teams';?>"><?php echo $lng->getTrn('cc/coach_teams');?></a></li>
-            <li><a rel="nofollow" href="<?php echo urlcompile(T_URL_PROFILE,T_OBJ_COACH,$coach->coach_id,false,false).'&amp;subsec=profile';?>"><?php echo $lng->getTrn('cc/profile');?></a></li>
-            <li><a rel="nofollow" href="<?php echo urlcompile(T_URL_PROFILE,T_OBJ_COACH,$coach->coach_id,false,false).'&amp;subsec=stats';?>"><?php echo $lng->getTrn('common/stats');?></a></li>
-           <li><a rel="nofollow" href="<?php echo urlcompile(T_URL_PROFILE,T_OBJ_COACH,$coach->coach_id,false,false).'&amp;subsec=recentmatches';?>"><?php echo $lng->getTrn('common/recentmatches');?></a></li>
-            <li><a rel="nofollow"href="index.php?logout=1"><?php echo $lng->getTrn('menu/logout');?></a></li>
-            </ul><?php
-}        else      {
-?><li class="topfirst"><a rel="nofollow" href="index.php?section=login" style="height:20px;line-height:20px;"><?php echo $lng->getTrn('menu/login');?></a></li><?php }
-?>
-
-<?php if (!empty($admin_menu)) { ?>
-    <li class="topmenu">
-        <a href="#"><?php echo $lng->getTrn('menu/admin_menu/name');?></a>
-        <ul>
-            <li class="subfirst">
-                <a href="handler.php?type=leaguepref"><?php echo $lng->getTrn('name', 'LeaguePref');?></a>
-            </li>
-            <?php
-                if (Module::isRegistered('Conference'))
-                    echo '<li><a href="handler.php?type=conference">' . $lng->getTrn('name', 'Conference') . '</a></li>';
-
-                if (Module::isRegistered('Scheduler'))
-                    echo '<li><a href="handler.php?type=scheduler">' . $lng->getTrn('menu/admin_menu/schedule') . '</a></li>';
-
-                foreach ($admin_menu as $lnk => $desc) {
-                    if (!is_array($desc)) {
-                        echo "<li><a href='index.php?section=admin&amp;subsec=$lnk'>$desc</a></li>\n";
-                    }
-                    else {
-                        echo '<li><a href="#">' . $desc['title'] . '<ul>';
-                        foreach ($desc['sub'] as $sub) {
-                            echo "<li><a href='index.php?section=admin&amp;subsec=$lnk&amp;$sub[href]'>$sub[title]</a></li>\n";
-                        }
-                        echo '</ul></li>';
-                    }
-                }
-            ?>
-        </ul>
-    </li>
-<?php } ?>
 
 <li class="topmenu">
     <a href="#">League Menu</a>
@@ -1106,13 +1119,18 @@ private static function make_menu()
     <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=17" style="height:10px;line-height:10px;">Undead</a></li>
     <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=23" style="height:10px;line-height:10px;">Underworld</a></li>
     <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=18" style="height:10px;line-height:10px;">Vampire</a></li>
-    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=20" style="height:10px;line-height:10px;">Wood Elf</a></li>    
+    <li><a href="index.php?section=objhandler&type=1&obj=4&obj_id=20" style="height:10px;line-height:10px;">Wood Elf</a></li>
   </ul>
 </li>
 
-<?php if (Module::isRegistered('Search'))            { ?><li><a href="handler.php?type=search"><?php echo $lng->getTrn('name', 'Search');?></a></li><?php } ?>
+<?php if (Module::isRegistered('Search'))            { ?>
+  <li><a href="handler.php?type=search"><?php echo $lng->getTrn('name', 'Search');?></a></li>
+<?php }
+        if ( !isset( $_SESSION[ 'logged_in' ] ) ) { ?>
 
-    <?php
+  <li class="topfirst login"><a rel="nofollow" href="index.php?section=login" style="height:20px;line-height:20px;"><?php echo $lng->getTrn('menu/login');?></a></li>
+<?php }
+
 }
 // Prints an advanced sort table.
 public static function sort_table($title, $lnk, array $objs, array $fields, array $std_sort, $sort = array(), $extra = array())
