@@ -72,12 +72,16 @@ public static function dispList()
     global $page;
     $page = (isset($_GET['page']) && $_GET['page'] <= $pages) ? $_GET['page'] : 1; # Page 1 is default, of course.
     $_url = "?section=teamlist&amp;";
-    echo '<br><center><table>';
-    echo '<tr><td>';
-    echo $lng->getTrn('common/page').': '.implode(', ', array_map(create_function('$nr', 'global $page; return ($nr == $page) ? $nr : "<a href=\''.$_url.'page=$nr\'>$nr</a>";'), range(1,$pages)));
-    echo '</td></td>';
-    echo "<tr><td>".$lng->getTrn('common/teams').": $cnt</td></td>";
-    echo '</table></center><br>';
+
+    //Summary table (Page X, X teams)
+?>
+    <div class="page-nav mini-stat">
+      <ul>
+        <li><?php echo $lng->getTrn( 'common/page' ) . ": <strong>" . implode( ', ', array_map( create_function( '$nr' , 'global $page; return ($nr == $page) ? $nr : "<a href=\''.$_url.'page=$nr\'>$nr</a>";' ), range( 1 , $pages ) ) ); ?></strong></li>
+        <li><strong><?php echo $cnt . " </strong>" . $lng->getTrn( 'common/teams' );?> are registed in the league </li>
+      </ul>
+    </div>
+<?php
     $queryGet .= ' LIMIT '.(($page-1)*T_HTML_TEAMS_PER_PAGE).', '.(($page)*T_HTML_TEAMS_PER_PAGE);
 
     $teams = array();
@@ -502,7 +506,7 @@ private function _roster($ALLOW_EDIT, $DETAILED, $players)
      ******************************/
 
     title($team->name . (($team->is_retired) ? ' <font color="red"> (Retired)</font>' : ''));
-    
+
     $allowEdit = (isset($coach) && $coach)
         ? $coach->isMyTeam($team->team_id) || $coach->mayManageObj(T_OBJ_TEAM, $team->team_id)
         : false;
@@ -667,13 +671,13 @@ border-bottom:0px;border-left:0px;border-top:0px;border-right:0px;
         <?php
         echo "<li><a href='${url}&amp;subsec=hhstar'>".$lng->getTrn('common/starhh')."</a></li>\n";
         echo "<li><a href='${url}&amp;subsec=hhmerc'>".$lng->getTrn('common/merchh')."</a></li>\n";
-		
+
         $pdf    = (Module::isRegistered('PDFroster')) ? "handler.php?type=roster&amp;team_id=$this->team_id&amp;detailed=".($DETAILED ? '1' : '0') : '';
         $botocs = (Module::isRegistered('XML_BOTOCS') && $settings['leegmgr_botocs']) ? "handler.php?type=botocsxml&amp;teamid=$this->team_id" : '';
         $cyanide = (Module::isRegistered('XML_BOTOCS') && $settings['leegmgr_cyanide']) ? "handler.php?type=botocsxml&amp;teamid=$this->team_id&amp;cy" : '';
         if ($pdf || $botocs) {
         ?>
-		
+
 						        <?php
         }
         if (Module::isRegistered('IndcPage')) {
@@ -686,7 +690,7 @@ border-bottom:0px;border-left:0px;border-top:0px;border-right:0px;
             echo "<li><a href='handler.php?type=cemetery&amp;tid=$team->team_id'>".$lng->getTrn('name', 'Cemetery')."</a></li>\n";
         }
         ?>
-		
+
         <li class="toplast"><a>Roster</a>
             <ul>
                 <?php if ($pdf)    { ?><li class="subfirst"><a TARGET="_blank" href="<?php echo $pdf;?>">PDF</a></li> <?php } ?>
@@ -841,7 +845,7 @@ public static function teamManagementBox($teamId) {
     $DETAILED = (isset($_GET['detailed']) && $_GET['detailed'] == 1);# Detailed roster view?
     $team->handleActions($ALLOW_EDIT); # Handles any actions/request sent.
     list($players, $players_backup) = $team->_loadPlayers($DETAILED); # Should come after handleActions().
-    
+
     $team->_teamManagementBox($players, $team);
 }
 
@@ -1311,7 +1315,7 @@ private function _actionBoxes($ALLOW_EDIT, $players)
                                 <input type="hidden" name="type" value="ach_skills">
                                 <?php
                                 break;
-                                
+
                             /***************
                              * Remove niggling injuries
                              **************/
@@ -1873,4 +1877,3 @@ private function _games()
 }
 
 }
-

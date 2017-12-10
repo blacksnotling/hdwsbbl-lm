@@ -1049,13 +1049,12 @@ private static function make_menu()
             <li><a href="index.php?section=about">About OBBLM</a></li>
 		</ul>
     </li>
-
+    <li class="topmenu"><a href="index.php?section=teamlist"><?php echo $lng->getTrn('menu/teams');?></a></li>
 <li class="topmenu">
     <a href="#">League Menu</a>
     <ul>
         <li class="subfirst"><a href="index.php?section=rules"><?php echo $lng->getTrn('menu/rules');?></a></li>
         <li><a href="handler.php?type=leaguetables"><?php echo $lng->getTrn('name', 'LeagueTables');?></a></li>
-        <li><a href="index.php?section=teamlist"><?php echo $lng->getTrn('menu/teams');?></a></li>
         <li><a href="index.php?section=coachlist"><?php echo $lng->getTrn('menu/coaches');?></a></li>
         <li><a href="index.php?section=matches&amp;type=recent"><?php echo $lng->getTrn('menu/matches_menu/recent');?></a></li>
         <li><a href="index.php?section=matches&amp;type=upcoming"><?php echo $lng->getTrn('menu/matches_menu/upcoming');?></a>

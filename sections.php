@@ -717,8 +717,10 @@ function _events($event, $node, $node_id, $N) {
 
 function sec_teamlist() {
     global $lng;
+    echo "<div class=\"entry\">\n";
     title($lng->getTrn('menu/teams'));
     Team_HTMLOUT::dispList();
+    echo "</div>\n";
 }
 
 function sec_coachlist() {

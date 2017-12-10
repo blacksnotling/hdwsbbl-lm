@@ -34,22 +34,22 @@ function aasort(&$array, $args) {
     eval ("array_multisort($sort_rule".' $array);');
 }
 
-// Sorts array of objects by common object properties. 
+// Sorts array of objects by common object properties.
 // Usage: objsort($obj_array, array('+X', '-Y')) ...to sort objects by X ascending followed by Y descending.
 function objsort(&$obj_array, $fields)
 {
     $idxs = count($fields)-1;   # Number of fields to sort by.
     $func = 'return ';          # Anonymous function used for sorting the object array.
     $parens = 0;                # Number of parentheses added to end of anonymous function.
-    
+
     for ($i = 0; $i <= $idxs; $i++) {
         $field = substr($fields[$i], 1, strlen($fields[$i]));
         $sort_type = substr($fields[$i], 0, 1);
         $parens += ($i == $idxs ? 1 : 2);
-        $func .= "\$a->$field " . ($sort_type == '+' ? '>' : '<') . " \$b->$field 
-                    ? 1 
-                    : (\$a->$field != \$b->$field 
-                        ? -1 
+        $func .= "\$a->$field " . ($sort_type == '+' ? '>' : '<') . " \$b->$field
+                    ? 1
+                    : (\$a->$field != \$b->$field
+                        ? -1
                         : " . ($i == $idxs ? '0' : '(');
     }
 
@@ -67,7 +67,7 @@ function setupGlobalVars($type, $opts = array()) {
     global $coach, $lng, $leagues, $divisions, $tours, $settings, $rules, $admin_menu;
 
     switch ($type) {
-    
+
         case T_SETUP_GLOBAL_VARS__COMMON:
             $coach = (isset($_SESSION['logged_in'])) ? new Coach($_SESSION['coach_id']) : null; # Create global coach object.
             list($leagues,$divisions,$tours) = Coach::allowedNodeAccess(Coach::NODE_STRUCT__FLAT, is_object($coach) ? $coach->coach_id : false, $extraFields = array(T_NODE_TOURNAMENT => array('locked' => 'locked', 'type' => 'type', 'f_did' => 'f_did'), T_NODE_DIVISION => array('f_lid' => 'f_lid'), T_NODE_LEAGUE => array('tie_teams' => 'tie_teams')));
@@ -80,11 +80,11 @@ function setupGlobalVars($type, $opts = array()) {
                 $lng->setLanguage($_LANGUAGE);
             }
             break;
-            
+
         case T_SETUP_GLOBAL_VARS__POST_LOAD_MODULES:
             $admin_menu = is_object($coach) ? $coach->getAdminMenu() : array();
             break;
-            
+
         case T_SETUP_GLOBAL_VARS__LOAD_LEAGUE_SETTINGS:
             // Local league settings exist?
             $file = "localsettings/settings_ID.php";
@@ -94,7 +94,7 @@ function setupGlobalVars($type, $opts = array()) {
             if (isset($opts['lid']) && is_numeric($opts['lid'])) {
                 $id = $opts['lid'];
             }
-            else if ($_lid = HTMLOUT::getSelectedNodeLid()) { 
+            else if ($_lid = HTMLOUT::getSelectedNodeLid()) {
                 $id = $_lid;
             }
             // Defaults
@@ -113,7 +113,7 @@ function setupGlobalVars($type, $opts = array()) {
                 include(str_replace("ID", 'none', $file)); # Empty settings file.
             }
             break;
-            
+
         case T_SETUP_GLOBAL_VARS__POST_COACH_LOGINOUT:
             setupGlobalVars(T_SETUP_GLOBAL_VARS__COMMON);
             setupGlobalVars(T_SETUP_GLOBAL_VARS__POST_LOAD_MODULES);
@@ -133,10 +133,10 @@ function sortgamedata() {
 }
 
 function array_strpack($str, array $arr, $implode_delimiter = false, $specifier = '%s') {
-    /* 
-        Example: 
+    /*
+        Example:
             $str = '<td>%s</td>'
-            $arr = array(1,2) 
+            $arr = array(1,2)
         ...will return array('<td>1</td>', '<td>2</td>')
     */
     $ret = array_map(create_function('$e', 'return str_replace("'.$specifier.'", $e, "'.$str.'");'), $arr);
@@ -155,14 +155,14 @@ function sort_rule($w) {
     # - Summable values from the MV tables must always be referenced by using the "mv_" prefix.
     # - Non-summable values (ie. steaks, win pct's etc.) are referenced by the "rg_" prefix.
     # - Static and dynamic properties (ie. name, treasury, skills etc.) need no prefix.
-    
+
     $rules = array(
         T_OBJ_RACE   => array('-rg_win_pct', '+name'), // "All races"-table
         T_OBJ_COACH  => array('-rg_win_pct', '-wt_cnt', '-mv_cas', '+name'), // "All coaches"-table
         T_OBJ_TEAM   => array('-mv_won', '-mv_draw', '+mv_lost', '-mv_sdiff', '-mv_cas', '+name'), // "All teams"-table
         T_OBJ_PLAYER => array('-value', '-mv_td', '-mv_cas', '-mv_spp', '+name'), // "All players"-table
         T_OBJ_STAR   => array('-mv_played', '+name'), // Stars table.
-        
+
         'match'     => array('-date_played'), // Games played tables.
         'player'    => array('+nr', '+name'), // For team roaster player list.
         'race_page' => array('+cost', '+position'), // Race's players table.
@@ -174,11 +174,11 @@ function sort_rule($w) {
 
 
 function rule_dict(array $sortRule) {
-    
+
     /* Translates sort rules. */
-    
+
     $sortRule = preg_replace('/(mv\_|rg\_)/', '', $sortRule);
-    
+
     $ruleDict = array(
         'win_pct'     => 'WIN%',
         'date_played' => 'date played',
@@ -190,14 +190,14 @@ function rule_dict(array $sortRule) {
         'slost'       => 'SL',
         'sdraw'       => 'SD',
     );
-    
+
     foreach ($sortRule as &$r) {
         $idx = substr($r,1);
         if (array_key_exists($idx, $ruleDict)) {
             $r = substr($r,0,1).$ruleDict[$idx];
         }
     }
-    
+
     return $sortRule;
 }
 
@@ -215,7 +215,7 @@ function racesTrans($str) {
 
 // Prints page title for main section pages.
 function title($title) {
-    echo "<h2>$title</h2>\n";
+    echo "<h2 class=\"entry-title\">$title</h2>\n";
 }
 
 // Privileges error. Stop PHP interpreter and warn the user!
@@ -228,7 +228,7 @@ function status($status, $msg = '') {
     if ($status) { # Status == success
         echo "<div class=\"messageContainer green\">";
         echo "Request succeeded";
-    } 
+    }
     else { # Status == failure
         echo "<div class=\"messageContainer red\">";
         echo "Request failed";
@@ -285,15 +285,15 @@ function MTS($str) {
     echo "\n<!-- $str: ".(microtime(true)-$time_start)." -->\n";
 }
 
-/* 
-    From http://us3.php.net/manual/en/function.lcfirst.php 
+/*
+    From http://us3.php.net/manual/en/function.lcfirst.php
 */
 if (false === function_exists('lcfirst')):
     function lcfirst($str) { return (string)(strtolower(substr($str,0,1)).substr($str,1));}
-endif; 
+endif;
 if (false === function_exists('ucfirst')):
     function ucfirst($str) { return (string)(strtoupper(substr($str,0,1)).substr($str,1));}
-endif; 
+endif;
 
 // Returns HTML to show an icon with the result of a game
 function matchresult_icon($result) {
@@ -341,7 +341,6 @@ function getESGroups($appendFields = false, $useAbbrevs = false)
                 $grps[] = $f['group'];
         }
     }
-    
+
     return $grps;
 }
-
