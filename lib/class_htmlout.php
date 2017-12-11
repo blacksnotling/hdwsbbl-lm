@@ -73,8 +73,8 @@ public static function recentGames($obj, $obj_id, $node, $node_id, $opp_obj, $op
         if (in_array($m->round,array_keys($T_ROUNDS))) {
             $m->round = $T_ROUNDS[$m->round];
         }
-        $m->team1_name = "<a href='".urlcompile(T_URL_PROFILE,T_OBJ_TEAM,$m->team1_id,false,false)."'>$m->team1_name</a>&nbsp;<i>(<a href='".urlcompile(T_URL_PROFILE,T_OBJ_COACH,$m->coach1_id,false,false)."'>$m->coach1_name</a>)</i>";
-        $m->team2_name = "<a href='".urlcompile(T_URL_PROFILE,T_OBJ_TEAM,$m->team2_id,false,false)."'>$m->team2_name</a>&nbsp;<i>(<a href='".urlcompile(T_URL_PROFILE,T_OBJ_COACH,$m->coach2_id,false,false)."'>$m->coach2_name</a>)</i>";
+        $m->team1_name = "<a href='".urlcompile(T_URL_PROFILE,T_OBJ_TEAM,$m->team1_id,false,false)."'>$m->team1_name</a>&nbsp;<em>(<a href='".urlcompile(T_URL_PROFILE,T_OBJ_COACH,$m->coach1_id,false,false)."'>$m->coach1_name</a>)</em>";
+        $m->team2_name = "<a href='".urlcompile(T_URL_PROFILE,T_OBJ_TEAM,$m->team2_id,false,false)."'>$m->team2_name</a>&nbsp;<em>(<a href='".urlcompile(T_URL_PROFILE,T_OBJ_COACH,$m->coach2_id,false,false)."'>$m->coach2_name</a>)</em>";
     }
     $fields = array(
         'date_played_disp' => array('desc' => $lng->getTrn('common/dateplayed'), 'nosort' => true),
@@ -139,8 +139,8 @@ public static function upcomingGames($obj, $obj_id, $node, $node_id, $opp_obj, $
         if (in_array($m->round,array_keys($T_ROUNDS))) {
             $m->round = $T_ROUNDS[$m->round];
         }
-        $m->team1_name = "<a href='".urlcompile(T_URL_PROFILE,T_OBJ_TEAM,$m->team1_id,false,false)."'>$m->team1_name</a>&nbsp;<i>(<a href='".urlcompile(T_URL_PROFILE,T_OBJ_COACH,$m->coach1_id,false,false)."'>$m->coach1_name</a>)</i>";
-        $m->team2_name = "<a href='".urlcompile(T_URL_PROFILE,T_OBJ_TEAM,$m->team2_id,false,false)."'>$m->team2_name</a>&nbsp;<i>(<a href='".urlcompile(T_URL_PROFILE,T_OBJ_COACH,$m->coach2_id,false,false)."'>$m->coach2_name</a>)</i>";
+        $m->team1_name = "<a href='".urlcompile(T_URL_PROFILE,T_OBJ_TEAM,$m->team1_id,false,false)."'>$m->team1_name</a>&nbsp;<em>(<a href='".urlcompile(T_URL_PROFILE,T_OBJ_COACH,$m->coach1_id,false,false)."'>$m->coach1_name</a>)</em>";
+        $m->team2_name = "<a href='".urlcompile(T_URL_PROFILE,T_OBJ_TEAM,$m->team2_id,false,false)."'>$m->team2_name</a>&nbsp;<em>(<a href='".urlcompile(T_URL_PROFILE,T_OBJ_COACH,$m->coach2_id,false,false)."'>$m->coach2_name</a>)</em>";
     }
     $fields = array(
         'date_created_disp'  => array('desc' => $lng->getTrn('common/datecreated'), 'nosort' => true),
@@ -346,7 +346,7 @@ public static function standings($obj, $node, $node_id, array $opts)
             : sort_rule($obj)
     );
     $set_avg = (isset($_GET['pms']) && $_GET['pms']); // Per match stats?
-    echo '<br><a href="'.$opts['url'].'&amp;pms='.(($set_avg) ? 0 : 1).'"><b>'.$lng->getTrn('common/'.(($set_avg) ? 'ats' : 'pms'))."</b></a><br><br>\n";
+    echo '<br><a href="'.$opts['url'].'&amp;pms='.(($set_avg) ? 0 : 1).'"><strong>'.$lng->getTrn('common/'.(($set_avg) ? 'ats' : 'pms'))."</strong></a><br><br>\n";
     // Common $obj type fields.
     $fields = self::_getDefFields($obj, $sel_node, $sel_node_id);
     // Was a different (non-general) stats group selected?
@@ -1182,19 +1182,19 @@ public static function sort_table($title, $lnk, array $objs, array $fields, arra
     ?>
     <table class="common" <?php echo (array_key_exists('tableWidth', $extra)) ? "style='width: $extra[tableWidth];'" : '';?>>
         <tr class="commonhead">
-            <td colspan="<?php echo $CP;?>"><b>
+            <td colspan="<?php echo $CP;?>"><strong>
             <?php echo $title;?>&nbsp;
             <?php
             if (!array_key_exists('noHelp', $extra) || !$extra['noHelp']) {
                 ?><a TARGET="_blank" href="html/table_desc.html">[?]</a><?php
             }
             ?>
-            </b></td>
+            </strong></td>
         </tr>
         <tr>
             <?php
             foreach ($fields as $f => $attr)
-                echo "<td><i>$attr[desc]</i></td>";
+                echo "<td><em>$attr[desc]</em></td>";
             ?>
         </tr>
         <tr>
@@ -1210,7 +1210,7 @@ public static function sort_table($title, $lnk, array $objs, array $fields, arra
             if ($ANCHOR) {
                 $anc = "#$ANCHOR";
             }
-            echo "<td><b><a href='$lnk&amp;page=1&amp;$sort=$f&amp;$dir=a$anc' title='Sort ascending'>+</a>/<a href='$lnk&amp;page=1&amp;$sort=$f&amp;$dir=d$anc' title='Sort descending'>-</a></b></td>";
+            echo "<td><strong><a href='$lnk&amp;page=1&amp;$sort=$f&amp;$dir=a$anc' title='Sort ascending'>+</a>/<a href='$lnk&amp;page=1&amp;$sort=$f&amp;$dir=d$anc' title='Sort descending'>-</a></strong></td>";
         }
         ?>
         </tr>
@@ -1304,13 +1304,13 @@ public static function sort_table($title, $lnk, array $objs, array $fields, arra
                     ? "&amp;sort$GETSUFX=".$_GET["sort$GETSUFX"]."&amp;dir$GETSUFX=".$_GET["dir$GETSUFX"]
                     : '';
                 $pageslist = array_strpack('<a href=\"'.$lnk.'&amp;page=%s'.$primary_sort.'\">%s</a>', range(1,$PAGES));
-                $pageslist[$PAGE-1] = "<b>$PAGE</b>";
+                $pageslist[$PAGE-1] = "<strong>$PAGE</strong>";
                 echo implode(', ', $pageslist);
             ?></div>
             <?php
             }
             ?>
-            <div style='float:right;'><i><?php echo $lng->getTrn('common/sortedagainst');?>: <?php echo implode(', ', rule_dict($MASTER_SORT));?></i></div>
+            <div style='float:right;'><em><?php echo $lng->getTrn('common/sortedagainst');?>: <?php echo implode(', ', rule_dict($MASTER_SORT));?></em></div>
             </td>
         </tr>
         <?php
@@ -1321,10 +1321,10 @@ public static function generateEStable($obj)
 {
     global $ES_fields, $lng;
     echo "<table>\n";
-    echo "<tr><td><i>".$lng->getTrn('common/stat')."</i></td>
-        <td><i>".$lng->getTrn('common/alltime')."</i></td>
-        <td>&nbsp;<i>".$lng->getTrn('common/matchavg')."</i>&nbsp;</td>
-        <td><i>".$lng->getTrn('common/desc')."</i></td></tr>\n";
+    echo "<tr><td><em>".$lng->getTrn('common/stat')."</em></td>
+        <td><em>".$lng->getTrn('common/alltime')."</em></td>
+        <td>&nbsp;<em>".$lng->getTrn('common/matchavg')."</em>&nbsp;</td>
+        <td><em>".$lng->getTrn('common/desc')."</em></td></tr>\n";
             echo "<tr><td colspan='4'><hr></td></tr>\n";
     $grp = null;
     $objAVG = clone $obj;
@@ -1332,7 +1332,7 @@ public static function generateEStable($obj)
     # Require that fields are already sorted against group type!!!
     foreach ($ES_fields as $ESf => $def) {
         if ($grp != $def['group']) {
-            echo "<tr><td colspan='4'><br><b>$def[group]</b></td></tr>\n";
+            echo "<tr><td colspan='4'><br><strong>$def[group]</strong></td></tr>\n";
             $grp = $def['group'];
         }
         echo "<tr valign='top'><td>$ESf</td><td align='right'>".$obj->{"mv_$ESf"}."</td><td align='right'>".sprintf("%1.2f",$objAVG->{"mv_$ESf"})."</td><td style='padding-left:10px;'>".$def['desc']."</td></tr>\n";
