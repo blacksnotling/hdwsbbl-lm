@@ -816,36 +816,28 @@ function sec_about() {
 
     echo "<div class=\"entry\">\n";
 
-    title("About OBBLM");
+    title("About OBBLM and technical details of this site");
     HTMLOUT::dnt();
     ?>
-    <br>
-    <p>
-        <strong>OBBLM version <?php echo OBBLM_VERSION; ?></strong><br><br>
-        Online Blood Bowl League Manager is an online game management system for Game Workshop's board game Blood Bowl.<br>
-        <br>
-        The authors of this program are
+
+    <p><strong>OBBLM version <?php echo OBBLM_VERSION; ?></strong></p>
+    <p>Online Blood Bowl League Manager is an online game management system for Game Workshop's board game Blood Bowl.</p>
+    <p>The authors of this program are</p>
         <ul>
             <li> <a href="mailto:nicholas.rathmann@gmail.com">Nicholas Mossor Rathmann</a>
             <li> <a href="http://www.mercuryvps.com">William Leonard</a>
             <li> Niels Orsleff Justesen</a>
         </ul>
-         <br>
-        With special thanks to <?php $lc = array_pop($credits); echo implode(', ', $credits)." and $lc"; ?>.<br><br>
-        Bugs reports and suggestions are welcome.
-        <br><br>
-        Further development carried out under the <a href="https://github.com/TheNAF/naflm">NAFLM fork</a> by
+        <p>With special thanks to <?php $lc = array_pop($credits); echo implode(', ', $credits)." and $lc"; ?>.</p>
+        <p>Bugs reports and suggestions are welcome.</p>
+        <p>Further development carried out under the <a href="https://github.com/TheNAF/naflm">NAFLM fork</a> by<p>
         <ul>
             <li> Steve Arthurs</a>
             <li> Craig Fleming</a>
         </ul>
-        <br><br>With special thanks to Scott Bartel, Tom "Hutchinsfairy" and Michael Franchetti.
-        <br><br>
-        OBBLM consists of valid HTML 4.01 transitional document type pages.
-        <br><br>
-        <img src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Transitional" height="31" width="88">
-        <br><br>
-        <strong>Modules loaded:</strong><br>
+        <p>With special thanks to Scott Bartel, Tom "Hutchinsfairy" and Michael Franchetti.</p>
+
+        <h3>Modules loaded:</h3>
         <?php
         $mods = array();
         foreach (Module::getRegistered() as $modname) {
@@ -855,8 +847,8 @@ function sec_about() {
         echo implode(', ', $mods);
         ?>
     </p>
-    If you enjoy this software please support the further development of it by donating.<br>
-    <br>
+    <p>If you enjoy this software please support the further development of it by donating.</p>
+
     <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
     <input type="hidden" name="cmd" value="_s-xclick">
     <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
@@ -865,46 +857,36 @@ function sec_about() {
     <img alt="" border="0" src="https://www.paypal.com/da_DK/i/scr/pixel.gif" width="1" height="1">
     </form>
     <?php
-    title("OBBLM Hosting");
-    echo 'Please visit <a href="http://www.mercuryvps.com">Mercury VPS</a> and click on the OBBLM tab to get started.';
 
-    title("Documentation");
-    echo "See the <a TARGET='_blank' href='".DOC_URL."'>OBBLM documentation wiki</a>";
+    echo '<h3>OBBLM Hosting</h3>';
+    echo '<p>Please visit <a href="http://www.mercuryvps.com">Mercury VPS</a> and click on the OBBLM tab to get started.</p>';
+
+    echo '<h3>Documentation</h3>';
+    echo "<p>See the <a TARGET='_blank' href='".DOC_URL."'>OBBLM documentation wiki</a></p>";
 
     ?>
 
-    <?php title("Disclaimer");?>
-    <p>
-        By installing and using this software you hereby accept and understand the following disclaimer
-        <br><br>
-        <strong>This web site is completely unofficial and in no way endorsed by Games Workshop Limited.</strong>
-        <br><br>
-        Bloodquest, Blood Bowl, the Blood Bowl logo, The Blood Bowl Spike Device, Chaos, the Chaos device, the Chaos logo, Games Workshop, Games Workshop logo, Nurgle, the Nurgle device, Skaven, Tomb Kings,
+    <h3>Disclaimer</h3>
+    <p>By installing and using this software you hereby accept and understand the following disclaimer</p>
+    <p><strong>This web site is completely unofficial and in no way endorsed by Games Workshop Limited.</strong></p>
+    <p>Bloodquest, Blood Bowl, the Blood Bowl logo, The Blood Bowl Spike Device, Chaos, the Chaos device, the Chaos logo, Games Workshop, Games Workshop logo, Nurgle, the Nurgle device, Skaven, Tomb Kings,
         and all associated marks, names, races, race insignia, characters, vehicles, locations, units, illustrations and images from the Blood Bowl game, the Warhammer world are either ®, TM and/or © Games Workshop Ltd 2000-2006,
-        variably registered in the UK and other countries around the world. Used without permission. No challenge to their status intended. All Rights Reserved to their respective owners.
-        <br><br>
-        Fumbbl icons are used with permission.  Credits: harvestmouse, garion, christer, whatball.
-    </p>
+        variably registered in the UK and other countries around the world. Used without permission. No challenge to their status intended. All Rights Reserved to their respective owners.</p>
+    <p>Fumbbl icons are used with permission.  Credits: harvestmouse, garion, christer, whatball.</p>
 
-    <?php title("License");?>
-    <p>
-        Copyright (c) Niels Orsleff Justesen and Nicholas Mossor Rathmann 2007-2011. All Rights Reserved.
-        <br><br>
-        OBBLM is free software; you can redistribute it and/or modify
+    <h3>License</h3>
+    <p>Copyright (c) Niels Orsleff Justesen and Nicholas Mossor Rathmann 2007-2011. All Rights Reserved.</p>
+    <p>OBBLM is free software; you can redistribute it and/or modify
         it under the terms of the GNU General Public License as published by
         the Free Software Foundation; either version 3 of the License, or
-        (at your option) any later version.
-        <br><br>
-        OBBLM is distributed in the hope that it will be useful,
+        (at your option) any later version.</p>
+    <p>OBBLM is distributed in the hope that it will be useful,
         but WITHOUT ANY WARRANTY; without even the implied warranty of
         MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-        GNU General Public License for more details.
-        <br><br>
-        NAFLM is a fork of the original OBBLM programme and inherits all license and copyrights of the original.
-        <br><br>
-        You should have received a copy of the GNU General Public License
-        along with this program.  If not, see http://www.gnu.org/licenses/.
-    </p>
+        GNU General Public License for more details.</p>
+    <p>NAFLM is a fork of the original OBBLM programme and inherits all license and copyrights of the original.</p>
+    <p>This website uses a fork of NAFLM and inherits all license and copyrights of the original.</p>
+    <p>You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.</p>
     <?php
     echo "</div><!-- end of .entry -->\n";
 }
