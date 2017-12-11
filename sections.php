@@ -34,6 +34,8 @@ function getFormAction($params) {
 
 function sec_login() {
 
+  echo "<div class=\"entry\">\n";
+
     global $lng, $settings;
 
     $_URL_forgotpass = "index.php?section=login&amp;forgotpass=1";
@@ -122,6 +124,7 @@ function sec_login() {
         </div>
         <?php
     }
+    echo "</div><!-- end of .entry -->\n";
 }
 
 /*************************
@@ -720,13 +723,15 @@ function sec_teamlist() {
     echo "<div class=\"entry\">\n";
     title($lng->getTrn('menu/teams'));
     Team_HTMLOUT::dispList();
-    echo "</div>\n";
+    echo "</div><!-- end of .entry -->\n";
 }
 
 function sec_coachlist() {
     global $lng;
+    echo "<div class=\"entry\">\n";
     title($lng->getTrn('menu/coaches'));
     Coach_HTMLOUT::dispList();
+    echo "</div><!-- end of .entry -->\n";
 }
 
 function sec_matcheshandler() {
@@ -774,6 +779,9 @@ function sec_objhandler() {
 
 function sec_rules() {
     global $lng, $settings, $leagues;
+
+    echo "<div class=\"entry\">\n";
+
     title($lng->getTrn('menu/rules'));
     ?>
     <div class="boxWide">
@@ -793,6 +801,7 @@ function sec_rules() {
         </div>
     </div>
     <?php
+    echo "</div><!-- end of .entry -->\n";
 }
 
 /*************************
@@ -804,6 +813,9 @@ function sec_rules() {
 function sec_about() {
 
     global $lng, $credits;
+
+    echo "<div class=\"entry\">\n";
+
     title("About OBBLM");
     HTMLOUT::dnt();
     ?>
@@ -894,10 +906,13 @@ function sec_about() {
         along with this program.  If not, see http://www.gnu.org/licenses/.
     </p>
     <?php
+    echo "</div><!-- end of .entry -->\n";
 }
 
 function sec_requestleague() {
     global $coach, $settings, $db_user, $db_passwd;
+
+    echo "<div class=\"entry\">\n";
 
     title("Request League");
 
@@ -952,4 +967,5 @@ function sec_requestleague() {
         </form>
         <?php
     }
+    echo "</div><!-- end of .entry -->\n";
 }
