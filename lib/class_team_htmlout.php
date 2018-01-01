@@ -32,7 +32,12 @@ public static function dispList()
         NOTE: We do NOT show teams not having played any matches for nodes = {T_NODE_TOURNAMENT, T_NODE_DIVISION}.
     */
 
-    list($sel_node, $sel_node_id, $sel_state, $sel_race) = HTMLOUT::nodeSelector(array('race' => true, 'state' => true));
+    //list($sel_node, $sel_node_id, $sel_state, $sel_race) = HTMLOUT::nodeSelector(array('race' => true, 'state' => true));
+    $sel_node = false;
+    $sel_node_id = false;
+    $sel_state = true;
+    $sel_race = true;
+
     $ALL_TIME = ($sel_node === false && $sel_node_id === false);
 
     $fields = '_RRP AS "team_id", owned_by_coach_id, f_race_id, teams.name AS "tname", f_cname, f_rname, tv, teams.rdy AS "rdy", teams.retired AS "retired"';
@@ -74,7 +79,7 @@ public static function dispList()
 ?>
     <div class="page-nav mini-stat">
       <ul>
-        <li><strong><?php echo $cnt . " </strong>" . $lng->getTrn( 'common/teams' );?> are registered in the league </li>
+        <li><strong><?php echo $cnt . " </strong>" . $lng->getTrn( 'common/teams' );?> have taken part in the league </li>
       </ul>
     </div>
 <?php
