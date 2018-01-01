@@ -1181,27 +1181,28 @@ public static function sort_table($title, $lnk, array $objs, array $fields, arra
     $CP = count($fields);
     ?>
     <table class="common" <?php echo (array_key_exists('tableWidth', $extra)) ? "style='width: $extra[tableWidth];'" : '';?>>
+      <thead>
         <tr class="commonhead">
-            <td colspan="<?php echo $CP;?>"><strong>
+            <th colspan="<?php echo $CP;?>">
             <?php echo $title;?>&nbsp;
             <?php
             if (!array_key_exists('noHelp', $extra) || !$extra['noHelp']) {
                 ?><a TARGET="_blank" href="html/table_desc.html">[?]</a><?php
             }
             ?>
-            </strong></td>
+          </th>
         </tr>
         <tr>
             <?php
             foreach ($fields as $f => $attr)
-                echo "<td><em>$attr[desc]</em></td>";
+                echo "<th>$attr[desc]</th>";
             ?>
         </tr>
         <tr>
         <?php
         foreach ($fields as $f => $attr) {
             if (in_array($f, $no_print_fields) || (array_key_exists('nosort', $attr) && $attr['nosort'])) {
-                echo "<td></td>";
+                echo "<th></th>";
                 continue;
             }
             $sort = 'sort'.$GETSUFX;
@@ -1210,11 +1211,12 @@ public static function sort_table($title, $lnk, array $objs, array $fields, arra
             if ($ANCHOR) {
                 $anc = "#$ANCHOR";
             }
-            echo "<td><strong><a href='$lnk&amp;page=1&amp;$sort=$f&amp;$dir=a$anc' title='Sort ascending'>+</a>/<a href='$lnk&amp;page=1&amp;$sort=$f&amp;$dir=d$anc' title='Sort descending'>-</a></strong></td>";
+            echo "<th class=\"sortlinks\"><a href='$lnk&amp;page=1&amp;$sort=$f&amp;$dir=a$anc' title='Sort ascending'>+</a>/<a href='$lnk&amp;page=1&amp;$sort=$f&amp;$dir=d$anc' title='Sort descending'>-</a></th>";
         }
         ?>
         </tr>
-        <tr><td colspan="<?php echo $CP;?>"><hr></td></tr>
+      </thead>
+      <tbody>
         <?php
         $i = 1 + (($PAGE && $PAGELENGTH) ? ($PAGE-1)*$PAGELENGTH : 0);
         foreach ($objs as $o) {
@@ -1289,11 +1291,6 @@ public static function sort_table($title, $lnk, array $objs, array $fields, arra
         if (!$NOSRDISP) {
         ?>
         <tr>
-            <td colspan="<?php echo $CP;?>">
-            <hr>
-            </td>
-        </tr>
-        <tr>
             <td align="right" colspan="<?php echo $CP;?>">
             <?php
             if ($PAGES) {
@@ -1315,7 +1312,7 @@ public static function sort_table($title, $lnk, array $objs, array $fields, arra
         </tr>
         <?php
         }
-    echo "</table>\n";
+    echo "</tbody>\n</table>\n";
 }
 public static function generateEStable($obj)
 {
