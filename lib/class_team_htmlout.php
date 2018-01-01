@@ -75,40 +75,45 @@ public static function dispList()
     $page = (isset($_GET['page']) && $_GET['page'] <= $pages) ? $_GET['page'] : 1; # Page 1 is default, of course.
     $_url = "?section=teamlist&amp;";
 
-    //Summary table (Page X, X teams)
-?>
-    <div class="page-nav mini-stat">
-      <ul>
-        <li><strong><?php echo $cnt . " </strong>" . $lng->getTrn( 'common/teams' );?> have taken part in the league </li>
-      </ul>
-    </div>
-<?php
 
     $teams = array();
-    $result = mysql_query($queryGet);
-    while ($t = mysql_fetch_object($result)) {
-        $img = new ImageSubSys(IMGTYPE_TEAMLOGO, $t->team_id);
-        $t->logo = "<img alt='Team race picture' src='".$img->getPath($t->f_race_id)."' class=\"team-logo-small\">";
-        $retired = $t->retired;
-        $t->retired = ($t->retired) ? '<strong>'.$lng->getTrn('common/yes').'</strong>' : $lng->getTrn('common/no');
-        $t->rdy = ($t->rdy && !$retired) ? '<font color="green">'.$lng->getTrn('common/yes').'</font>' : '<font color="red">'.$lng->getTrn('common/no').'</font>';
-        $t->f_rname = $lng->getTrn('race/'.strtolower(str_replace(' ','', $t->f_rname)));
+    $result = mysql_query( $queryGet );
+    while ( $t = mysql_fetch_object( $result ) ) {
+      $img = new ImageSubSys(IMGTYPE_TEAMLOGO, $t->team_id);
+      $t->logo = "<img alt='Team race picture' src='".$img->getPath($t->f_race_id)."' class=\"team-logo-small\">";
+      $t->rdy = ($t->rdy && !$t->retired) ? '<font color="green">'.$lng->getTrn( 'common/yes' ).'</font>' : '<font color="red">'.$lng->getTrn( 'common/no' ).'</font>';
+      $t->f_rname = $lng->getTrn( 'race/'.strtolower( str_replace( ' ' , '' , $t->f_rname ) ) );
 
-        $teams[] = $t;
+      $tinfo = new Team( $t->team_id );
+      $t->last_tour = Tour::getTourUrl( $tinfo->getLatestTour() );
+      $t->games_played = $tinfo->mv_played;
+      if ( $t->last_tour == '<a href="handler.php?type=leaguetables&tour_id="></a>' ) {
+        //If only the default empty URL is returned
+        $t->last_tour = "-";
+      }
+      else if (Module::isRegistered('Prize')) {
+        //only execute if a team has played in a tournament - saves execution time
+        $t->prizes = Module::run('Prize', array('getPrizesString', T_OBJ_TEAM, $tinfo->team_id));
+
+      }
+      $teams[] = $t;
     }
 
     $fields = array(
         'logo'    => array('desc' => 'Logo', 'nosort' => true, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_TEAM,false,false,false), 'field' => 'obj_id', 'value' => 'team_id'), 'nosort' => true),
-        'tname'    => array('desc' => $lng->getTrn('common/name'), 'nosort' => false, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_TEAM,false,false,false), 'field' => 'obj_id', 'value' => 'team_id')),
-        'f_cname' => array('desc' => $lng->getTrn('common/coach'), 'nosort' => false, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_COACH,false,false,false), 'field' => 'obj_id', 'value' => 'owned_by_coach_id')),
-        'rdy'     => array('desc' => $lng->getTrn('common/ready'), 'nosort' => true),
-        'retired' => array('desc' => $lng->getTrn('common/retired'), 'nosort' => true),
-        'f_rname' => array('desc' => $lng->getTrn('common/race'), 'nosort' => false, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_RACE,false,false,false), 'field' => 'obj_id', 'value' => 'f_race_id')),
+        'tname'    => array('desc' => $lng->getTrn( 'common/name' ), 'nosort' => false, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_TEAM,false,false,false), 'field' => 'obj_id', 'value' => 'team_id')),
+        'rdy'     => array('desc' => $lng->getTrn( 'common/ready' ), 'nosort' => true),
+        'f_rname' => array('desc' => $lng->getTrn( 'common/race' ), 'nosort' => false, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_RACE,false,false,false), 'field' => 'obj_id', 'value' => 'f_race_id')),
+        'f_cname' => array('desc' => $lng->getTrn( 'common/coach' ), 'nosort' => false, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_COACH,false,false,false), 'field' => 'obj_id', 'value' => 'owned_by_coach_id')),
+        'last_tour' => array('desc' => $lng->getTrn( 'profile/team/box_info/ltour' ), 'nosort' => false ),
+        'games_played' => array('desc' => $lng->getTrn( 'common/played' ), 'nosort' => false ),
+        'prizes' => array('desc' => $lng->getTrn( 'name', 'Prize' ), 'nosort' => false ),
         'tv'      => array('desc' => 'TV', 'nosort' => false, 'kilo' => true, 'suffix' => 'k'),
     );
 
+    echo "<h3>Active Teams</h3>";
     HTMLOUT::sort_table(
-        $lng->getTrn('common/teams'),
+        $lng->getTrn( 'common/teams' ),
         "index.php$_url",
         $teams,
         $fields,
@@ -116,6 +121,54 @@ public static function dispList()
         array(),
         array('doNr' => false, 'noHelp' => true, 'noSRdisp' => true)
     );
+
+    $retiredsql = 'SELECT team_id AS "team_id", owned_by_coach_id, f_race_id, teams.name AS "tname", f_cname, f_rname, tv, teams.rdy AS "rdy", teams.retired AS "retired" FROM teams WHERE teams.rdy IS TRUE AND teams.retired IS TRUE AND f_lid = 1 ORDER BY tname ASC';
+
+    $teams = array();
+    $result = mysql_query($retiredsql);
+    while ( $t = mysql_fetch_object( $result ) ) {
+      $img = new ImageSubSys(IMGTYPE_TEAMLOGO, $t->team_id);
+      $t->logo = "<img alt='Team race picture' src='".$img->getPath($t->f_race_id)."' class=\"team-logo-small\">";
+      $t->rdy = ($t->rdy && !$t->retired) ? '<font color="green">'.$lng->getTrn( 'common/yes' ).'</font>' : '<font color="red">'.$lng->getTrn( 'common/no' ).'</font>';
+      $t->f_rname = $lng->getTrn( 'race/'.strtolower( str_replace( ' ' , '' , $t->f_rname ) ) );
+
+      $tinfo = new Team( $t->team_id );
+      $t->last_tour = Tour::getTourUrl( $tinfo->getLatestTour() );
+      $t->games_played = $tinfo->mv_played;
+      if ( $t->last_tour == '<a href="handler.php?type=leaguetables&tour_id="></a>' ) {
+        //If only the default empty URL is returned
+        $t->last_tour = "-";
+      }
+      else if (Module::isRegistered('Prize')) {
+        //only execute if a team has played in a tournament - saves execution time
+        $t->prizes = Module::run('Prize', array('getPrizesString', T_OBJ_TEAM, $tinfo->team_id));
+
+      }
+      $teams[] = $t;
+    }
+
+    $fields = array(
+        'logo'    => array('desc' => 'Logo', 'nosort' => true, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_TEAM,false,false,false), 'field' => 'obj_id', 'value' => 'team_id'), 'nosort' => true),
+        'tname'    => array('desc' => $lng->getTrn( 'common/name' ), 'nosort' => false, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_TEAM,false,false,false), 'field' => 'obj_id', 'value' => 'team_id')),
+        'f_rname' => array('desc' => $lng->getTrn( 'common/race' ), 'nosort' => false, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_RACE,false,false,false), 'field' => 'obj_id', 'value' => 'f_race_id')),
+        'f_cname' => array('desc' => $lng->getTrn( 'common/coach' ), 'nosort' => false, 'href' => array('link' => urlcompile(T_URL_PROFILE,T_OBJ_COACH,false,false,false), 'field' => 'obj_id', 'value' => 'owned_by_coach_id')),
+        'last_tour' => array('desc' => $lng->getTrn( 'profile/team/box_info/ltour' ), 'nosort' => false ),
+        'games_played' => array('desc' => $lng->getTrn( 'common/played' ), 'nosort' => false ),
+        'prizes' => array('desc' => $lng->getTrn( 'name', 'Prize' ), 'nosort' => false ),
+        'tv'      => array('desc' => 'TV', 'nosort' => false, 'kilo' => true, 'suffix' => 'k'),
+    );
+
+    echo "<h3>Retired Teams</h3>";
+    HTMLOUT::sort_table(
+        $lng->getTrn( 'common/teams' ),
+        "index.php$_url",
+        $teams,
+        $fields,
+        array(),
+        array(),
+        array('doNr' => false, 'noHelp' => true, 'noSRdisp' => true)
+    );
+
 }
 
 public static function standings($node = false, $node_id = false)
